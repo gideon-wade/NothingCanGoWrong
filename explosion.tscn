@@ -101,16 +101,20 @@ alpha_curve = SubResource("CurveTexture_kmxf7")
 [node name="Explosion" type="Node3D"]
 
 [node name="Debris" type="GPUParticles3D" parent="."]
+emitting = false
 amount = 24
 lifetime = 0.5
+one_shot = true
 explosiveness = 1.0
 fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_7rj46")
 draw_pass_1 = SubResource("CylinderMesh_q7epf")
 
 [node name="Fire" type="GPUParticles3D" parent="."]
+emitting = false
 amount = 16
 lifetime = 1.2
+one_shot = true
 explosiveness = 1.0
 fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_q7epf")
@@ -119,6 +123,7 @@ draw_pass_1 = SubResource("SphereMesh_7rj46")
 [node name="Smoke" type="GPUParticles3D" parent="."]
 amount = 24
 lifetime = 2.0
+one_shot = true
 explosiveness = 1.0
 fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_kmxf7")
