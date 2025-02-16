@@ -1,0 +1,35 @@
+[gd_scene load_steps=7 format=3 uid="uid://ct5ocfou3w7ff"]
+
+[ext_resource type="PackedScene" uid="uid://t6se1sytrqtj" path="res://models/beaker/beaker.blend" id="1_ab7mr"]
+[ext_resource type="PackedScene" uid="uid://dx5cf1tigv1rt" path="res://models/map/map.blend" id="2_djufw"]
+[ext_resource type="PackedScene" uid="uid://c7bmc5dgethv6" path="res://src/character/character.tscn" id="3_jkpqq"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ab7mr"]
+sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+
+[sub_resource type="Sky" id="Sky_djufw"]
+sky_material = SubResource("ProceduralSkyMaterial_ab7mr")
+
+[sub_resource type="Environment" id="Environment_jkpqq"]
+background_mode = 2
+sky = SubResource("Sky_djufw")
+tonemap_mode = 2
+
+[node name="Node3D" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_jkpqq")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+shadow_enabled = true
+
+[node name="beaker3" parent="." instance=ExtResource("1_ab7mr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.43514, 3.65427, 0.735621)
+
+[node name="map" parent="." instance=ExtResource("2_djufw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.4906, 0, 1.98677)
+
+[node name="Character" parent="." instance=ExtResource("3_jkpqq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.72818, 4.38413, 0)
