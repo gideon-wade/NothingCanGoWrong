@@ -1,8 +1,8 @@
 extends CharacterBody3D
 
 
-@export var vertical_sensitivity := 0.5
-@export var horizontal_sensitivity := 0.5
+@export var vertical_sensitivity := 0.2
+@export var horizontal_sensitivity := 0.2
 
 @export var visuals : Node3D 
 @export var camera : Node3D
