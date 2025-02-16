@@ -75,6 +75,6 @@ func _physics_process(delta):
 func pick_object():
 	var colider = interation.get_collider()
 	if colider != null:
-		print("colider", colider)
+		print("colider ", colider)
 	if colider != null and colider is RigidBody3D:
 		picked_object = colider
