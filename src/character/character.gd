@@ -38,10 +38,12 @@ func _input(event):
 func _physics_process(delta):
 	
 	if picked_object != null:
+		# put the object at the hand node's position
 		var a = picked_object.global_transform.origin
 		var b = hand.global_transform.origin
 		print("a : ",a, " b : ", b)
 		picked_object.set_linear_velocity((b-a)*pull_power)
+		# orient the object upwards
 	
 	# Add the gravity.
 	if not is_on_floor():

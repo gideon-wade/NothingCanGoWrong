@@ -37,6 +37,10 @@ _subresources={
 "Material.001": {
 "use_external/enabled": true,
 "use_external/path": "res://models/beaker/Material.001.tres"
+},
+"Material.003": {
+"use_external/enabled": true,
+"use_external/path": "res://models/beaker/Material.003.tres"
 }
 }
 }

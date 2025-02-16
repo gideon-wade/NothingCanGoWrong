@@ -1,6 +1,5 @@
-[gd_scene load_steps=11 format=3 uid="uid://ct5ocfou3w7ff"]
+[gd_scene load_steps=10 format=3 uid="uid://ct5ocfou3w7ff"]
 
-[ext_resource type="PackedScene" uid="uid://t6se1sytrqtj" path="res://models/beaker/beaker.blend" id="1_ab7mr"]
 [ext_resource type="PackedScene" uid="uid://dx5cf1tigv1rt" path="res://models/map/map.blend" id="2_djufw"]
 [ext_resource type="PackedScene" uid="uid://c7bmc5dgethv6" path="res://src/character/character.tscn" id="3_jkpqq"]
 [ext_resource type="PackedScene" uid="uid://beid7jxmm5a7x" path="res://explosion.tscn" id="4_djufw"]
@@ -28,10 +27,8 @@ environment = SubResource("Environment_jkpqq")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+light_energy = 0.1
 shadow_enabled = true
-
-[node name="beaker3" parent="." instance=ExtResource("1_ab7mr")]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 14.9076, 4.33514, 0.735621)
 
 [node name="map" parent="." instance=ExtResource("2_djufw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.4906, 0, 1.98677)
@@ -61,12 +58,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.09878, 5.8617, 0)
 mass = 0.073
 
 [node name="CSGSphere3D" type="CSGSphere3D" parent="RigidBody3D"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 shape = SubResource("SphereShape3D_djufw")
 
 [node name="ConicalFlask" parent="." instance=ExtResource("5_jkpqq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.6431, 3.23521, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.6431, 20.5818, 0)
+mass = 0.031
+color = Vector3(0, 1, 1)
 
 [node name="ClipBoard" parent="." instance=ExtResource("6_jqarl")]
 transform = Transform3D(0.181329, 0, -0.0843781, 0, 0.2, 0, 0.0843781, 0, 0.181329, -3.39926, 0.0973563, -11.1546)
