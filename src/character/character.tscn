@@ -29,7 +29,7 @@ target_position = Vector3(0, 0, -5)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.02242, -5.59539)
 
 [node name="CSGSphere3D" type="CSGSphere3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.28565, -5.57856)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00463212, 1.21085, -5.53452)
 visible = false
 material = SubResource("StandardMaterial3D_2p3op")
 

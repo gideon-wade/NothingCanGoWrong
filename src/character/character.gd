@@ -13,20 +13,24 @@ var picked_object : RigidBody3D
 
 @export var pull_power := 5.0
 
+var is_pouring := false
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	var b = hand.global_transform.origin
-	print("b : ",b)
-	print("self ", self.global_transform.origin)
+	
 func _input(event):
 	if event.is_action_pressed("pickup"):
 		if picked_object == null:
 			pick_object()
 		else:
 			picked_object = null
+	if event.is_action_pressed("pour"):
+		is_pouring = true
+	if event.is_action_released("pour"):
+		is_pouring = false
 	if event is InputEventMouseMotion:
 		self.rotate_y( -deg_to_rad(event.relative.x * vertical_sensitivity))
 		camera.rotate_x(-deg_to_rad(event.relative.y * horizontal_sensitivity))
@@ -41,10 +45,12 @@ func _physics_process(delta):
 		# put the object at the hand node's position
 		var a = picked_object.global_transform.origin
 		var b = hand.global_transform.origin
-		print("a : ",a, " b : ", b)
 		picked_object.set_linear_velocity((b-a)*pull_power)
 		# orient the object upwards
-	
+		if is_pouring:
+			picked_object.rotation = Vector3(0,self.rotation.y,2.1)
+		else:
+			picked_object.rotation = Vector3(0,0,0)
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
