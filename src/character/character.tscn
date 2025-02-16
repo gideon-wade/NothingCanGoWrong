@@ -21,6 +21,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.02242, 0)
 spring_length = 0.0
 
 [node name="Camera3D" type="Camera3D" parent="SpringArm3D"]
+near = 0.001
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_yny20")
