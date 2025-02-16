@@ -6,13 +6,27 @@ extends CharacterBody3D
 
 @export var visuals : Node3D 
 @export var camera : Node3D
+@export var interation : RayCast3D
+@export var hand : Marker3D
+
+var picked_object : RigidBody3D
+
+@export var pull_power := 5.0
+
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-
+	var b = hand.global_transform.origin
+	print("b : ",b)
+	print("self ", self.global_transform.origin)
 func _input(event):
+	if event.is_action_pressed("pickup"):
+		if picked_object == null:
+			pick_object()
+		else:
+			picked_object = null
 	if event is InputEventMouseMotion:
 		self.rotate_y( -deg_to_rad(event.relative.x * vertical_sensitivity))
 		camera.rotate_x(-deg_to_rad(event.relative.y * horizontal_sensitivity))
@@ -22,6 +36,13 @@ func _input(event):
 		camera.rotation_degrees.x = x_rotation
 
 func _physics_process(delta):
+	
+	if picked_object != null:
+		var a = picked_object.global_transform.origin
+		var b = hand.global_transform.origin
+		print("a : ",a, " b : ", b)
+		picked_object.set_linear_velocity((b-a)*pull_power)
+	
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -42,3 +63,10 @@ func _physics_process(delta):
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 
 	move_and_slide()
+	
+func pick_object():
+	var colider = interation.get_collider()
+	if colider != null:
+		print("colider", colider)
+	if colider != null and colider is RigidBody3D:
+		picked_object = colider
