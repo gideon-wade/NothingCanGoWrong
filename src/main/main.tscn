@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://ct5ocfou3w7ff"]
+[gd_scene load_steps=8 format=3 uid="uid://ct5ocfou3w7ff"]
 
 [ext_resource type="PackedScene" uid="uid://t6se1sytrqtj" path="res://models/beaker/beaker.blend" id="1_ab7mr"]
 [ext_resource type="PackedScene" uid="uid://dx5cf1tigv1rt" path="res://models/map/map.blend" id="2_djufw"]
 [ext_resource type="PackedScene" uid="uid://c7bmc5dgethv6" path="res://src/character/character.tscn" id="3_jkpqq"]
+[ext_resource type="PackedScene" path="res://explosion.tscn" id="4_djufw"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ab7mr"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -33,3 +34,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.4906, 0, 1.98677)
 
 [node name="Character" parent="." instance=ExtResource("3_jkpqq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.72818, 4.38413, 0)
+
+[node name="Explosion" parent="." instance=ExtResource("4_djufw")]
