@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://c7bmc5dgethv6" path="res://src/character/character.tscn" id="3_jkpqq"]
 [ext_resource type="PackedScene" uid="uid://beid7jxmm5a7x" path="res://explosion.tscn" id="4_djufw"]
 [ext_resource type="PackedScene" uid="uid://2x8cid0kq5ih" path="res://src/objects/conical_flask.tscn" id="5_jkpqq"]
-[ext_resource type="PackedScene" uid="uid://66e8g0ff6ye0" path="res://models/clipboard/clip_board.glb" id="6_jqarl"]
+[ext_resource type="PackedScene" uid="uid://f5esemoq4k5i" path="res://clip_board.tscn" id="6_jqarl"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ab7mr"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -69,14 +69,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.6431, 20.5818, 0)
 mass = 0.031
 color = Vector3(0, 1, 1)
 
-[node name="ClipBoard" parent="." instance=ExtResource("6_jqarl")]
-transform = Transform3D(0.181329, 0, -0.0843781, 0, 0.2, 0, 0.0843781, 0, 0.181329, -3.39926, 0.0973563, -11.1546)
+[node name="clip_board" parent="." instance=ExtResource("6_jqarl")]
+transform = Transform3D(0.000112699, 0.00211929, 0.199989, -0.158577, 0.121868, -0.00120207, -0.121874, -0.158568, 0.00174903, 6.04449, 1.75096, 12.6631)
 
-[node name="ClipBoard2" parent="." instance=ExtResource("6_jqarl")]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -4.02294, -0.437388, 8.17431)
+[node name="clip_board2" parent="." instance=ExtResource("6_jqarl")]
+transform = Transform3D(0.108509, 0, -0.168005, 0, 0.2, 0, 0.168005, 0, 0.108509, 2.94085, 0, -9.75962)
 
-[node name="ClipBoard3" parent="." instance=ExtResource("6_jqarl")]
-transform = Transform3D(0.150726, 0.0265282, 0.128755, -0.0346678, 0.196972, 0, -0.126806, -0.0223183, 0.153043, -2.03371, -0.860548, 12.6286)
-
-[node name="ClipBoard4" parent="." instance=ExtResource("6_jqarl")]
-transform = Transform3D(-0.0498935, 0, -0.193677, 0, 0.2, 0, 0.193677, 0, -0.0498935, 5.28586, -0.474192, -9.63704)
+[node name="clip_board3" parent="." instance=ExtResource("6_jqarl")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 4.54348)
