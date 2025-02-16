@@ -77,3 +77,12 @@ transform = Transform3D(0.108509, 0, -0.168005, 0, 0.2, 0, 0.168005, 0, 0.108509
 
 [node name="clip_board3" parent="." instance=ExtResource("6_jqarl")]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 4.54348)
+
+[node name="ConicalFlask2" parent="." instance=ExtResource("5_jkpqq")]
+transform = Transform3D(-1, -8.74228e-08, 0, 8.74228e-08, -1, 0, 0, 0, 1, 9.14213, 0.857514, 7.96225)
+mass = 0.031
+color = Vector3(0, 0.5, 1)
+
+[node name="ConicalFlask3" parent="." instance=ExtResource("5_jkpqq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.1493, 0, 12.3307)
+color = Vector3(0.37, 0, 0)

@@ -53,3 +53,11 @@ speed_scale = 1.65
 fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_b42dp")
 draw_pass_1 = SubResource("SphereMesh_li7gg")
+
+[node name="Marker3D" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.289697, 0)
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.294328, 0)
+target_position = Vector3(0, -10, 0)
+debug_shape_thickness = 5
