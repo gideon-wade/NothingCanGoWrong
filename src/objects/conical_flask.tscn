@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://2x8cid0kq5ih"]
+[gd_scene load_steps=9 format=3 uid="uid://2x8cid0kq5ih"]
 
 [ext_resource type="PackedScene" uid="uid://t6se1sytrqtj" path="res://models/beaker/beaker.blend" id="1_782qq"]
 [ext_resource type="Script" uid="uid://cqwyf2abyq7kk" path="res://src/objects/conical_flask/conical_flask.gd" id="1_ebluu"]
@@ -13,23 +13,17 @@ point_count = 3
 [sub_resource type="CurveTexture" id="CurveTexture_kmxf7"]
 curve = SubResource("Curve_ebluu")
 
-[sub_resource type="Curve" id="Curve_2r5qd"]
-_data = [Vector2(0, 0.00486028), 0.0, 0.0, 0, 0, Vector2(0.402439, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
-point_count = 3
-
-[sub_resource type="CurveTexture" id="CurveTexture_m5xho"]
-curve = SubResource("Curve_2r5qd")
-
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_b42dp"]
 emission_shape = 1
 emission_sphere_radius = 1.0
 direction = Vector3(0, -1, 0)
+spread = 0.0
 initial_velocity_min = 1.0
 initial_velocity_max = 2.0
-gravity = Vector3(0, 8, 0)
-scale_max = 2.0
-scale_curve = SubResource("CurveTexture_m5xho")
-color = Color(0.149268, 0.103711, 4.81308e-08, 1)
+gravity = Vector3(0, -2, 0)
+scale_min = 0.1
+scale_max = 0.5
+color = Color(0.87348, 0.0831375, 4.81307e-07, 1)
 alpha_curve = SubResource("CurveTexture_kmxf7")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q7epf"]
@@ -51,14 +45,11 @@ transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0971527, 0)
 shape = SubResource("CylinderShape3D_ebluu")
 
-[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
-visible = false
-
-[node name="Smoke" type="GPUParticles3D" parent="."]
-emitting = false
-amount = 24
+[node name="Liquid" type="GPUParticles3D" parent="."]
+transform = Transform3D(0.0388095, 0, 0, 0, 0.0136093, 0, 0, 0, 0.0374127, 0, 0.373413, 0)
+amount = 100
 lifetime = 2.0
-explosiveness = 1.0
+speed_scale = 1.65
 fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_b42dp")
 draw_pass_1 = SubResource("SphereMesh_li7gg")
