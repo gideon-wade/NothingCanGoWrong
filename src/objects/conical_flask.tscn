@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://2x8cid0kq5ih"]
+
+[ext_resource type="PackedScene" uid="uid://t6se1sytrqtj" path="res://models/beaker/beaker.blend" id="1_782qq"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_ebluu"]
+height = 0.86203
+
+[node name="ConicalFlask" type="RigidBody3D"]
+
+[node name="beaker" parent="." instance=ExtResource("1_782qq")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0971527, 0)
+shape = SubResource("CylinderShape3D_ebluu")

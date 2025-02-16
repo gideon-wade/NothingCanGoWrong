@@ -2,18 +2,15 @@
 
 [ext_resource type="Script" uid="uid://4fflduk5m3ff" path="res://src/character/character.gd" id="1_yny20"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_yny20"]
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2p3op"]
 albedo_color = Color(0.389714, 0.458777, 0.598699, 1)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_yny20"]
 
 [node name="Character" type="CharacterBody3D" node_paths=PackedStringArray("visuals", "camera")]
 script = ExtResource("1_yny20")
 visuals = NodePath("CSGSphere3D")
 camera = NodePath("SpringArm3D")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("SphereShape3D_yny20")
 
 [node name="CSGSphere3D" type="CSGSphere3D" parent="."]
 visible = false
@@ -24,3 +21,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.02242, 0)
 spring_length = 0.0
 
 [node name="Camera3D" type="Camera3D" parent="SpringArm3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_yny20")
