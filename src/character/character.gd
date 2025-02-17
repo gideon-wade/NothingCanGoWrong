@@ -14,6 +14,7 @@ var picked_object : RigidBody3D
 @export var pull_power := 5.0
 
 var is_pouring := false
+var mouse_captured := true
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 
@@ -21,7 +22,15 @@ func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	var b = hand.global_transform.origin
 	
-func _input(event):
+func _input(event: InputEvent):
+	if event.is_action_pressed("showMouse"):
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		mouse_captured = false
+	if event.is_action_released("showMouse"):
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		mouse_captured = true
+	if not mouse_captured:
+		return
 	if event.is_action_pressed("pickup"):
 		if picked_object == null:
 			pick_object()
@@ -36,7 +45,7 @@ func _input(event):
 		camera.rotate_x(-deg_to_rad(event.relative.y * horizontal_sensitivity))
 		visuals.rotate_y(deg_to_rad(event.relative.x * horizontal_sensitivity))
 		var x_rotation = camera.rotation_degrees.x
-		x_rotation = clamp(x_rotation, -85, 50)  
+		x_rotation = clamp(x_rotation, -85, 50)
 		camera.rotation_degrees.x = x_rotation
 
 func _physics_process(delta):
