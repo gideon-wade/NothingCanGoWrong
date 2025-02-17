@@ -64,7 +64,7 @@ func _physics_process(delta):
 		var other_flask : ConicalFlask = colider
 		#print("known ids nuts : ", known_ids, " my id : ", id)
 		
-		if other_flask.id not in known_ids and is_below(other_flask) and is_facing_up():
+		if other_flask.id not in known_ids and is_below(other_flask) and other_flask.is_facing_up():
 			print("pouring into flask")
 			other_flask.color = color.lerp(other_flask.color,0.5)
 			other_flask.set_color()
@@ -100,7 +100,7 @@ func is_facing_up() -> bool:
 	var object_up = global_transform.basis.y
 	var angle = object_up.angle_to(Vector3.UP)
 	#var angel = Vector3.UP.angle_to(global_position)
-	return angle < PI/1.8
+	return angle < PI/2.0
 
 func is_facing_down() -> bool:
 	var object_up = global_transform.basis.y
