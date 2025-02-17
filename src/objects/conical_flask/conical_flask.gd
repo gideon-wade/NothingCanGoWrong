@@ -7,6 +7,7 @@ class_name ConicalFlask extends RigidBody3D
 @onready var raycast : RayCast3D = $RayCast3D
 @onready var label : Label3D = $Label3D
 
+
 var liquid_scene := preload("res://src/objects/liquid/liquid.tscn")
 var liquid : GPUParticles3D
 var shader_material : ShaderMaterial = preload("res://models/liquid_materials/color_changer.tres")

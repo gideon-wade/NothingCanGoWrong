@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://ct5ocfou3w7ff"]
+[gd_scene load_steps=11 format=3 uid="uid://ct5ocfou3w7ff"]
 
 [ext_resource type="PackedScene" uid="uid://dx5cf1tigv1rt" path="res://models/map/map.blend" id="2_djufw"]
 [ext_resource type="PackedScene" uid="uid://c7bmc5dgethv6" path="res://src/character/character.tscn" id="3_jkpqq"]
 [ext_resource type="PackedScene" uid="uid://beid7jxmm5a7x" path="res://explosion.tscn" id="4_djufw"]
 [ext_resource type="PackedScene" uid="uid://2x8cid0kq5ih" path="res://src/objects/conical_flask.tscn" id="5_jkpqq"]
+[ext_resource type="Script" uid="uid://dk4php3h0jeoe" path="res://src/main/task_giver.gd" id="6_30cu5"]
 [ext_resource type="PackedScene" uid="uid://f5esemoq4k5i" path="res://clip_board.tscn" id="6_jqarl"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ab7mr"]
@@ -20,7 +21,7 @@ tonemap_mode = 2
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_djufw"]
 
-[node name="Node3D" type="Node3D"]
+[node name="Main" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_jkpqq")
@@ -87,3 +88,6 @@ debug_show_id = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.25393)
 color = Vector3(0, 0, 1)
 debug_show_id = true
+
+[node name="TaskGiver" type="Node" parent="."]
+script = ExtResource("6_30cu5")
