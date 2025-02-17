@@ -1,11 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://ct5ocfou3w7ff"]
+[gd_scene load_steps=10 format=3 uid="uid://ct5ocfou3w7ff"]
 
 [ext_resource type="PackedScene" uid="uid://dx5cf1tigv1rt" path="res://models/map/map.blend" id="2_djufw"]
 [ext_resource type="PackedScene" uid="uid://c7bmc5dgethv6" path="res://src/character/character.tscn" id="3_jkpqq"]
 [ext_resource type="PackedScene" uid="uid://beid7jxmm5a7x" path="res://explosion.tscn" id="4_djufw"]
-[ext_resource type="PackedScene" uid="uid://2x8cid0kq5ih" path="res://src/objects/conical_flask.tscn" id="5_jkpqq"]
-[ext_resource type="Script" uid="uid://dk4php3h0jeoe" path="res://src/main/task_giver.gd" id="6_30cu5"]
-[ext_resource type="PackedScene" uid="uid://f5esemoq4k5i" path="res://clip_board.tscn" id="6_jqarl"]
+[ext_resource type="PackedScene" uid="uid://dtulixf8pehvh" path="res://src/objects/conical_flask/conical_flask.tscn" id="5_jkpqq"]
+[ext_resource type="Script" path="res://src/main/task_giver.gd" id="6_30cu5"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ab7mr"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -65,29 +64,20 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 shape = SubResource("SphereShape3D_djufw")
 
-[node name="clip_board" parent="." instance=ExtResource("6_jqarl")]
-transform = Transform3D(0.000112699, 0.00211929, 0.199989, -0.158577, 0.121868, -0.00120207, -0.121874, -0.158568, 0.00174903, 6.04449, 1.75096, 12.6631)
-
-[node name="clip_board2" parent="." instance=ExtResource("6_jqarl")]
-transform = Transform3D(0.108509, 0, -0.168005, 0, 0.2, 0, 0.168005, 0, 0.108509, 2.94085, 0, -9.75962)
-
-[node name="clip_board3" parent="." instance=ExtResource("6_jqarl")]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 4.54348)
+[node name="TaskGiver" type="Node" parent="."]
+script = ExtResource("6_30cu5")
 
 [node name="ConicalFlask" parent="." instance=ExtResource("5_jkpqq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.91924, 0, -6.65901)
-color = Vector3(1, 0, 0)
-debug_show_id = true
-
-[node name="ConicalFlask2" parent="." instance=ExtResource("5_jkpqq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.68752, 0, -5.44347)
-color = Vector3(0, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.80606, -1.12791, 13.8343)
+color = Vector3(0, 0, 1.795)
 debug_show_id = true
 
 [node name="ConicalFlask3" parent="." instance=ExtResource("5_jkpqq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.25393)
-color = Vector3(0, 0, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.87438, -0.509545, 16.2659)
+color = Vector3(0.985, 0, 1.525)
 debug_show_id = true
 
-[node name="TaskGiver" type="Node" parent="."]
-script = ExtResource("6_30cu5")
+[node name="ConicalFlask2" parent="." instance=ExtResource("5_jkpqq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.60443, -1.02206, 14.2701)
+color = Vector3(0.245, 1.025, 0)
+debug_show_id = true

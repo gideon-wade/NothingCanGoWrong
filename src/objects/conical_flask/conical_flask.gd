@@ -51,7 +51,9 @@ func set_color():
 	print("color changed ", color)
 	
 func _physics_process(delta):
-	if rotation_degrees.z > 90.0 and rotation_degrees.z < 270.0:
+	print(rotation_degrees.z)
+	if (rotation_degrees.z > 90.0 and rotation_degrees.z < 270.0) or \
+		(rotation_degrees.z < -90.0 and rotation_degrees.z > -270):
 		draw_particles = true
 		raycast.enabled = true
 	else : 

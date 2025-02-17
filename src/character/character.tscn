@@ -7,12 +7,13 @@ albedo_color = Color(0.389714, 0.458777, 0.598699, 1)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_yny20"]
 
-[node name="Character" type="CharacterBody3D" node_paths=PackedStringArray("visuals", "camera", "interation", "hand")]
+[node name="Character" type="CharacterBody3D" node_paths=PackedStringArray("visuals", "camera", "interation", "left_hand", "right_hand")]
 script = ExtResource("1_yny20")
 visuals = NodePath("CSGSphere3D")
 camera = NodePath("Camera3D")
 interation = NodePath("Camera3D/Interaction")
-hand = NodePath("Camera3D/Hand")
+left_hand = NodePath("Camera3D/LeftHand")
+right_hand = NodePath("Camera3D/RightHand")
 
 [node name="CSGSphere3D" type="CSGSphere3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00463212, 1.21085, -5.53452)
@@ -26,9 +27,13 @@ shape = SubResource("CapsuleShape3D_yny20")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.02242, 0)
 near = 0.001
 
-[node name="Hand" type="Marker3D" parent="Camera3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.737062, 0, -2.14098)
+[node name="LeftHand" type="Marker3D" parent="Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.737, 0, -1.2)
+
+[node name="RightHand" type="Marker3D" parent="Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.737, 0, -1.2)
 
 [node name="Interaction" type="RayCast3D" parent="Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.317371)
 target_position = Vector3(0, 0, -5)
+collide_with_areas = true
