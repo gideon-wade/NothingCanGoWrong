@@ -7,10 +7,11 @@ extends CharacterBody3D
 @export var visuals : Node3D 
 @export var camera : Node3D
 @export var interation : RayCast3D
-@export var hand : Marker3D
+@export var left_hand : Marker3D
+@export var right_hand : Marker3D
 
-var picked_object : RigidBody3D
-
+var left_hand_object : RigidBody3D
+var right_hand_object : RigidBody3D
 @export var pull_power := 5.0
 
 var is_pouring := false
@@ -18,9 +19,11 @@ var mouse_captured := true
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 
+const LEFT = 0
+const RIGHT = 1
+
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	var b = hand.global_transform.origin
 	
 func _input(event: InputEvent):
 	if event.is_action_pressed("showMouse"):
@@ -31,11 +34,10 @@ func _input(event: InputEvent):
 		mouse_captured = true
 	if not mouse_captured:
 		return
-	if event.is_action_pressed("pickup"):
-		if picked_object == null:
-			pick_object()
-		else:
-			picked_object = null
+	if event.is_action_pressed("leftHand"):
+		handle_hand(LEFT)
+	if event.is_action_pressed("rightHand"):
+		handle_hand(RIGHT)
 	if event.is_action_pressed("pour"):
 		is_pouring = true
 	if event.is_action_released("pour"):
@@ -50,16 +52,29 @@ func _input(event: InputEvent):
 
 func _physics_process(delta):
 	
-	if picked_object != null:
+	if left_hand_object != null:
 		# put the object at the hand node's position
-		var a = picked_object.global_transform.origin
-		var b = hand.global_transform.origin
-		picked_object.set_linear_velocity((b-a)*pull_power)
+		var a = left_hand_object.global_transform.origin
+		var b = left_hand.global_transform.origin
+		left_hand_object.set_linear_velocity((b-a)*pull_power)
+		left_hand_object.look_at(camera.global_transform.origin, Vector3(0,1,0), true)
+		left_hand_object.rotate_y(-PI/4)
+		#left_hand_object.rotate_x(PI/4)
 		# orient the object upwards
+		#TODO move pouring logic elsewhere
 		if is_pouring:
-			picked_object.rotation = Vector3(0,self.rotation.y,2.1)
-		else:
-			picked_object.rotation = Vector3(0,0,0)
+			left_hand_object.rotation = Vector3(0,self.rotation.y,-2.1)
+		#else:
+		#	
+	if right_hand_object != null:
+		# put the object at the hand node's position
+		var a = right_hand_object.global_transform.origin
+		var b = right_hand.global_transform.origin
+		right_hand_object.set_linear_velocity((b-a)*pull_power)
+		right_hand_object.look_at(camera.global_transform.origin, Vector3(0,1,0))
+		right_hand_object.rotate_y(PI/4)
+		if is_pouring:
+			right_hand_object.rotation = Vector3(0,self.rotation.y,2.1)
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -81,9 +96,23 @@ func _physics_process(delta):
 
 	move_and_slide()
 	
-func pick_object():
-	var colider = interation.get_collider()
-	if colider != null:
-		print("colider ", colider)
-	if colider != null and colider is RigidBody3D:
-		picked_object = colider
+func handle_hand(hand: int):
+	var collider = interation.get_collider()
+	if collider != null:
+		print("colider ", collider)
+	if hand == LEFT:
+		if left_hand_object != null:
+			left_hand_object.linear_velocity = camera.get_global_transform().basis.z * -10
+			left_hand_object.get_node("CollisionShape3D").disabled = false
+			left_hand_object = null
+		elif collider != null and collider is RigidBody3D:
+			left_hand_object = collider
+			collider.get_node("CollisionShape3D").disabled = true
+	elif hand == RIGHT:
+		if right_hand_object != null:
+			right_hand_object.linear_velocity = camera.get_global_transform().basis.z * -10
+			right_hand_object.get_node("CollisionShape3D").disabled = false
+			right_hand_object = null
+		elif collider != null and collider is RigidBody3D:
+			right_hand_object = collider
+			collider.get_node("CollisionShape3D").disabled = true

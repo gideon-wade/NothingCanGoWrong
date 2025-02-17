@@ -1,0 +1,1 @@
+class_name ClipBoard extends RigidBody3D
