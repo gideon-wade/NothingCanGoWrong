@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://c7bmc5dgethv6"]
+[gd_scene load_steps=5 format=3 uid="uid://c7bmc5dgethv6"]
 
 [ext_resource type="Script" uid="uid://4fflduk5m3ff" path="res://src/character/character.gd" id="1_yny20"]
+[ext_resource type="AudioStream" uid="uid://ca3nov1wuf3km" path="res://src/audio/NothingCanGoWrong.wav" id="2_2p3op"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2p3op"]
 albedo_color = Color(0.389714, 0.458777, 0.598699, 1)
@@ -37,3 +38,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.737, 0, -1.2)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.317371)
 target_position = Vector3(0, 0, -5)
 collide_with_areas = true
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("2_2p3op")
+volume_db = -30.0
+autoplay = true

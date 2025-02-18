@@ -3,7 +3,7 @@ var description : String
 var complete : bool = false
 var goalHexCode : String
 var id : int
-var steps : Array = []
+var steps = []
 
 func _init(_description : String, _goalHexCode : String, _id : int) -> void:
 	description = _description
