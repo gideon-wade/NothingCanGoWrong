@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bhuo1cs8bhuv3"]
+
+[ext_resource type="Texture2D" uid="uid://cakqs7344w7ue" path="res://models/textures/front.png" id="1_ejjul"]
+
+[resource]
+resource_name = "front"
+cull_mode = 2
+albedo_texture = ExtResource("1_ejjul")
+roughness = 0.5

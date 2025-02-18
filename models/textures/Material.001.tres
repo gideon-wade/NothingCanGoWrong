@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dp3i8dehaqe"]
+
+[ext_resource type="Texture2D" uid="uid://d4ev0s83xd3he" path="res://models/textures/Untitled.png" id="1_vmxhb"]
+
+[resource]
+resource_name = "Material.001"
+cull_mode = 2
+albedo_texture = ExtResource("1_vmxhb")
+roughness = 0.5
