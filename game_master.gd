@@ -37,7 +37,6 @@ func mix(substance1: String, substance2: String, flask: ConicalFlask) -> void:
 	if out != "fail":
 		flask.substance_name = out
 		flask.color = colors[out]
-		print(colors[out])
 		flask.set_color()
 	else:
 		fail.emit()
