@@ -73,7 +73,7 @@ func _physics_process(delta):
 		var other_flask : ConicalFlask = colider
 		
 		if other_flask.id not in known_ids and is_below(other_flask) and other_flask.is_facing_up():
-			GameMaster.mix(substance_name, other_flask.substance_name, other_flask)
+			GameMaster.mix(substance_name, other_flask.substance_name, other_flask, other_flask.position)
 			known_ids.append(other_flask.id)
 			other_flask.show_name()
 

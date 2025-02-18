@@ -22,6 +22,10 @@ const JUMP_VELOCITY = 4.5
 const LEFT = 0
 const RIGHT = 1
 
+var is_alive : bool = true
+var explosion_push: Vector3 = Vector3.ZERO
+var push_decay: float = 5.0
+
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
@@ -88,15 +92,22 @@ func _physics_process(delta):
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var input_dir = Input.get_vector("left", "right", "up", "down")
-	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-	if direction:
-		velocity.x = direction.x * SPEED
-		velocity.z = direction.z * SPEED
+	var base_velocity = Vector3.ZERO
+	if input_dir != Vector2.ZERO:
+		var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+		base_velocity.x = direction.x * SPEED
+		base_velocity.z = direction.z * SPEED
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-		velocity.z = move_toward(velocity.z, 0, SPEED)
-
+		base_velocity.x = move_toward(velocity.x, 0, SPEED)
+		base_velocity.z = move_toward(velocity.z, 0, SPEED)
+	
+		
+	velocity.x = base_velocity.x + explosion_push.x
+	velocity.z = base_velocity.z + explosion_push.z
+	
 	move_and_slide()
+	
+	explosion_push = explosion_push.lerp(Vector3.ZERO, push_decay * delta)
 	
 func handle_hand(hand: int):
 	var collider = interation.get_collider()
@@ -116,3 +127,6 @@ func handle_hand(hand: int):
 		elif collider != null and collider is RigidBody3D:
 			right_hand_object = collider
 			collider.get_node("CollisionShape3D").disabled = true
+			
+func explosion_push_player(push: Vector3) -> void:
+	explosion_push += push

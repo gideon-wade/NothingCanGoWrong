@@ -22,7 +22,7 @@ var colors = {
 var main_scene
 
 signal conical_changed(color_change : String)
-signal fail()
+signal fail(fail_position : Vector3)
 
 func new_substance_color(hexcode : String) -> void:
 	conical_changed.emit(hexcode)
@@ -30,7 +30,7 @@ func new_substance_color(hexcode : String) -> void:
 func task_complete(id : int) -> void:
 	main_scene.task_complete(id)
 
-func mix(substance1: String, substance2: String, flask: ConicalFlask) -> void:
+func mix(substance1: String, substance2: String, flask: ConicalFlask, position : Vector3) -> void:
 	var comb1 = recipies.get(substance1+","+substance2, "fail")
 	var comb2 = recipies.get(substance2+","+substance1, "fail")
 	var out = comb1 if comb1 != "fail" else comb2
@@ -39,4 +39,4 @@ func mix(substance1: String, substance2: String, flask: ConicalFlask) -> void:
 		flask.color = colors[out]
 		flask.set_color()
 	else:
-		fail.emit()
+		fail.emit(position)
