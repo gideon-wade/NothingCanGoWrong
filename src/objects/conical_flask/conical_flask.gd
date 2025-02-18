@@ -48,7 +48,7 @@ func set_color():
 	add_child(liquid)
 	liquid.process_material.color = Color(color.x,color.y,color.z,1.0)
 	liquid.visible = false
-	print("color changed ", color)
+	GameMaster.new_substance_color(liquid.process_material.color.to_html(false))
 	
 func _physics_process(delta):
 	if is_facing_down():
