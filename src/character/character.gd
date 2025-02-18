@@ -100,8 +100,6 @@ func _physics_process(delta):
 	
 func handle_hand(hand: int):
 	var collider = interation.get_collider()
-	if collider != null:
-		print("colider ", collider)
 	if hand == LEFT:
 		if left_hand_object != null:
 			#left_hand_object.linear_velocity = camera.get_global_transform().basis.z * -10

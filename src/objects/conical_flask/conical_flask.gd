@@ -1,7 +1,7 @@
 class_name ConicalFlask extends RigidBody3D
 
 @export var color : Vector3
-@export var color_name : String
+@export var substance_name : String
 @export var debug_show_id := false
 
 @onready var beaker = $beaker
@@ -17,7 +17,7 @@ var shader_material : ShaderMaterial = preload("res://models/liquid_materials/co
 # id is used for mix chemicals so you don't two chemicals twice in a loop
 var id : int
 var last_mixed_with_id: int = -1  # -1 means never mixed
-var known_ids : Dictionary = {}
+var known_ids : Array = []
 
 
 var delete_me = 0
@@ -29,7 +29,8 @@ var draw_particles : bool :
 		liquid.visible = val
 		
 func _ready():
-	id = generate_id()
+	id = randi()
+	show_name()
 	set_color()
 	
 
@@ -52,45 +53,34 @@ func set_color():
 	liquid.visible = false
 	GameMaster.new_substance_color(liquid.process_material.color.to_html(false))
 	
-func _physics_process(delta):
+func _physics_process(delta):	
+	if debug_show_id:
+		$Label3D2.text = "known ids nuts : " + str(known_ids)
+		
 	if is_facing_down():
 		draw_particles = true
 		raycast.enabled = true
 	else : 
 		draw_particles = false
 		raycast.enabled = false
+		known_ids = []
+		return
+		
 	# pouring logic
 	raycast.look_at(raycast.global_transform.origin + Vector3(0, 0, -10), Vector3.UP)
 	var colider = raycast.get_collider()
 	if colider != null and colider is ConicalFlask :
 		var other_flask : ConicalFlask = colider
 		
-		#print("known ids nuts : ", known_ids, " my id : ", id)
-		
 		if other_flask.id not in known_ids and is_below(other_flask) and other_flask.is_facing_up():
-			print("pouring into flask")
-			GameMaster.mix(color_name, other_flask.color_name)
-			#other_flask.color = color.lerp(other_flask.color,0.5)
-			#other_flask.set_color()
-			#known_ids[other_flask.id] = false
-			#other_flask.known_ids.clear()
-			#known_ids[other_flask.id] = false
-			var new_id = other_flask.generate_id()
-			other_flask.id = new_id
-			known_ids[new_id] = true
-			if id in other_flask.known_ids: # I don't think this works
-				other_flask.known_ids.erase(id)
-			
-			if debug_show_id:
-				$Label3D2.text = "known ids nuts : " + str(known_ids)
+			GameMaster.mix(substance_name, other_flask.substance_name, other_flask)
+			known_ids.append(other_flask.id)
+			other_flask.show_name()
 
 			
-func generate_id() -> int:
-	id = randi()
+func show_name():
 	if debug_show_id:
-		label.text = str(id)
-	#known_ids.clear()
-	return id
+		label.text = substance_name
 
 func is_below(other_object: Node3D) -> bool:
 	# Get the global positions of both objects
