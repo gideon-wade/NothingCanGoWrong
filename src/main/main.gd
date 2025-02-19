@@ -23,8 +23,8 @@ func task_complete(id : int) -> void:
 
 func experiment_failed(position : Vector3) -> void:
 	var explosion = explosion_scene.instantiate()
-	self.add_child(explosion)
 	explosion.position = position
+	self.add_child(explosion)
 	character.camera.camera_shake()
 	#print("exploding ", position)
 	#explosion.instantiate()

@@ -4,8 +4,8 @@ extends Node3D
 @onready var smoke: GPUParticles3D = $Smoke
 @onready var sound: AudioStreamPlayer3D = $Sound
 
-@export var explosion_radius: float = 50.0
-@export var explosion_force: float = 100.0
+@export var explosion_radius: float = 5.0
+@export var explosion_force: float = 10.0
 
 func _ready():
 	debris.emitting = true
@@ -15,8 +15,6 @@ func _ready():
 	explode()
 	await get_tree().create_timer(2.0).timeout
 	queue_free()
-
-
 
 func explode() -> void:
 	var space_state = get_world_3d().direct_space_state
@@ -30,13 +28,19 @@ func explode() -> void:
 	query.transform = Transform3D(Basis(), global_transform.origin)
 	query.collide_with_bodies = true
 	var results = space_state.intersect_shape(query)
-	
 	for result in results:
 		var body = result.collider
+		if body is StaticBody3D:
+			continue
 		var direction = (body.global_transform.origin - global_transform.origin).normalized()
+		if direction == Vector3(0, 0, 0):
+			continue
 		var distance = global_transform.origin.distance_to(body.global_transform.origin)
 		var force_magnitude = explosion_force / max(distance, 1.0)
+		print(body, " ", direction * force_magnitude)
 		if body is RigidBody3D:
-			body.apply_central_impulse(direction * force_magnitude)
+			direction += Vector3(0, 1, 0)
+			body.apply_impulse(direction * force_magnitude)
 		elif body is CharacterBody3D:
-			body.explosion_push_player(-direction * force_magnitude)
+			direction += Vector3(0, 0.5, 0)
+			body.explosion_push_player(direction * force_magnitude)

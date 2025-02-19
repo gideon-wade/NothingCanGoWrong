@@ -12,7 +12,7 @@ extends CharacterBody3D
 
 var left_hand_object : RigidBody3D
 var right_hand_object : RigidBody3D
-@export var pull_power := 5.0
+@export var pull_power := 25.0
 
 var is_pouring := false
 var mouse_captured := true
@@ -23,7 +23,6 @@ const LEFT = 0
 const RIGHT = 1
 
 var is_alive : bool = true
-var explosion_push: Vector3 = Vector3.ZERO
 var push_decay: float = 5.0
 
 func _ready():
@@ -46,7 +45,7 @@ func _input(event: InputEvent):
 		is_pouring = true
 	if event.is_action_released("pour"):
 		is_pouring = false
-	if event is InputEventMouseMotion:
+	if event is InputEventMouseMotion and is_alive:
 		self.rotate_y( -deg_to_rad(event.relative.x * vertical_sensitivity))
 		camera.rotate_x(-deg_to_rad(event.relative.y * horizontal_sensitivity))
 		visuals.rotate_y(deg_to_rad(event.relative.x * horizontal_sensitivity))
@@ -55,19 +54,15 @@ func _input(event: InputEvent):
 		camera.rotation_degrees.x = x_rotation
 
 func _physics_process(delta):
-	
 	if left_hand_object != null:
 		# put the object at the hand node's position
 		var a = left_hand_object.global_transform.origin
 		var b = left_hand.global_transform.origin
-		left_hand_object.position = lerp(a, b, 0.3)
-		left_hand_object.set_linear_velocity(Vector3(0, 0, 0))
+		left_hand_object.set_linear_velocity((b-a)*pull_power)
 		left_hand_object.look_at(camera.global_transform.origin, Vector3(0,1,0), true)
 		left_hand_object.rotate_y(-PI/4)
-		#left_hand_object.rotate_x(PI/4)
-		# orient the object upwards
-		#TODO move pouring logic elsewhere
-		if is_pouring:
+		
+		if is_pouring and left_hand_object is ConicalFlask:
 			left_hand_object.rotation = Vector3(0,self.rotation.y,-2.1)
 		#else:
 		#	
@@ -75,45 +70,47 @@ func _physics_process(delta):
 		# put the object at the hand node's position
 		var a = right_hand_object.global_transform.origin
 		var b = right_hand.global_transform.origin
-		right_hand_object.position = lerp(a, b, 0.3)
-		right_hand_object.set_linear_velocity(Vector3(0, 0, 0))
+		right_hand_object.set_linear_velocity((b-a)*pull_power)
 		right_hand_object.look_at(camera.global_transform.origin, Vector3(0,1,0))
 		right_hand_object.rotate_y(PI/4)
-		if is_pouring:
+		if is_pouring and right_hand_object is ConicalFlask:
 			right_hand_object.rotation = Vector3(0,self.rotation.y,2.1)
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
-
-	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
-
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
-	var input_dir = Input.get_vector("left", "right", "up", "down")
-	var base_velocity = Vector3.ZERO
-	if input_dir != Vector2.ZERO:
-		var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-		base_velocity.x = direction.x * SPEED
-		base_velocity.z = direction.z * SPEED
-	else:
-		base_velocity.x = move_toward(velocity.x, 0, SPEED)
-		base_velocity.z = move_toward(velocity.z, 0, SPEED)
 	
+	if is_alive:
+		# Handle jump.
+		if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+			velocity.y = JUMP_VELOCITY
+
+		# Get the input direction and handle the movement/deceleration.
+		# As good practice, you should replace UI actions with custom gameplay actions.
+		var input_dir = Input.get_vector("left", "right", "up", "down")
+		var base_velocity = Vector3.ZERO
+		if input_dir != Vector2.ZERO:
+			var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+			base_velocity.x = direction.x * SPEED
+			base_velocity.z = direction.z * SPEED
+		else:
+			base_velocity.x = move_toward(velocity.x, 0, SPEED)
+			base_velocity.z = move_toward(velocity.z, 0, SPEED)
 		
-	velocity.x = base_velocity.x + explosion_push.x
-	velocity.z = base_velocity.z + explosion_push.z
+			
+		velocity.x = base_velocity.x
+		velocity.z = base_velocity.z
+	else:
+		velocity *= 0.975
 	
 	move_and_slide()
 	
-	explosion_push = explosion_push.lerp(Vector3.ZERO, push_decay * delta)
 	
 func handle_hand(hand: int):
 	var collider = interation.get_collider()
 	if hand == LEFT:
 		if left_hand_object != null:
 			#left_hand_object.linear_velocity = camera.get_global_transform().basis.z * -10
+			left_hand_object.linear_velocity *= 0.5
 			left_hand_object.get_node("CollisionShape3D").disabled = false
 			left_hand_object = null
 		elif collider != null and collider is RigidBody3D:
@@ -122,6 +119,7 @@ func handle_hand(hand: int):
 	elif hand == RIGHT:
 		if right_hand_object != null:
 			#right_hand_object.linear_velocity = camera.get_global_transform().basis.z * -10
+			right_hand_object.linear_velocity *= 0.5
 			right_hand_object.get_node("CollisionShape3D").disabled = false
 			right_hand_object = null
 		elif collider != null and collider is RigidBody3D:
@@ -129,4 +127,19 @@ func handle_hand(hand: int):
 			collider.get_node("CollisionShape3D").disabled = true
 			
 func explosion_push_player(push: Vector3) -> void:
-	explosion_push += push
+	velocity = push
+	is_alive = false
+	force_update_transform()
+	if left_hand_object != null:
+		left_hand_object.apply_impulse(push / 3.0)
+		left_hand_object.get_node("CollisionShape3D").disabled = false
+		left_hand_object = null
+	if right_hand_object != null:
+		right_hand_object.apply_impulse(push / 3.0)
+		right_hand_object.get_node("CollisionShape3D").disabled = false
+		right_hand_object = null
+	$Respawn.start()
+
+
+func _on_respawn_timeout() -> void:
+	get_tree().reload_current_scene()
