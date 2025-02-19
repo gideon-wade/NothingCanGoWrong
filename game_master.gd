@@ -18,6 +18,16 @@ var colors = {
 	"Dracula's Blood": Vector3(150/256.0, 0, 0),
 	"Laudle": Vector3(150/256.0, 1, 150/256.0),
 }
+var substance_glow = {
+	"Oceamid": 0.45,
+	"Redamin": 0.3,
+	"Apple Juice": 0.1,
+	"Grass Juice": 0.1,
+	"Cadrulium": 0.6,
+	"Princiade": 0.9,
+	"Dracula's Blood": 0.2,
+	"Laudle": 0.6,
+}
 
 var main_scene
 

@@ -37,3 +37,5 @@ speed_scale = 1.65
 fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_0cinx")
 draw_pass_1 = SubResource("SphereMesh_0cinx")
+
+[node name="LiquidLight" type="OmniLight3D" parent="."]

@@ -31,3 +31,9 @@ billboard = 1
 [node name="Label3D2" type="Label3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.494707, 0)
 billboard = 1
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+volume_db = -17.455
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+visible = false
