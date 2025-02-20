@@ -14,10 +14,13 @@ var left_hand_object : RigidBody3D
 var right_hand_object : RigidBody3D
 @export var pull_power := 25.0
 
+
 var is_pouring := false
 var mouse_captured := true
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
+var current_collider
+
 
 const LEFT = 0
 const RIGHT = 1
@@ -103,13 +106,12 @@ func _physics_process(delta):
 		velocity *= 0.975
 	
 	move_and_slide()
-	
+	_check_interactability()
 	
 func handle_hand(hand: int):
 	var collider = interation.get_collider()
 	if hand == LEFT:
 		if left_hand_object != null:
-			#left_hand_object.linear_velocity = camera.get_global_transform().basis.z * -10
 			left_hand_object.linear_velocity *= 0.5
 			left_hand_object.get_node("CollisionShape3D").disabled = false
 			left_hand_object = null
@@ -140,6 +142,20 @@ func explosion_push_player(push: Vector3) -> void:
 		right_hand_object = null
 	$Respawn.start()
 
+func _check_interactability() -> void:
+	var new_collider = null
+	if interation.is_colliding():
+		new_collider = interation.get_collider()
+
+	if current_collider and current_collider != new_collider:
+		if current_collider.has_method("remove_outline"):
+			current_collider.remove_outline()
+		current_collider = null
+
+	if new_collider and new_collider != current_collider:
+		if new_collider.has_method("show_outline"):
+			new_collider.show_outline()
+		current_collider = new_collider
 
 func _on_respawn_timeout() -> void:
 	get_tree().reload_current_scene()

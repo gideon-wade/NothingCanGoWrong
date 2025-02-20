@@ -11,7 +11,7 @@ func _ready():
 	debris.emitting = true
 	fire.emitting = true
 	smoke.emitting = true
-	#sound.play()
+	sound.play()
 	explode()
 	await get_tree().create_timer(2.0).timeout
 	queue_free()
@@ -37,7 +37,6 @@ func explode() -> void:
 			continue
 		var distance = global_transform.origin.distance_to(body.global_transform.origin)
 		var force_magnitude = explosion_force / max(distance, 1.0)
-		print(body, " ", direction * force_magnitude)
 		if body is RigidBody3D:
 			direction += Vector3(0, 1, 0)
 			body.apply_impulse(direction * force_magnitude)

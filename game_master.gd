@@ -1,5 +1,7 @@
 extends Node
 
+var interactable = [ConicalFlask, ClipBoard]
+
 var recipies = {
 	"Oceamid,Redamin": "Grass Juice",
 	"Grass Juice,Apple Juice": "Cadrulium",

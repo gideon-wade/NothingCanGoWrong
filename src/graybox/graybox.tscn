@@ -1,12 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://gglv8w0xmrbi"]
+[gd_scene load_steps=11 format=3 uid="uid://gglv8w0xmrbi"]
 
 [ext_resource type="PackedScene" uid="uid://c7bmc5dgethv6" path="res://src/character/character.tscn" id="1_glioh"]
 [ext_resource type="PackedScene" uid="uid://dvc73tcpw6x46" path="res://models/graybox/gray_box.blend" id="2_e8au3"]
 [ext_resource type="PackedScene" uid="uid://dlufy3467u62w" path="res://models/lab/lab.blend" id="3_e8au3"]
 [ext_resource type="PackedScene" uid="uid://dxma1i67q3ydl" path="res://models/celling_lamp/celling_lamp.blend" id="4_lxi0y"]
-[ext_resource type="PackedScene" uid="uid://ln6clmj73paf" path="res://models/lab/closet.blend" id="5_paco0"]
-[ext_resource type="PackedScene" uid="uid://d4bs545nj3vwm" path="res://models/lab/button.blend" id="6_1fjpg"]
 [ext_resource type="PackedScene" uid="uid://cgcnm52koexoc" path="res://models/lab/skab.blend" id="7_tegee"]
+[ext_resource type="PackedScene" uid="uid://ktk3iurioob7" path="res://models/lab/dispenser.tscn" id="7_v7otv"]
 [ext_resource type="PackedScene" uid="uid://dtulixf8pehvh" path="res://src/objects/conical_flask/conical_flask.tscn" id="8_v7otv"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_lxi0y"]
@@ -48,12 +47,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0861596, -0.0389827, 0.0108
 [node name="celling_lamp" parent="." instance=ExtResource("4_lxi0y")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.996905, 4094.09, -1.0762)
 
-[node name="closet" parent="." instance=ExtResource("5_paco0")]
-transform = Transform3D(0.0403193, 0, -0.54852, 0, 0.55, 0, 0.54852, 0, 0.0403193, 0.349427, -1.04973, -6.15119)
-
-[node name="button" parent="." instance=ExtResource("6_1fjpg")]
-transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, 1.66293, -0.717563, -5.13743)
-
 [node name="skab" parent="." instance=ExtResource("7_tegee")]
 transform = Transform3D(-0.0211724, 0, 0.579613, 0, 0.58, 0, -0.579613, 0, -0.0211724, -2.97541, -1.7842, 4.45263)
 
@@ -66,3 +59,6 @@ substance_name = "Redamin"
 transform = Transform3D(0.745, 0, 0, 0, 0.745, 0, 0, 0, 0.745, -3.06332, 0.39906, -4.05958)
 color = Vector3(1, 0, 0)
 substance_name = "Redamin"
+
+[node name="Dispenser" parent="." instance=ExtResource("7_v7otv")]
+transform = Transform3D(0.0109446, 0, -0.584898, 0, 0.585, 0, 0.584898, 0, 0.0109446, 0, -1.13525, -5.76705)

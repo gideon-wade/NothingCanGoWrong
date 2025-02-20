@@ -1,0 +1,34 @@
+[gd_scene load_steps=7 format=3 uid="uid://ktk3iurioob7"]
+
+[ext_resource type="Script" uid="uid://cl787eso1fn5u" path="res://models/lab/dispenser.gd" id="1_w6q7u"]
+[ext_resource type="Script" uid="uid://cmw777apgqnfy" path="res://models/lab/dispenser_button.gd" id="2_7qyiq"]
+[ext_resource type="PackedScene" uid="uid://ln6clmj73paf" path="res://models/lab/closet.blend" id="2_cesou"]
+[ext_resource type="PackedScene" uid="uid://d4bs545nj3vwm" path="res://models/lab/button.blend" id="3_7qyiq"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_w6q7u"]
+height = 0.583984
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_w6q7u"]
+size = Vector3(3.59485, 5.78815, 4.38193)
+
+[node name="Dispenser" type="Node3D"]
+script = ExtResource("1_w6q7u")
+
+[node name="DispenserButton" type="StaticBody3D" parent="."]
+script = ExtResource("2_7qyiq")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DispenserButton"]
+transform = Transform3D(-3.0598e-08, -0.7, 0, 0.7, -3.0598e-08, 0, 0, 0, 0.7, 2.68658, 0.565241, -2.18482)
+shape = SubResource("CylinderShape3D_w6q7u")
+
+[node name="button" parent="DispenserButton/CollisionShape3D" instance=ExtResource("3_7qyiq")]
+transform = Transform3D(5.4591e-16, 0.285714, -1.2489e-08, 1.2489e-08, -1.2489e-08, -0.285714, -0.285714, 0, -1.2489e-08, -0.100101, 0.588219, 0.0107613)
+
+[node name="DinspenserBox" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DinspenserBox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.226135, 1.31796, -0.607193)
+shape = SubResource("BoxShape3D_w6q7u")
+
+[node name="closet" parent="DinspenserBox/CollisionShape3D" instance=ExtResource("2_cesou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.226135, -1.31796, 0.607193)

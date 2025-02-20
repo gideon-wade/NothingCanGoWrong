@@ -11,7 +11,7 @@ class_name ConicalFlask extends RigidBody3D
 @onready var substance_glow: OmniLight3D = $OmniLight3D
 const POURING_INTO_LIQUID_1 = preload("res://src/audio/conical_flask/pouring_into_liquid_1.mp3")
 const POURING_INTO_LIQUID_2 = preload("res://src/audio/conical_flask/pouring_into_liquid_2.mp3")
-
+const OBJECT_OUTLINER = preload("res://models/textures/object_outliner.tres")
 const HIT_SOUNDS = [
 	preload("res://src/audio/conical_flask/glass_colliding_1.mp3"),
 	preload("res://src/audio/conical_flask/glass_colliding_2.mp3"),
@@ -150,3 +150,9 @@ func is_facing_down() -> bool:
 	
 	# If angle is greater than 90 degrees (PI/2), it's roughly facing down
 	return angle > PI/2.5
+
+func show_outline() -> void:
+	beaker.get_node("glass").material_overlay = OBJECT_OUTLINER
+
+func remove_outline() -> void:
+	beaker.get_node("glass").material_overlay = null

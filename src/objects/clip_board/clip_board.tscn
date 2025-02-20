@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://buim4383m8eae"]
+[gd_scene load_steps=6 format=3 uid="uid://buim4383m8eae"]
 
 [ext_resource type="PackedScene" uid="uid://cbqrdgw1otdl0" path="res://models/clipboard/clip_board.blend" id="1_3q6od"]
 [ext_resource type="Script" uid="uid://dsfkflxidg0h5" path="res://src/objects/clip_board/clip_board.gd" id="1_kbas2"]
+[ext_resource type="Material" uid="uid://ecbmlkm4drq1" path="res://models/textures/object_outliner.tres" id="3_vot5f"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_kbas2"]
 viewport_path = NodePath("SubViewport")
@@ -14,6 +15,9 @@ script = ExtResource("1_kbas2")
 
 [node name="clip_board" parent="." instance=ExtResource("1_3q6od")]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+
+[node name="BoardClip" parent="clip_board" index="0"]
+material_overlay = ExtResource("3_vot5f")
 
 [node name="Sprite3D" type="Sprite3D" parent="clip_board/BoardClip/Paper" index="0"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.693182, -0.178476, 0)
