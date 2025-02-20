@@ -12,6 +12,14 @@ class_name ConicalFlask extends RigidBody3D
 const POURING_INTO_LIQUID_1 = preload("res://src/audio/conical_flask/pouring_into_liquid_1.mp3")
 const POURING_INTO_LIQUID_2 = preload("res://src/audio/conical_flask/pouring_into_liquid_2.mp3")
 
+const HIT_SOUNDS = [
+	preload("res://src/audio/conical_flask/glass_colliding_1.mp3"),
+	preload("res://src/audio/conical_flask/glass_colliding_2.mp3"),
+	preload("res://src/audio/conical_flask/glass_colliding_3.mp3"),
+	preload("res://src/audio/conical_flask/glass_colliding_4.mp3"),
+	preload("res://src/audio/conical_flask/glass_colliding_5.mp3"),
+]
+
 var liquid_scene := preload("res://src/objects/liquid/liquid.tscn")
 var liquid : GPUParticles3D
 var shader_material : ShaderMaterial = preload("res://models/liquid_materials/color_changer.tres")
@@ -75,18 +83,8 @@ func _physics_process(delta):
 	# Checks collision of other Rigidbody3D
 	if get_contact_count() > 0:
 		if not was_colliding:
-			var number = randi_range(1,5)
-			match(number):
-				1:
-					audio.stream = preload("res://src/audio/conical_flask/glass_colliding_1.mp3")
-				2:
-					audio.stream = preload("res://src/audio/conical_flask/glass_colliding_2.mp3")
-				3:
-					audio.stream = preload("res://src/audio/conical_flask/glass_colliding_3.mp3")
-				4:
-					audio.stream = preload("res://src/audio/conical_flask/glass_colliding_4.mp3")
-				5:
-					audio.stream = preload("res://src/audio/conical_flask/glass_colliding_5.mp3")
+			var number = randi_range(0,4)
+			audio.stream = HIT_SOUNDS[number]
 			audio.set_pitch_scale(rng.randf_range(0.9, 1.1))
 			audio.play()
 			was_colliding = true
@@ -120,9 +118,13 @@ func _physics_process(delta):
 					other_flask.audio.stream = POURING_INTO_LIQUID_2
 				other_flask.audio.set_pitch_scale(rng.randf_range(0.9, 1.1))
 				other_flask.audio.play()
-			GameMaster.mix(substance_name, other_flask.substance_name, other_flask, other_flask.position)
 			known_ids.append(other_flask.id)
-			other_flask.show_name()
+			await get_tree().create_timer(0.5).timeout
+			var new_collider = raycast.get_collider()
+			if new_collider == colider and is_facing_down():
+				if is_below(other_flask) and other_flask.is_facing_up():
+					GameMaster.mix(substance_name, other_flask.substance_name, other_flask, other_flask.position)
+					other_flask.show_name()
 			
 func show_name():
 	if debug_show_id:
