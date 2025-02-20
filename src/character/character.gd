@@ -16,6 +16,7 @@ var right_hand_object : RigidBody3D
 
 
 var is_pouring := false
+var falling := false
 var mouse_captured := true
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
@@ -103,7 +104,12 @@ func _physics_process(delta):
 		velocity.x = base_velocity.x
 		velocity.z = base_velocity.z
 	else:
-		velocity *= 0.975
+		if is_on_floor() and falling:
+			velocity = Vector3(0, 0, 0)
+			rotation.z = clamp(rotation.z-0.05, -1.6, 0)
+		elif not is_on_floor():
+			falling = true
+			velocity *= 0.975
 	
 	move_and_slide()
 	_check_interactability()
@@ -116,8 +122,9 @@ func handle_hand(hand: int):
 			left_hand_object.get_node("CollisionShape3D").disabled = false
 			left_hand_object = null
 		elif collider != null and collider is RigidBody3D:
-			left_hand_object = collider
 			collider.get_node("CollisionShape3D").disabled = true
+			await get_tree().create_timer(0.01).timeout
+			left_hand_object = collider
 	elif hand == RIGHT:
 		if right_hand_object != null:
 			#right_hand_object.linear_velocity = camera.get_global_transform().basis.z * -10
@@ -125,12 +132,15 @@ func handle_hand(hand: int):
 			right_hand_object.get_node("CollisionShape3D").disabled = false
 			right_hand_object = null
 		elif collider != null and collider is RigidBody3D:
-			right_hand_object = collider
 			collider.get_node("CollisionShape3D").disabled = true
+			await get_tree().create_timer(0.01).timeout
+			right_hand_object = collider
+			
 			
 func explosion_push_player(push: Vector3) -> void:
 	velocity = push
 	is_alive = false
+	falling = false
 	force_update_transform()
 	if left_hand_object != null:
 		left_hand_object.apply_impulse(push / 3.0)
