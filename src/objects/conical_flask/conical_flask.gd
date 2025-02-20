@@ -119,7 +119,7 @@ func _physics_process(delta):
 				other_flask.audio.set_pitch_scale(rng.randf_range(0.9, 1.1))
 				other_flask.audio.play()
 			known_ids.append(other_flask.id)
-			await get_tree().create_timer(0.5).timeout
+			await get_tree().create_timer(0.25).timeout
 			var new_collider = raycast.get_collider()
 			if new_collider == colider and is_facing_down():
 				if is_below(other_flask) and other_flask.is_facing_up():
@@ -127,8 +127,8 @@ func _physics_process(delta):
 					other_flask.show_name()
 			
 func show_name():
-	if debug_show_id:
-		label.text = substance_name
+	#if debug_show_id:
+	label.text = substance_name
 
 func is_below(other_object: Node3D) -> bool:
 	# Get the global positions of both objects
