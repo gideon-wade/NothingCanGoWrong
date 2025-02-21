@@ -121,6 +121,9 @@ func handle_hand(hand: int):
 			left_hand_object.linear_velocity *= 0.5
 			left_hand_object.get_node("CollisionShape3D").disabled = false
 			left_hand_object = null
+		elif collider != null and collider.has_node("ButtonCollisionShape"):
+			collider.get_parent().spawn_conical_flask()
+			print("we got the button")
 		elif collider != null and collider is RigidBody3D:
 			collider.get_node("CollisionShape3D").disabled = true
 			await get_tree().create_timer(0.01).timeout

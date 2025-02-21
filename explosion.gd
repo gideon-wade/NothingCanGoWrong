@@ -13,7 +13,7 @@ func _ready():
 	smoke.emitting = true
 	sound.play()
 	explode()
-	await get_tree().create_timer(2.0).timeout
+	await get_tree().create_timer(2.1).timeout
 	queue_free()
 
 func explode() -> void:

@@ -62,3 +62,12 @@ substance_name = "Redamin"
 
 [node name="Dispenser" parent="." instance=ExtResource("7_v7otv")]
 transform = Transform3D(0.0109446, 0, -0.584898, 0, 0.585, 0, 0.584898, 0, 0.0109446, 0, -1.13525, -5.76705)
+conical_flask_name_dispensed = "Oceamid"
+
+[node name="Dispenser2" parent="." instance=ExtResource("7_v7otv")]
+transform = Transform3D(-0.0384749, 0, -0.583734, 0, 0.585, 0, 0.583734, 0, -0.0384749, -15.553, -0.0964953, -9.22904)
+conical_flask_name_dispensed = "Apple Juice"
+
+[node name="Dispenser3" parent="." instance=ExtResource("7_v7otv")]
+transform = Transform3D(0.0563443, 0, 0.582281, 0, 0.585, 0, -0.582281, 0, 0.0563443, -15.553, -0.0964953, 3.2701)
+conical_flask_name_dispensed = "Redamin"
