@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://b6qh41g8ke7ru"
-path="res://.godot/imported/beaker.blend-280ea570609294a2c877cb5b279d5fad.scn"
+uid="uid://db5bwx2rlgcwf"
+path="res://.godot/imported/door.blend-fee917b274819d836200ab24151df829.scn"
 
 [deps]
 
-source_file="res://models/beaker/beaker.blend"
-dest_files=["res://.godot/imported/beaker.blend-280ea570609294a2c877cb5b279d5fad.scn"]
+source_file="res://models/Door/door.blend"
+dest_files=["res://.godot/imported/door.blend-fee917b274819d836200ab24151df829.scn"]
 
 [params]
 

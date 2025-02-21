@@ -51,4 +51,5 @@ func mix(substance1: String, substance2: String, flask: ConicalFlask, position :
 		flask.color = colors[out]
 		flask.set_color()
 	else:
+		flask.queue_free()
 		fail.emit(position)

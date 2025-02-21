@@ -1,14 +1,13 @@
-class_name ConicalFlask extends RigidBody3D
+class_name ConicalFlask extends Node3D
 
-@export var color : Vector3
 @export var substance_name : String
 @export var debug_show_id := false
 
-@onready var beaker = $beaker
-@onready var raycast : RayCast3D = $RayCast3D
-@onready var label : Label3D = $Label3D
-@onready var audio: AudioStreamPlayer3D = $AudioStreamPlayer3D
-@onready var substance_glow: OmniLight3D = $OmniLight3D
+@onready var body = $"beaker/glass-rigid"
+@onready var raycast : RayCast3D = $UI/RayCast3D
+@onready var label : Label3D = $UI/Label3D
+@onready var audio: AudioStreamPlayer3D = $UI/AudioStreamPlayer3D
+@onready var substance_glow: OmniLight3D = $UI/OmniLight3D
 const POURING_INTO_LIQUID_1 = preload("res://src/audio/conical_flask/pouring_into_liquid_1.mp3")
 const POURING_INTO_LIQUID_2 = preload("res://src/audio/conical_flask/pouring_into_liquid_2.mp3")
 const OBJECT_OUTLINER = preload("res://models/textures/object_outliner.tres")
@@ -26,6 +25,7 @@ var shader_material : ShaderMaterial = preload("res://models/liquid_materials/co
 var rng = RandomNumberGenerator.new()
 
 # id is used for mix chemicals so you don't two chemicals twice in a loop
+var color : Vector3
 var id : int
 var last_mixed_with_id: int = -1  # -1 means never mixed
 var known_ids : Array = []
@@ -41,8 +41,8 @@ var draw_particles : bool :
 		liquid.visible = val
 		
 func _ready():
-	contact_monitor = true
-	max_contacts_reported = 1
+	body.contact_monitor = true
+	body.max_contacts_reported = 1
 	id = randi()
 	show_name()
 	set_color()
@@ -50,8 +50,8 @@ func _ready():
 func set_color():
 	if not is_node_ready():
 		return
-	
-	var chemical : MeshInstance3D = beaker.get_node("juice")
+	color = GameMaster.colors[substance_name]
+	var chemical : MeshInstance3D = body.get_node("juice")
 	if chemical:
 		var material := shader_material.duplicate(true)
 		material.set_shader_parameter("color", color)
@@ -68,7 +68,8 @@ func set_color():
 	
 	liquid = liquid_scene.instantiate().duplicate()
 	liquid.process_material = liquid.process_material.duplicate(true)
-	add_child(liquid)
+	#liquid.global_position = body.global_position
+	$UI.add_child(liquid)
 	liquid.process_material.color = Color(color.x, color.y, color.z, 1.0)
 	liquid.visible = false
 	var liquid_glow = liquid.get_child(0)
@@ -80,14 +81,18 @@ func set_color():
 	GameMaster.new_substance_color(liquid.process_material.color.to_html(false))
 	
 func _physics_process(delta):
+	$UI.global_position = body.global_position
+	$UI.global_rotation = body.global_rotation
 	# Checks collision of other Rigidbody3D
-	if get_contact_count() > 0:
+	if body.get_contact_count() > 0:
 		if not was_colliding:
 			var number = randi_range(0,4)
 			audio.stream = HIT_SOUNDS[number]
 			audio.set_pitch_scale(rng.randf_range(0.9, 1.1))
 			audio.play()
 			was_colliding = true
+			if body.linear_velocity.length() > 4:
+				GameMaster.mix("FAST", "FAST", self, body.global_position)
 	else:
 		was_colliding = false
 		
@@ -106,9 +111,10 @@ func _physics_process(delta):
 	# pouring logic
 	raycast.look_at(raycast.global_transform.origin + Vector3(0, 0, -10), Vector3.UP)
 	var colider = raycast.get_collider()
+	if colider != null and colider.get_name() == "glass-rigid":
+		colider = colider.get_parent().get_parent()
 	if colider != null and colider is ConicalFlask:
 		var other_flask : ConicalFlask = colider
-		
 		if other_flask.id not in known_ids and is_below(other_flask) and other_flask.is_facing_up():
 			if !other_flask.audio.is_playing():
 				var number = randi_range(1,2)
@@ -121,6 +127,8 @@ func _physics_process(delta):
 			known_ids.append(other_flask.id)
 			await get_tree().create_timer(0.25).timeout
 			var new_collider = raycast.get_collider()
+			if new_collider != null and new_collider.get_name() == "glass-rigid":
+				new_collider = new_collider.get_parent().get_parent()
 			if new_collider == colider and is_facing_down():
 				if is_below(other_flask) and other_flask.is_facing_up():
 					GameMaster.mix(substance_name, other_flask.substance_name, other_flask, other_flask.position)
@@ -132,9 +140,8 @@ func show_name():
 
 func is_below(other_object: Node3D) -> bool:
 	# Get the global positions of both objects
-	var my_position = global_position
-	var other_position = other_object.global_position
-	
+	var my_position = body.global_position
+	var other_position = other_object.body.global_position
 	# Compare Y coordinates (in Godot, Y axis points up)
 	return my_position.y > other_position.y
 
@@ -145,14 +152,17 @@ func is_facing_up() -> bool:
 	return angle < PI/2.0
 
 func is_facing_down() -> bool:
-	var object_up = global_transform.basis.y
+	var object_up = body.global_transform.basis.y
 	var angle = object_up.angle_to(Vector3.UP)
 	
 	# If angle is greater than 90 degrees (PI/2), it's roughly facing down
 	return angle > PI/2.5
 
+func set_linear_velocity(vel: Vector3) -> void:
+	body.set_linear_velocity(vel)
+
 func show_outline() -> void:
-	beaker.get_node("glass").material_overlay = OBJECT_OUTLINER
+	body.get_node("glass-rigid").material_overlay = OBJECT_OUTLINER
 
 func remove_outline() -> void:
-	beaker.get_node("glass").material_overlay = null
+	body.get_node("glass-rigid").material_overlay = null

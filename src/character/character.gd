@@ -10,8 +10,8 @@ extends CharacterBody3D
 @export var left_hand : Marker3D
 @export var right_hand : Marker3D
 
-var left_hand_object : RigidBody3D
-var right_hand_object : RigidBody3D
+var left_hand_object : Node3D
+var right_hand_object : Node3D
 @export var pull_power := 25.0
 @onready var player_sounds: AudioStreamPlayer3D = $PlayerSounds
 var rng = RandomNumberGenerator.new()
@@ -61,25 +61,31 @@ func _input(event: InputEvent):
 func _physics_process(delta):
 	if left_hand_object != null:
 		# put the object at the hand node's position
-		var a = left_hand_object.global_transform.origin
+		var object = left_hand_object
+		if object is ConicalFlask:
+			object = object.body
+		var a = object.global_transform.origin
 		var b = left_hand.global_transform.origin
-		left_hand_object.set_linear_velocity((b-a)*pull_power)
-		left_hand_object.look_at(camera.global_transform.origin, Vector3(0,1,0), true)
-		left_hand_object.rotate_y(-PI/4)
+		object.set_linear_velocity((b-a)*pull_power)
+		object.look_at(camera.global_transform.origin, Vector3(0,1,0), true)
+		object.rotate_y(-PI/4)
 		
 		if is_pouring and left_hand_object is ConicalFlask:
-			left_hand_object.rotation = Vector3(0,self.rotation.y,-2.1)
+			object.rotation = Vector3(0,self.rotation.y,-2.1)
 		#else:
 		#	
 	if right_hand_object != null:
 		# put the object at the hand node's position
-		var a = right_hand_object.global_transform.origin
+		var object = right_hand_object
+		if object is ConicalFlask:
+			object = object.body
+		var a = object.global_transform.origin
 		var b = right_hand.global_transform.origin
-		right_hand_object.set_linear_velocity((b-a)*pull_power)
-		right_hand_object.look_at(camera.global_transform.origin, Vector3(0,1,0))
-		right_hand_object.rotate_y(PI/4)
+		object.set_linear_velocity((b-a)*pull_power)
+		object.look_at(camera.global_transform.origin, Vector3(0,1,0))
+		object.rotate_y(PI/4)
 		if is_pouring and right_hand_object is ConicalFlask:
-			right_hand_object.rotation = Vector3(0,self.rotation.y,2.1)
+			object.rotation = Vector3(0,self.rotation.y,2.1)
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -119,8 +125,12 @@ func handle_hand(hand: int):
 	var collider = interation.get_collider()
 	if hand == LEFT:
 		if left_hand_object != null:
-			left_hand_object.linear_velocity *= 0.5
-			left_hand_object.get_node("CollisionShape3D").disabled = false
+			if left_hand_object is ConicalFlask:
+				left_hand_object.body.linear_velocity *= 0.5
+				left_hand_object.body.get_node("CollisionShape3D").disabled = false
+			else:
+				left_hand_object.linear_velocity *= 0.5
+				left_hand_object.get_node("CollisionShape3D").disabled = false
 			left_hand_object = null
 		elif collider != null and collider.has_node("ButtonCollisionShape"):
 			collider.get_parent().spawn_conical_flask()
@@ -128,17 +138,27 @@ func handle_hand(hand: int):
 		elif collider != null and collider is RigidBody3D:
 			collider.get_node("CollisionShape3D").disabled = true
 			await get_tree().create_timer(0.01).timeout
-			left_hand_object = collider
+			if collider.get_name() == "glass-rigid":
+				left_hand_object = collider.get_parent().get_parent()
+			else:
+				left_hand_object = collider
 	elif hand == RIGHT:
 		if right_hand_object != null:
 			#right_hand_object.linear_velocity = camera.get_global_transform().basis.z * -10
-			right_hand_object.linear_velocity *= 0.5
-			right_hand_object.get_node("CollisionShape3D").disabled = false
+			if right_hand_object is ConicalFlask:
+				right_hand_object.body.linear_velocity *= 0.5
+				right_hand_object.body.get_node("CollisionShape3D").disabled = false
+			else:
+				right_hand_object.linear_velocity *= 0.5
+				right_hand_object.get_node("CollisionShape3D").disabled = false
 			right_hand_object = null
 		elif collider != null and collider is RigidBody3D:
 			collider.get_node("CollisionShape3D").disabled = true
 			await get_tree().create_timer(0.01).timeout
-			right_hand_object = collider
+			if collider.get_name() == "glass-rigid":
+				right_hand_object = collider.get_parent().get_parent()
+			else:
+				right_hand_object = collider
 			
 			
 func explosion_push_player(push: Vector3) -> void:
@@ -147,12 +167,18 @@ func explosion_push_player(push: Vector3) -> void:
 	falling = false
 	force_update_transform()
 	if left_hand_object != null:
-		left_hand_object.apply_impulse(push / 3.0)
-		left_hand_object.get_node("CollisionShape3D").disabled = false
+		var object = left_hand_object
+		if object is ConicalFlask:
+			object = object.body
+		object.apply_impulse(push / 3.0)
+		object.get_node("CollisionShape3D").disabled = false
 		left_hand_object = null
 	if right_hand_object != null:
-		right_hand_object.apply_impulse(push / 3.0)
-		right_hand_object.get_node("CollisionShape3D").disabled = false
+		var object = right_hand_object
+		if object is ConicalFlask:
+			object = object.body
+		object.apply_impulse(push / 3.0)
+		object.get_node("CollisionShape3D").disabled = false
 		right_hand_object = null
 	player_sounds.stream = preload("res://src/audio/scientist_die_2.mp3")
 	player_sounds.set_pitch_scale(rng.randf_range(0.9, 1.1))
@@ -167,7 +193,10 @@ func _check_interactability() -> void:
 	var new_collider = null
 	if interation.is_colliding():
 		new_collider = interation.get_collider()
-
+		
+	if new_collider != null and new_collider.get_name() == "glass-rigid":
+		new_collider = new_collider.get_parent().get_parent()
+		
 	if current_collider and current_collider != new_collider:
 		if current_collider.has_method("remove_outline"):
 			current_collider.remove_outline()
