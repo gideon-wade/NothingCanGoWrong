@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://gglv8w0xmrbi"]
+[gd_scene load_steps=21 format=3 uid="uid://gglv8w0xmrbi"]
 
 [ext_resource type="PackedScene" uid="uid://c7bmc5dgethv6" path="res://src/character/character.tscn" id="1_glioh"]
 [ext_resource type="PackedScene" uid="uid://dvc73tcpw6x46" path="res://models/graybox/gray_box.blend" id="2_e8au3"]
@@ -6,7 +6,17 @@
 [ext_resource type="PackedScene" uid="uid://dxma1i67q3ydl" path="res://models/celling_lamp/celling_lamp.blend" id="4_lxi0y"]
 [ext_resource type="PackedScene" uid="uid://cgcnm52koexoc" path="res://models/lab/skab.blend" id="7_tegee"]
 [ext_resource type="PackedScene" uid="uid://ktk3iurioob7" path="res://models/lab/dispenser.tscn" id="7_v7otv"]
+[ext_resource type="PackedScene" uid="uid://ln6clmj73paf" path="res://models/lab/closet.blend" id="8_aa4bv"]
 [ext_resource type="PackedScene" uid="uid://dtulixf8pehvh" path="res://src/objects/conical_flask/conical_flask.tscn" id="8_v7otv"]
+[ext_resource type="PackedScene" uid="uid://b5f8ci487dhee" path="res://models/table/table.blend" id="9_3ilhv"]
+[ext_resource type="PackedScene" uid="uid://c8lyy2w64yscr" path="res://models/props/not_ikea.blend" id="10_3ilhv"]
+[ext_resource type="PackedScene" uid="uid://bw7r6dx02fwd0" path="res://models/props/tavle.blend" id="11_y4i6o"]
+[ext_resource type="PackedScene" uid="uid://c6ufe26dfcnkd" path="res://models/celling_lamp/celling_lamp_orange.blend" id="12_t6lu4"]
+[ext_resource type="PackedScene" uid="uid://c0lvwebmrfgq" path="res://models/celling_lamp/book.blend" id="13_5dx31"]
+[ext_resource type="PackedScene" uid="uid://cpqs5sqyxtqe5" path="res://models/celling_lamp/book1.blend" id="14_xju3q"]
+[ext_resource type="PackedScene" uid="uid://clxxe7rktb52x" path="res://models/celling_lamp/poster.blend" id="15_0bsud"]
+[ext_resource type="PackedScene" uid="uid://dfn1fsf0bhmot" path="res://models/celling_lamp/poster1.blend" id="16_mjutr"]
+[ext_resource type="PackedScene" uid="uid://bopd7itux4bu7" path="res://models/celling_lamp/poster2.blend" id="17_nnq52"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_lxi0y"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -36,13 +46,14 @@ light_energy = 0.1
 shadow_enabled = true
 
 [node name="Character" parent="." instance=ExtResource("1_glioh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 14.0282, 0)
 
 [node name="gray_box" parent="." instance=ExtResource("2_e8au3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.76689, 0)
-visible = false
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.09895, 0)
 
 [node name="lab" parent="." instance=ExtResource("3_e8au3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0861596, -0.0389827, 0.0108844)
+visible = false
 
 [node name="celling_lamp" parent="." instance=ExtResource("4_lxi0y")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.996905, 4094.09, -1.0762)
@@ -62,3 +73,73 @@ substance_name = "Redamin"
 
 [node name="Dispenser" parent="." instance=ExtResource("7_v7otv")]
 transform = Transform3D(0.0109446, 0, -0.584898, 0, 0.585, 0, 0.584898, 0, 0.0109446, 0, -1.13525, -5.76705)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 24.4276, 0)
+light_color = Color(0.793697, 0.527065, 0.231178, 1)
+light_energy = 2.455
+omni_range = 26.39
+omni_attenuation = -0.143
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.1817, 21.193, 0)
+light_color = Color(0.283769, 0.617758, 0.899264, 1)
+light_energy = 2.455
+omni_range = 26.39
+omni_attenuation = -0.143
+
+[node name="closet" parent="." instance=ExtResource("8_aa4bv")]
+transform = Transform3D(0.305732, 0, -0.77164, 0, 0.83, 0, 0.77164, 0, 0.305732, -5.24063, 14.745, -10.2218)
+
+[node name="table" parent="." instance=ExtResource("9_3ilhv")]
+transform = Transform3D(0.0320253, 0, 0.804363, 0, 0.805, 0, -0.804363, 0, 0.0320253, -17.8009, 13.5577, 0.395025)
+
+[node name="table2" parent="." instance=ExtResource("9_3ilhv")]
+transform = Transform3D(-0.805, 0, -7.03753e-08, 0, 0.805, 0, 7.03753e-08, 0, -0.805, -14.0742, 13.5577, -8.63472)
+
+[node name="ConicalFlask3" parent="." instance=ExtResource("8_v7otv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5318, 15.6357, 13.573)
+color = Vector3(0, 0, 1)
+substance_name = "Redamin"
+
+[node name="celling_lamp2" parent="." instance=ExtResource("4_lxi0y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.8587, 18.5005, 0)
+
+[node name="not_ikea" parent="." instance=ExtResource("10_3ilhv")]
+transform = Transform3D(-0.00145082, 0, 0.664998, 0, 0.665, 0, -0.664998, 0, -0.00145082, -11.187, 14.1733, 13.5897)
+
+[node name="table3" parent="." instance=ExtResource("9_3ilhv")]
+transform = Transform3D(-0.647936, 0, -0.0107781, 0, 0.648025, 0, 0.0107781, 0, -0.647936, -16.2222, 13.786, 13.5057)
+
+[node name="tavle" parent="." instance=ExtResource("11_y4i6o")]
+transform = Transform3D(-0.53, 0, 4.63341e-08, 0, 0.53, 0, -4.63341e-08, 0, -0.53, -10.4698, 16.4224, 5.91925)
+
+[node name="celling_lamp_orange" parent="." instance=ExtResource("12_t6lu4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.113888, 18.2164, 0.0020895)
+
+[node name="tavle2" parent="." instance=ExtResource("11_y4i6o")]
+transform = Transform3D(-0.53, 0, 4.63341e-08, 0, 0.53, 0, -4.63341e-08, 0, -0.53, -10.4698, 16.791, -5.83837)
+
+[node name="not_ikea2" parent="." instance=ExtResource("10_3ilhv")]
+transform = Transform3D(-0.00145082, 0, 0.664998, 0, 0.665, 0, -0.664998, 0, -0.00145082, -19.2877, 14.0323, -9.34692)
+
+[node name="book" parent="." instance=ExtResource("13_5dx31")]
+transform = Transform3D(0.723931, 0, -0.689872, 0, 1, 0, 0.689872, 0, 0.723931, -16.6224, 14.7825, -8.28483)
+
+[node name="book1" parent="." instance=ExtResource("14_xju3q")]
+transform = Transform3D(0.86714, 0, -0.498064, 0, 1, 0, 0.498064, 0, 0.86714, -16.5564, 15.0985, -8.15126)
+
+[node name="poster" parent="." instance=ExtResource("15_0bsud")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -14.0981, 16.0574, -9.46368)
+
+[node name="poster1" parent="." instance=ExtResource("16_mjutr")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -15.9371, 15.9984, 14.3217)
+
+[node name="poster2" parent="." instance=ExtResource("15_0bsud")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.505, 15.4148, 4.9955)
+
+[node name="poster3" parent="." instance=ExtResource("17_nnq52")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -26.4465, 15.6366, 8.45909)
+
+[node name="closet2" parent="." instance=ExtResource("8_aa4bv")]
+transform = Transform3D(-3.0598e-08, 0, 0.7, 0, 0.7, 0, -0.7, 0, -3.0598e-08, -23.7928, 14.4531, 13.3822)
