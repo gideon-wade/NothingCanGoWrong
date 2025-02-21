@@ -13,15 +13,16 @@ size = Vector3(3.59485, 5.78815, 4.38193)
 
 [node name="Dispenser" type="Node3D"]
 script = ExtResource("1_w6q7u")
+conical_flask_name_dispensed = "Cadrulium"
 
 [node name="DispenserButton" type="StaticBody3D" parent="."]
 script = ExtResource("2_7qyiq")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="DispenserButton"]
+[node name="ButtonCollisionShape" type="CollisionShape3D" parent="DispenserButton"]
 transform = Transform3D(-3.0598e-08, -0.7, 0, 0.7, -3.0598e-08, 0, 0, 0, 0.7, 2.68658, 0.565241, -2.18482)
 shape = SubResource("CylinderShape3D_w6q7u")
 
-[node name="button" parent="DispenserButton/CollisionShape3D" instance=ExtResource("3_7qyiq")]
+[node name="button" parent="DispenserButton/ButtonCollisionShape" instance=ExtResource("3_7qyiq")]
 transform = Transform3D(5.4591e-16, 0.285714, -1.2489e-08, 1.2489e-08, -1.2489e-08, -0.285714, -0.285714, 0, -1.2489e-08, -0.100101, 0.588219, 0.0107613)
 
 [node name="DinspenserBox" type="StaticBody3D" parent="."]
