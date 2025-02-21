@@ -158,4 +158,6 @@ conical_flask_name_dispensed = "Redamin"
 [node name="door" parent="." instance=ExtResource("8_aa4bv")]
 transform = Transform3D(-0.68766, 0, 0.347274, 0, 0.695, 0, -0.299374, 0, -0.797685, -6.10419, 0, -1.90016)
 
+[node name="Cube" parent="door" index="2"]
+
 [editable path="door"]
