@@ -13,7 +13,8 @@ extends CharacterBody3D
 var left_hand_object : RigidBody3D
 var right_hand_object : RigidBody3D
 @export var pull_power := 25.0
-
+@onready var player_sounds: AudioStreamPlayer3D = $PlayerSounds
+var rng = RandomNumberGenerator.new()
 
 var is_pouring := false
 var falling := false
@@ -153,6 +154,13 @@ func explosion_push_player(push: Vector3) -> void:
 		right_hand_object.apply_impulse(push / 3.0)
 		right_hand_object.get_node("CollisionShape3D").disabled = false
 		right_hand_object = null
+	player_sounds.stream = preload("res://src/audio/scientist_die_2.mp3")
+	player_sounds.set_pitch_scale(rng.randf_range(0.9, 1.1))
+	$Timer.wait_time = 1.2
+	$Timer.one_shot = true
+	$Timer.start()
+	await $Timer.timeout
+	player_sounds.play()
 	$Respawn.start()
 
 func _check_interactability() -> void:

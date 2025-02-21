@@ -61,8 +61,12 @@ stream = ExtResource("2_2p3op")
 volume_db = -30.0
 autoplay = true
 
+[node name="PlayerSounds" type="AudioStreamPlayer3D" parent="."]
+
 [node name="Respawn" type="Timer" parent="."]
-wait_time = 4.0
+wait_time = 2.8
 one_shot = true
+
+[node name="Timer" type="Timer" parent="."]
 
 [connection signal="timeout" from="Respawn" to="." method="_on_respawn_timeout"]
