@@ -182,6 +182,7 @@ func explosion_push_player(push: Vector3) -> void:
 		right_hand_object = null
 	player_sounds.stream = preload("res://src/audio/scientist_die_2.mp3")
 	player_sounds.set_pitch_scale(rng.randf_range(0.9, 1.1))
+	camera.camera_shake()
 	$Timer.wait_time = 1.2
 	$Timer.one_shot = true
 	$Timer.start()

@@ -1,5 +1,6 @@
 extends Node
 
+var explosion_scene := preload("res://explosion.tscn")
 var interactable = [ConicalFlask, ClipBoard]
 
 var recipies = {
@@ -52,4 +53,7 @@ func mix(substance1: String, substance2: String, flask: ConicalFlask, position :
 		flask.set_color()
 	else:
 		flask.queue_free()
-		fail.emit(position)
+		#fail.emit(position)
+		var explosion = explosion_scene.instantiate()
+		explosion.position = position
+		self.add_child(explosion)
