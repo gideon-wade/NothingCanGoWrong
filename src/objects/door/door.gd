@@ -8,5 +8,5 @@ func _ready():
 
 func open_door(body):
 	var tween := create_tween()
-	tween.tween_property(door, "global_position",Vector3(door.global_position.x,door.global_position.y + 5.0, door.global_position.z) ,3)
+	tween.tween_property(door, "global_position",Vector3(door.global_position.x,door.global_position.y - 5.0, door.global_position.z) ,3)
 	tween.set_trans(Tween.TRANS_QUAD)

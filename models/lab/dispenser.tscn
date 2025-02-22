@@ -12,6 +12,7 @@ height = 0.583984
 size = Vector3(2.22852, 2.29541, 3.53668)
 
 [node name="Dispenser" type="Node3D"]
+transform = Transform3D(0.585, 0, 0, 0, 0.585, 0, 0, 0, 0.585, 0, 0, 0)
 script = ExtResource("1_w6q7u")
 conical_flask_name_dispensed = "Cadrulium"
 
