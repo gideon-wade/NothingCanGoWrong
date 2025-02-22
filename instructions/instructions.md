@@ -13,11 +13,11 @@ mix limly with Cacticum. REMEMBER THE CORRECT ORDER! This will create the compou
 ## Level 2
 #### 1
 Note #1: 
-Combine Oceamid and Redamin. The resulting substance should be Grass Juice.n
+Combine Oceamid and Redamin. The resulting substance should be Grass Juice.
 
 #### 2
 Note #2:
-Now, mix Grass Juice with Applumid. The final product should be Cadrulium.
+Now, mix Grass Juice with Applumid. The product should be Cadrulium.
 
 #### 3
 Note #3:

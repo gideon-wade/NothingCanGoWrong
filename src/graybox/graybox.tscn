@@ -175,7 +175,7 @@ vertical_alignment = 0
 
 [node name="ClipBoard3" parent="." instance=ExtResource("20_sfaeg")]
 transform = Transform3D(-0.0442069, 0.991167, -0.125038, 0.489501, 0.130596, 0.862168, 0.870881, -0.0230924, -0.49095, -9.71195, 13.8891, 15.6973)
-text = "mix limly with Cacticum. REMEMBER THE CORRECT ORDER! This will create the compound Applumid"
+text = "mix Limly with Cacticum-4. REMEMBER THE CORRECT ORDER! This will create the compound Applumid"
 
 [node name="ClipBoard" parent="." instance=ExtResource("20_sfaeg")]
 transform = Transform3D(-0.0166791, 0.107827, 0.99403, 0.988247, 0.152865, 0, -0.151952, 0.982347, -0.10911, -1.36306, 15.3676, 27.2238)
@@ -229,11 +229,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 14.8219, 0)
 
 [node name="ClipBoard3" parent="Node3D2" instance=ExtResource("20_sfaeg")]
 transform = Transform3D(0.0868428, 0, 0.996222, 0.6442, 0.762793, -0.0561563, -0.759911, 0.646643, 0.066243, -3.86984, 0.597001, 8.33595)
-text = "Note #1: Combine Oceamid and Redamin. The resulting substance should be Grass Juice.n"
+text = "Note #1: Combine Oceamid and Redamin. The resulting substance should be Grass Juice."
 
 [node name="ClipBoard5" parent="Node3D2" instance=ExtResource("20_sfaeg")]
 transform = Transform3D(-0.262593, -0.034937, -0.964274, 0.324266, 0.938028, -0.122291, 0.908788, -0.344794, -0.234991, -0.352143, 0.682408, -10.5173)
-text = "Now, mix Grass Juice with Applumid. The final product should be Cadrulium."
+text = "Note #2:Now, mix Grass Juice with Applumid. The final product should be Cadrulium."
 
 [node name="ClipBoard4" parent="Node3D2" instance=ExtResource("20_sfaeg")]
 transform = Transform3D(-0.22575, 0, 0.974185, 0.287831, 0.955356, 0.0666997, -0.930693, 0.295458, -0.215672, 8.71909, -0.894859, -8.71859)
@@ -312,7 +312,7 @@ transform = Transform3D(-0.161587, 0.986859, 0, -0.986859, -0.161587, 0, 0, 0, 1
 text = "Note #7:Now, mix Laudle with Oxofizz. The final product will be a yellow fizzy liquid."
 
 [node name="ClipBoard6" parent="Node3D3" instance=ExtResource("20_sfaeg")]
-transform = Transform3D(-0.031812, 0.999494, 0, -0.999494, -0.031812, 0, 0, 0, 1, -13.1284, 1.83847, -6.98574)
+transform = Transform3D(0.0484837, -0.998824, 0, 0.998824, 0.0484837, 0, 0, 0, 1, -13.1284, 1.83847, -6.98574)
 text = "Note #8:Take the two yellow liquids and combine them. This should result in Tonicum. "
 
 [node name="ClipBoard7" parent="Node3D3" instance=ExtResource("20_sfaeg")]
