@@ -25,7 +25,7 @@ var recipies = {
 
 var colors = {
 	#Tutorial
-	"Lime": Vector3(0, 200/256, 1),
+	"Lime": Vector3(0, 200/256.0, 0),
 	"Sepirium": Vector3(240/256.0, 240/256.0, 240/256.0),
 	"Cactus Water": Vector3(0, 100/256.0, 0),
 	#Lvl 1
