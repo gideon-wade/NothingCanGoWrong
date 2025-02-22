@@ -1,12 +1,10 @@
-[gd_scene load_steps=26 format=3 uid="uid://gglv8w0xmrbi"]
+[gd_scene load_steps=24 format=3 uid="uid://gglv8w0xmrbi"]
 
 [ext_resource type="PackedScene" uid="uid://c7bmc5dgethv6" path="res://src/character/character.tscn" id="1_glioh"]
 [ext_resource type="PackedScene" uid="uid://dvc73tcpw6x46" path="res://models/graybox/gray_box.blend" id="2_e8au3"]
 [ext_resource type="PackedScene" uid="uid://dlufy3467u62w" path="res://models/lab/lab.blend" id="3_e8au3"]
 [ext_resource type="PackedScene" uid="uid://dxma1i67q3ydl" path="res://models/celling_lamp/celling_lamp.blend" id="4_lxi0y"]
-[ext_resource type="PackedScene" uid="uid://cgcnm52koexoc" path="res://models/lab/skab.blend" id="7_tegee"]
 [ext_resource type="PackedScene" uid="uid://ktk3iurioob7" path="res://models/lab/dispenser.tscn" id="7_v7otv"]
-[ext_resource type="PackedScene" uid="uid://ln6clmj73paf" path="res://models/lab/closet.blend" id="8_aa4bv"]
 [ext_resource type="PackedScene" uid="uid://b5f8ci487dhee" path="res://models/table/table.blend" id="9_3ilhv"]
 [ext_resource type="PackedScene" uid="uid://c8lyy2w64yscr" path="res://models/props/not_ikea.blend" id="10_3ilhv"]
 [ext_resource type="FontFile" uid="uid://ccg03ihwmaw18" path="res://src/font/chalk_font.ttf" id="11_sfaeg"]
@@ -62,9 +60,6 @@ visible = false
 
 [node name="celling_lamp" parent="." instance=ExtResource("4_lxi0y")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.996905, 4094.09, -1.0762)
-
-[node name="skab" parent="." instance=ExtResource("7_tegee")]
-transform = Transform3D(-0.0211724, 0, 0.579613, 0, 0.58, 0, -0.579613, 0, -0.0211724, -2.97541, -1.7842, 4.45263)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 24.4276, 0)
@@ -131,28 +126,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.505, 15.4148, 4.9955)
 [node name="poster3" parent="." instance=ExtResource("17_nnq52")]
 transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -26.4465, 15.6366, 8.45909)
 
-[node name="closet2" parent="." instance=ExtResource("8_aa4bv")]
-transform = Transform3D(-3.0598e-08, 0, 0.7, 0, 0.7, 0, -0.7, 0, -3.0598e-08, -23.7928, 14.4531, 13.3822)
-
-[node name="Dispenser2" parent="." instance=ExtResource("7_v7otv")]
-transform = Transform3D(-0.0385257, 0, -0.584504, 0, 0.585772, 0, 0.584504, 0, -0.0385257, -15.553, -0.0964953, -9.22904)
-conical_flask_name_dispensed = "Apple Juice"
-
 [node name="Dispenser5" parent="." instance=ExtResource("7_v7otv")]
 transform = Transform3D(-0.584928, 0, -0.0092295, 0, 0.585, 0, 0.0092295, 0, -0.584928, 9.38081, 14.3169, 15.5053)
 conical_flask_name_dispensed = "Sepirium"
 
-[node name="Dispenser3" parent="." instance=ExtResource("7_v7otv")]
-transform = Transform3D(0.0563443, 0, 0.582281, 0, 0.585, 0, -0.582281, 0, 0.0563443, -15.553, -0.0964953, 3.2701)
-conical_flask_name_dispensed = "Redamin"
-
 [node name="Drain" parent="." instance=ExtResource("18_ckmhc")]
 transform = Transform3D(0.62, 0, 0, 0, 0.62, 0, 0, 0, 0.62, -9.52485, 14.7978, 3.68578)
-activate_chemical = "Applumid"
+activate_chemical = "Laudle"
 
 [node name="Door" parent="." instance=ExtResource("19_qmtx8")]
 transform = Transform3D(0.99, 0, 0, 0, 1.2, 0, 0, 0, 0.99, -10.2279, 15.2773, 0.244098)
-activate_on = "Applumid"
+activate_on = "Laudle"
 
 [node name="Door2" parent="." instance=ExtResource("19_qmtx8")]
 transform = Transform3D(-4.37114e-08, 0, 0.982959, 0, 1.17967, 0, -1, 0, -4.29665e-08, -0.145983, 15.2629, 14.228)
@@ -182,12 +166,16 @@ text = "Controls:
  ∘ALT to capture mouse
  ∘left click to hold item in left hand and vise vers-
 a for other hand
- ∘press 'F' to pour 
+ ∘press 'F' to pour and zoom in
 
 "
 font_size = 92
 horizontal_alignment = 0
 vertical_alignment = 0
+
+[node name="ClipBoard3" parent="." instance=ExtResource("20_sfaeg")]
+transform = Transform3D(-0.0442069, 0.991167, -0.125038, 0.489501, 0.130596, 0.862168, 0.870881, -0.0230924, -0.49095, -9.71195, 13.8891, 15.6973)
+text = "mix limly with Cacticum. REMEMBER THE CORRECT ORDER! This will create the compound Applumid"
 
 [node name="ClipBoard" parent="." instance=ExtResource("20_sfaeg")]
 transform = Transform3D(-0.0166791, 0.107827, 0.99403, 0.988247, 0.152865, 0, -0.151952, 0.982347, -0.10911, -1.36306, 15.3676, 27.2238)
@@ -230,7 +218,7 @@ transform = Transform3D(-5.85748e-09, -0.641, 1.71444e-08, -0.506997, -5.85747e-
 
 [node name="ClipBoard2" parent="." instance=ExtResource("20_sfaeg")]
 transform = Transform3D(-0.0224779, 0, 0.999747, 0.36821, 0.929706, 0.00827869, -0.929471, 0.368303, -0.0208979, -9.79152, 15.2967, 16.8941)
-text = "In this room there are dispensers for two chemicals, limly and Sepirium. To proced to the next room please combine them in a 2/1 ratio. REMEMBER THE CORRECT ORDER! This will create the compound Applumid"
+text = "In this room there are dispensers for two chemicals, limly and Sepirium. To proced to the next room mix them. This will result in Cacticum-4"
 
 [node name="Dispenser4" parent="." instance=ExtResource("7_v7otv")]
 transform = Transform3D(0.413657, 0, 0.413657, 0, 0.585, 0, -0.413657, 0, 0.413657, -8.32727, 14.2798, 13.0139)
@@ -307,3 +295,33 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -10.06
 
 [node name="poster10" parent="." instance=ExtResource("15_0bsud")]
 transform = Transform3D(-0.314838, 0, 0.949146, 0, 1, 0, -0.949146, 0, -0.314838, 4.74521, 16.4771, -14.2378)
+
+[node name="Dispenser7" parent="." instance=ExtResource("7_v7otv")]
+transform = Transform3D(-2.55712e-08, 0, 0.585, 0, 0.585, 0, -0.585, 0, -2.55712e-08, -24.097, 14.3007, 13.6481)
+conical_flask_name_dispensed = "Oxofizz"
+
+[node name="Node3D3" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.7772, 13.8706, 4.67727)
+
+[node name="ClipBoard4" parent="Node3D3" instance=ExtResource("20_sfaeg")]
+transform = Transform3D(0.958028, 0.286675, 0, -0.286675, 0.958028, 0, 0, 0, 1, -6.44107, 0, -13.0662)
+text = "Note #6:Mix Laudle with the pink liquid. This will create a gray substance."
+
+[node name="ClipBoard5" parent="Node3D3" instance=ExtResource("20_sfaeg")]
+transform = Transform3D(-0.161587, 0.986859, 0, -0.986859, -0.161587, 0, 0, 0, 1, -6.5307, 1.03241, -4.3245)
+text = "Note #7:Now, mix Laudle with Oxofizz. The final product will be a yellow fizzy liquid."
+
+[node name="ClipBoard6" parent="Node3D3" instance=ExtResource("20_sfaeg")]
+transform = Transform3D(-0.031812, 0.999494, 0, -0.999494, -0.031812, 0, 0, 0, 1, -13.1284, 1.83847, -6.98574)
+text = "Note #8:Take the two yellow liquids and combine them. This should result in Tonicum. "
+
+[node name="ClipBoard7" parent="Node3D3" instance=ExtResource("20_sfaeg")]
+transform = Transform3D(0.908172, 0.418596, 0, -0.418596, 0.908172, 0, 0, 0, 1, -0.308701, 0.199025, 8.83104)
+text = "Note #9:Mix Cacticum-4 with the gray. This will produce Jamol."
+
+[node name="ClipBoard8" parent="Node3D3" instance=ExtResource("20_sfaeg")]
+transform = Transform3D(0.00102407, -0.64479, -0.764359, 0.999999, 0.00158823, 0, 0.00121397, -0.764358, 0.644791, -7.82746, 0, 4.69372)
+text = "Note #10:Finally, mix Tonicum with Jamol. If done correctly, you will obtain Water—the key to your escape!"
+
+[node name="table14" parent="." instance=ExtResource("9_3ilhv")]
+transform = Transform3D(0.0320253, 0, 0.804363, 0, 0.805, 0, -0.804363, 0, 0.0320253, -25.3544, 13.5577, -3.00032)

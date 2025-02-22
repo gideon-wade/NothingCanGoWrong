@@ -20,7 +20,7 @@ var is_pouring := false
 var falling := false
 var mouse_captured := true
 const SPEED = 5.0
-const JUMP_VELOCITY = 4.5
+const JUMP_VELOCITY = 5
 const THROW_SPEED = 15
 var current_collider
 

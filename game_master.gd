@@ -16,10 +16,10 @@ var recipies = {
 	"Princiade,Oceamid": "Dracula's Blood",
 	"Dracula's Blood,Applumid": "Laudle",
 	#Lvl 2
-	"Laudle,Liquid Stone": "Washing Liquid",
-	"Laudle,Orange Juice": "Cider",
-	"Washing Liquid,Cider": "Tonic",
-	"Liquid Stone,Orange Juice": "Jam",
+	"Laudle,Princiade": "Washing Liquid",
+	"Laudle,Oxofizz": "Cider",
+	"Applumid,Cider": "Tonic",
+	"Caticum-4,Washing Liquid": "Jam",
 	"Tonic,Jam": "Water",
 }
 
@@ -38,8 +38,8 @@ var colors = {
 	"Dracula's Blood": Vector3(150/256.0, 0, 0),
 	"Laudle": Vector3(150/256.0, 1, 150/256.0),
 	#Lvl 2
-	"Liquid Stone": Vector3(0, 0, 0),
-	"Orange Juice": Vector3(232/256.0, 100/256.0, 0),
+	#"Liquid Stone": Vector3(0, 0, 0),
+	"Oxofizz": Vector3(232/256.0, 100/256.0, 0),
 	"Washing Liquid": Vector3(140/256.0, 140/256.0, 140/256.0),
 	"Cider": Vector3(75/256.0, 200/256.0, 0),
 	"Tonic": Vector3(244/256.0, 252/256.0, 136/256.0),
@@ -62,7 +62,7 @@ var substance_glow = {
 	"Laudle": 0.6,
 	#Lvl 2
 	"Liquid Stone": 0.1,
-	"Orange Juice": 0.1,
+	"Oxofizz": 0.1,
 	"Washing Liquid": 0.4,
 	"Cider": 0.5,
 	"Tonic": 0.3,
@@ -85,7 +85,7 @@ var substance_bubbles = {
 	"Laudle": true,
 	#Lvl 2
 	"Liquid Stone": false,
-	"Orange Juice": false,
+	"Oxofizz": false,
 	"Washing Liquid": false,
 	"Cider": true,
 	"Tonic": true,
