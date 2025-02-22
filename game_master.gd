@@ -96,16 +96,8 @@ var substance_bubbles = {
 
 var main_scene
 
-signal conical_changed(color_change : String)
-
 func _ready():
 	drain_poured.connect(_on_drained_poured)
-
-func new_substance_color(hexcode : String) -> void:
-	conical_changed.emit(hexcode)
-
-func task_complete(id : int) -> void:
-	main_scene.task_complete(id)
 
 func mix(substance1: String, substance2: String, flask: ConicalFlask, position : Vector3) -> void:
 	var comb1 = recipies.get(substance1+","+substance2, "fail")

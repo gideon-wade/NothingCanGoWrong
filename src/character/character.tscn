@@ -59,7 +59,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_8mo58")
 
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+[node name="Music" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("2_2p3op")
 volume_db = -30.0
 autoplay = true

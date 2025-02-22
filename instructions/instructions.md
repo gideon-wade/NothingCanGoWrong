@@ -2,13 +2,14 @@
 ## Tutorial:
 
 #### 0
-Greatings Test subject #10e10. If you are reading this it means your brain most be in working order again. I have locked in this facility. To get out you have to synthesise the final ingrendent for my plans, however be careful all the chemical compounds are highly reactive. I have scattered my notes around use them to figure it out the recipies. 
-
+Greetings, Test Subject #10E10. If you are reading this, it means your brain must be in working order again. I have locked you in this facility. To get out, you have to synthesize the final ingredient for my plans. However, be careful—all the chemical compounds are highly reactive. I have scattered my notes around; use them to figure out the recipes.
 #### 1
-In this room there are dispensers for two chemicals, limly and Sepirium. To proced to the next room mix them. This will result in Cacticum-4
+Note #1:
+In this room, there are dispensers for two chemicals, Limyl and Sepirium. To proceed to the next room, combine them in a 2:1 ratio. REMEMBER THE CORRECT ORDER! This will create the compound Cacticum-4.
 
 #### 2
-mix limly with Cacticum. REMEMBER THE CORRECT ORDER! This will create the compound Applumid
+Note #2:
+Now, mix Limyl with Cacticum-4. If done correctly, you should obtain Applumid. Move to the next section.
 
 ## Level 2
 #### 1

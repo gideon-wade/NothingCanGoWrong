@@ -130,10 +130,13 @@ func _physics_process(delta):
 		else:
 			base_velocity.x = move_toward(velocity.x, 0, SPEED)
 			base_velocity.z = move_toward(velocity.z, 0, SPEED)
-		
-			
 		velocity.x = base_velocity.x
 		velocity.z = base_velocity.z
+		if !player_sounds.is_playing() and (velocity.x > 0.0 or velocity.z > 0.0):
+			player_sounds.stream = preload("res://src/audio/Walk_inside_2.mp3")
+			player_sounds.play()
+		if (velocity.x == 0.0 and velocity.z == 0.0):
+			player_sounds.stop()
 	else:
 		if is_on_floor() and falling:
 			velocity = Vector3(0, 0, 0)
