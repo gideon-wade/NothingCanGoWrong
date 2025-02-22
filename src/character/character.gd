@@ -18,6 +18,7 @@ var rng = RandomNumberGenerator.new()
 
 var is_pouring := false
 var falling := false
+var rise := false
 var mouse_captured := true
 const SPEED = 5.0
 const JUMP_VELOCITY = 5
@@ -138,9 +139,18 @@ func _physics_process(delta):
 		if (velocity.x == 0.0 and velocity.z == 0.0):
 			player_sounds.stop()
 	else:
-		if is_on_floor() and falling:
-			velocity = Vector3(0, 0, 0)
-			rotation.z = clamp(rotation.z-0.05, -1.6, 0)
+		if is_on_floor():
+			if falling:
+				velocity = Vector3(0, 0, 0)
+				rotation.z = clamp(rotation.z-0.05, -1.6, 0)
+			elif rise:
+				rotation.z = clamp(rotation.z+0.05, -1.6, 0)
+				if rotation.z == 0:
+					is_pouring = false
+					falling = false
+					rise = false
+					is_alive = true
+					
 		elif not is_on_floor():
 			falling = true
 			velocity *= 0.975
@@ -196,7 +206,6 @@ func handle_hand(hand: int):
 				right_hand_object = collider
 			
 func explosion_push_player(push: Vector3) -> void:
-	print_orphan_nodes()
 	velocity = push
 	is_alive = false
 	falling = false
@@ -246,4 +255,10 @@ func _check_interactability() -> void:
 		current_collider = new_collider
 
 func _on_respawn_timeout() -> void:
-	get_tree().reload_current_scene()
+	rise = true
+	falling = false
+	$Timer.wait_time = 1.2
+	$Timer.one_shot = true
+	$Timer.start()
+	await $Timer.timeout
+		
