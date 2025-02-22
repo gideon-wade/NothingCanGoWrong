@@ -21,6 +21,7 @@ var falling := false
 var mouse_captured := true
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
+const THROW_SPEED = 15
 var current_collider
 
 
@@ -31,7 +32,7 @@ var is_alive : bool = true
 var push_decay: float = 5.0
 
 func _ready():
-	print_orphan_nodes()
+	interation.add_exception(self)
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
 func _input(event: InputEvent):
@@ -81,6 +82,10 @@ func _physics_process(delta):
 		if is_pouring and left_hand_object is ConicalFlask:
 			object.rotation = Vector3(0,self.rotation.y,-2.1)
 			left_hand_object.glass_rigid.material_overlay.set_shader_parameter("fill_amount", 0.65)
+		elif is_pouring and left_hand_object is ClipBoard:
+			object.rotate_y(-PI/8)
+			b += camera.get_global_transform().basis.z * 0.6 + camera.get_global_transform().basis.x * 0.3
+			object.set_linear_velocity((b-a)*pull_power)
 		#else:
 		#	
 	if right_hand_object != null:
@@ -101,6 +106,10 @@ func _physics_process(delta):
 		if is_pouring and right_hand_object is ConicalFlask:
 			object.rotation = Vector3(0,self.rotation.y,2.1)
 			right_hand_object.glass_rigid.material_overlay.set_shader_parameter("fill_amount", 0.65)
+		elif is_pouring and right_hand_object is ClipBoard:
+			object.rotate_y(PI/8)
+			b += camera.get_global_transform().basis.z * 0.6 - camera.get_global_transform().basis.x * 0.3
+			object.set_linear_velocity((b-a)*pull_power)
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -140,12 +149,14 @@ func handle_hand(hand: int):
 	var collider = interation.get_collider()
 	if hand == LEFT:
 		if left_hand_object != null:
-			if Input.get_action_strength("throw"):
-				left_hand_object.body.linear_velocity = camera.get_global_transform().basis.z * -50
 			if left_hand_object is ConicalFlask:
+				if Input.get_action_strength("throw"):
+					left_hand_object.body.linear_velocity = camera.get_global_transform().basis.z * -THROW_SPEED
 				left_hand_object.body.linear_velocity *= 0.5
 				left_hand_object.body.get_node("CollisionShape3D").disabled = false
 			else:
+				if Input.get_action_strength("throw"):
+					left_hand_object.linear_velocity = camera.get_global_transform().basis.z * -THROW_SPEED
 				left_hand_object.linear_velocity *= 0.5
 				left_hand_object.get_node("CollisionShape3D").disabled = false
 			left_hand_object = null
@@ -160,15 +171,19 @@ func handle_hand(hand: int):
 				left_hand_object = collider
 	elif hand == RIGHT:
 		if right_hand_object != null:
-			if Input.get_action_strength("throw"):
-				right_hand_object.body.linear_velocity = camera.get_global_transform().basis.z * -50
 			if right_hand_object is ConicalFlask:
+				if Input.get_action_strength("throw"):
+					right_hand_object.body.linear_velocity = camera.get_global_transform().basis.z * -THROW_SPEED
 				right_hand_object.body.linear_velocity *= 0.5
 				right_hand_object.body.get_node("CollisionShape3D").disabled = false
 			else:
+				if Input.get_action_strength("throw"):
+					right_hand_object.linear_velocity = camera.get_global_transform().basis.z * -THROW_SPEED
 				right_hand_object.linear_velocity *= 0.5
 				right_hand_object.get_node("CollisionShape3D").disabled = false
 			right_hand_object = null
+		elif collider != null and collider.has_node("ButtonCollisionShape"):
+			collider.get_parent().spawn_conical_flask()
 		elif collider != null and collider is RigidBody3D:
 			collider.get_node("CollisionShape3D").disabled = true
 			await get_tree().create_timer(0.01).timeout
