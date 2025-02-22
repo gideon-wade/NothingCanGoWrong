@@ -82,6 +82,10 @@ func _physics_process(delta):
 		if is_pouring and left_hand_object is ConicalFlask:
 			object.rotation = Vector3(0,self.rotation.y,-2.1)
 			left_hand_object.glass_rigid.material_overlay.set_shader_parameter("fill_amount", 0.65)
+		elif is_pouring and left_hand_object is ClipBoard:
+			object.rotate_y(-PI/8)
+			b += camera.get_global_transform().basis.z * 0.6 + camera.get_global_transform().basis.x * 0.3
+			object.set_linear_velocity((b-a)*pull_power)
 		#else:
 		#	
 	if right_hand_object != null:
@@ -102,6 +106,10 @@ func _physics_process(delta):
 		if is_pouring and right_hand_object is ConicalFlask:
 			object.rotation = Vector3(0,self.rotation.y,2.1)
 			right_hand_object.glass_rigid.material_overlay.set_shader_parameter("fill_amount", 0.65)
+		elif is_pouring and right_hand_object is ClipBoard:
+			object.rotate_y(PI/8)
+			b += camera.get_global_transform().basis.z * 0.6 - camera.get_global_transform().basis.x * 0.3
+			object.set_linear_velocity((b-a)*pull_power)
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -174,6 +182,8 @@ func handle_hand(hand: int):
 				right_hand_object.linear_velocity *= 0.5
 				right_hand_object.get_node("CollisionShape3D").disabled = false
 			right_hand_object = null
+		elif collider != null and collider.has_node("ButtonCollisionShape"):
+			collider.get_parent().spawn_conical_flask()
 		elif collider != null and collider is RigidBody3D:
 			collider.get_node("CollisionShape3D").disabled = true
 			await get_tree().create_timer(0.01).timeout
