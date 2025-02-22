@@ -6,7 +6,6 @@ signal opening
 #@onready var button: Node3D = $DispenserButton/ButtonCollisionShape
 @onready var closet: Node3D = $closet
 @onready var door : Node3D = $closet/Plane
-var is_open := false
 @onready var original_value = door.global_position
 const OBJECT_OUTLINER = preload("res://models/textures/object_outliner.tres")
 const CONICAL_FLASK = preload("res://src/objects/conical_flask/conical_flask.tscn")
@@ -29,7 +28,6 @@ func spawn_conical_flask() -> void:
 	if number_of_flasks >= MAX_FLASKS:
 		return
 	
-	var is_open = true
 	var tween = create_tween()
 	tween.tween_property(door, "global_position",Vector3(original_value.x,original_value.y + 1.0, original_value.z) ,0.3)
 	tween.set_trans(Tween.TRANS_QUAD)

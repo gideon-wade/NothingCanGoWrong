@@ -73,7 +73,6 @@ var substance_glow = {
 var main_scene
 
 signal conical_changed(color_change : String)
-signal fail(fail_position : Vector3)
 
 func _ready():
 	drain_poured.connect(_on_drained_poured)

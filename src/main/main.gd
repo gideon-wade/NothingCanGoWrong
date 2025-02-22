@@ -16,7 +16,6 @@ func _ready() -> void:
 		scene.label.text = task.description
 		i += 1
 	GameMaster.main_scene = self
-	GameMaster.fail.connect(experiment_failed)
 
 func task_complete(id : int) -> void:
 	clipboards[id].complete_task()

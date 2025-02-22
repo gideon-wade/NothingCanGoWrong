@@ -31,9 +31,12 @@ var is_alive : bool = true
 var push_decay: float = 5.0
 
 func _ready():
+	print_orphan_nodes()
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
 func _input(event: InputEvent):
+	if not is_alive:
+		return
 	if event.is_action_pressed("showMouse"):
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		mouse_captured = false
@@ -138,7 +141,7 @@ func handle_hand(hand: int):
 	if hand == LEFT:
 		if left_hand_object != null:
 			if Input.get_action_strength("throw"):
-				left_hand_object.body.linear_velocity = camera.get_global_transform().basis.z * -20
+				left_hand_object.body.linear_velocity = camera.get_global_transform().basis.z * -50
 			if left_hand_object is ConicalFlask:
 				left_hand_object.body.linear_velocity *= 0.5
 				left_hand_object.body.get_node("CollisionShape3D").disabled = false
@@ -158,7 +161,7 @@ func handle_hand(hand: int):
 	elif hand == RIGHT:
 		if right_hand_object != null:
 			if Input.get_action_strength("throw"):
-				right_hand_object.body.linear_velocity = camera.get_global_transform().basis.z * -20
+				right_hand_object.body.linear_velocity = camera.get_global_transform().basis.z * -50
 			if right_hand_object is ConicalFlask:
 				right_hand_object.body.linear_velocity *= 0.5
 				right_hand_object.body.get_node("CollisionShape3D").disabled = false
@@ -175,6 +178,7 @@ func handle_hand(hand: int):
 				right_hand_object = collider
 			
 func explosion_push_player(push: Vector3) -> void:
+	print_orphan_nodes()
 	velocity = push
 	is_alive = false
 	falling = false
@@ -204,6 +208,8 @@ func explosion_push_player(push: Vector3) -> void:
 	$Respawn.start()
 
 func _check_interactability() -> void:
+	if not is_alive:
+		return
 	var new_collider = null
 	if interation.is_colliding():
 		new_collider = interation.get_collider()

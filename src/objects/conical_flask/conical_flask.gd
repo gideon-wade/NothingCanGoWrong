@@ -21,8 +21,8 @@ const HIT_SOUNDS = [
 	preload("res://src/audio/conical_flask/glass_colliding_5.mp3"),
 ]
 
-var liquid_scene := preload("res://src/objects/liquid/liquid.tscn")
-var liquid : GPUParticles3D
+#var liquid_scene := preload("res://src/objects/liquid/liquid.tscn")
+@onready var liquid: GPUParticles3D = $UI/Liquid
 var shader_material : ShaderMaterial = preload("res://models/liquid_materials/color_changer.tres")
 var rng = RandomNumberGenerator.new()
 
@@ -33,7 +33,7 @@ var last_mixed_with_id: int = -1  # -1 means never mixed
 var known_ids : Array = []
 
 
-var delete_me = 0
+var should_explode : bool = false
 var was_colliding : bool = false
 
 var draw_particles : bool : 
@@ -65,30 +65,16 @@ func set_color():
 		substance_glow.shadow_enabled = false
 		substance_glow.visible = true
 	
-	for child in get_children():
-		if child is GPUParticles3D:
-			remove_child(child)
-	
-	liquid = liquid_scene.instantiate().duplicate()
-	liquid.process_material = liquid.process_material.duplicate(true)
-	#liquid.global_position = body.global_position
-	$UI.add_child(liquid)
+	liquid.process_material = liquid.process_material.duplicate()
 	liquid.process_material.color = Color(color.x, color.y, color.z, 1.0)
-	liquid.visible = false
-	var liquid_glow = liquid.get_child(0)
-	liquid_glow.light_color = Color(color.x, color.y, color.z)
-	liquid_glow.light_energy = GameMaster.substance_glow[substance_name]
-	liquid_glow.omni_range = 1.0
-	liquid_glow.shadow_enabled = false
-	liquid_glow.visible = true
 	GameMaster.new_substance_color(liquid.process_material.color.to_html(false))
-	var material2 = SHADER_MATERIAL.duplicate(true)
-	var liquid_color = Color(color.x, color.y, color.z, 255)
+	var material2 = SHADER_MATERIAL.duplicate()
+	var liquid_color = Color(color.x, color.y, color.z, 1)
 	material2.set_shader_parameter("liquid_color", liquid_color)
 	material2.set_shader_parameter("foam_color", liquid_color)
 	glass_rigid.material_overlay = material2
 	
-func _physics_process(delta):
+func _physics_process(_delta):
 	$UI.global_position = body.global_position
 	$UI.global_rotation = body.global_rotation
 	# Checks collision of other Rigidbody3D
@@ -100,7 +86,7 @@ func _physics_process(delta):
 			audio.play()
 			was_colliding = true
 			if body.linear_velocity.length() > 5:
-				GameMaster.mix("FAST", "FAST", self, body.global_position)
+				should_explode = true
 	else:
 		was_colliding = false
 		
@@ -150,7 +136,9 @@ func _physics_process(delta):
 				if is_below(other_flask) and other_flask.is_facing_up():
 					GameMaster.mix(substance_name, other_flask.substance_name, other_flask, other_flask.body.global_position)
 					other_flask.show_name()
-			
+	if should_explode and not was_colliding:
+		GameMaster.mix("FAST", "FAST", self, body.global_position)
+	
 func show_name():
 	if debug_show_id:
 		label.text = substance_name
