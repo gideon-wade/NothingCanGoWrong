@@ -64,6 +64,7 @@ func _physics_process(delta):
 		var object = left_hand_object
 		if object is ConicalFlask:
 			object = object.body
+			left_hand_object.glass_rigid.material_overlay.set_shader_parameter("fill_amount", 0.5)
 		var a = object.global_transform.origin
 		var b = left_hand.global_transform.origin
 		object.set_linear_velocity((b-a)*pull_power)
@@ -72,6 +73,7 @@ func _physics_process(delta):
 		
 		if is_pouring and left_hand_object is ConicalFlask:
 			object.rotation = Vector3(0,self.rotation.y,-2.1)
+			left_hand_object.glass_rigid.material_overlay.set_shader_parameter("fill_amount", 0.65)
 		#else:
 		#	
 	if right_hand_object != null:
@@ -79,13 +81,16 @@ func _physics_process(delta):
 		var object = right_hand_object
 		if object is ConicalFlask:
 			object = object.body
+			right_hand_object.glass_rigid.material_overlay.set_shader_parameter("fill_amount", 0.5)
 		var a = object.global_transform.origin
 		var b = right_hand.global_transform.origin
 		object.set_linear_velocity((b-a)*pull_power)
 		object.look_at(camera.global_transform.origin, Vector3(0,1,0))
 		object.rotate_y(PI/4)
+		
 		if is_pouring and right_hand_object is ConicalFlask:
 			object.rotation = Vector3(0,self.rotation.y,2.1)
+			right_hand_object.glass_rigid.material_overlay.set_shader_parameter("fill_amount", 0.65)
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -159,7 +164,6 @@ func handle_hand(hand: int):
 				right_hand_object = collider.get_parent().get_parent()
 			else:
 				right_hand_object = collider
-			
 			
 func explosion_push_player(push: Vector3) -> void:
 	velocity = push
