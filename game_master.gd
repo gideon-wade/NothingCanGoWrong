@@ -1,6 +1,6 @@
 extends Node
 
-signal drain_poured(drain : StaticBody3D)
+signal drain_poured(activate_chemical : String)
 
 var explosion_scene := preload("res://explosion.tscn")
 var interactable = [ConicalFlask, ClipBoard]
@@ -99,5 +99,5 @@ func mix(substance1: String, substance2: String, flask: ConicalFlask, position :
 		explosion.position = position
 		self.add_child(explosion)
 		
-func _on_drained_poured(drain : StaticBody3D):
-	print("pouring in drain : ", drain)
+func _on_drained_poured(activate_chemical : String):
+	print("pouring activate chemical : ", activate_chemical)

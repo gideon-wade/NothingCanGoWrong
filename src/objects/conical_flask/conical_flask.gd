@@ -120,7 +120,12 @@ func _physics_process(delta):
 	raycast.look_at(raycast.global_transform.origin + Vector3(0, 0, -10), Vector3.UP)
 	var colider = raycast.get_collider()
 	if colider != null and colider is Drain:
-		GameMaster.drain_poured.emit(colider)
+		if colider.get("activate_chemical"):
+			GameMaster.drain_poured.emit(substance_name)
+			
+		else:
+			print("drain is wrong it needs activate chemical")
+			
 	if colider != null and colider.get_name() == "glass-rigid":
 		colider = colider.get_parent().get_parent()
 	if colider != null and colider is ConicalFlask:
