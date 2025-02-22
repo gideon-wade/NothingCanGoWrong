@@ -38,7 +38,7 @@ offset_bottom = 164.013
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 16
+theme_override_font_sizes/font_size = 18
 text = "Dark Dillon is behind you
 Or is he?"
 autowrap_mode = 3
