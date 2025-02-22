@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://gglv8w0xmrbi"]
+[gd_scene load_steps=24 format=3 uid="uid://gglv8w0xmrbi"]
 
 [ext_resource type="PackedScene" uid="uid://c7bmc5dgethv6" path="res://src/character/character.tscn" id="1_glioh"]
 [ext_resource type="PackedScene" uid="uid://dvc73tcpw6x46" path="res://models/graybox/gray_box.blend" id="2_e8au3"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://de2j42mcdk7fa" path="res://src/objects/conical_flask/conical_flask.tscn" id="8_v7otv"]
 [ext_resource type="PackedScene" uid="uid://b5f8ci487dhee" path="res://models/table/table.blend" id="9_3ilhv"]
 [ext_resource type="PackedScene" uid="uid://c8lyy2w64yscr" path="res://models/props/not_ikea.blend" id="10_3ilhv"]
+[ext_resource type="FontFile" uid="uid://ccg03ihwmaw18" path="res://src/font/chalk_font.ttf" id="11_sfaeg"]
 [ext_resource type="PackedScene" uid="uid://bw7r6dx02fwd0" path="res://models/props/tavle.blend" id="11_y4i6o"]
 [ext_resource type="PackedScene" uid="uid://c6ufe26dfcnkd" path="res://models/celling_lamp/celling_lamp_orange.blend" id="12_t6lu4"]
 [ext_resource type="PackedScene" uid="uid://c0lvwebmrfgq" path="res://models/celling_lamp/book.blend" id="13_5dx31"]
@@ -106,6 +107,12 @@ transform = Transform3D(-0.647936, 0, -0.0107781, 0, 0.648025, 0, 0.0107781, 0, 
 
 [node name="tavle" parent="." instance=ExtResource("11_y4i6o")]
 transform = Transform3D(-0.53, 0, 4.63341e-08, 0, 0.53, 0, -4.63341e-08, 0, -0.53, -10.4698, 16.4224, 5.91925)
+
+[node name="Label" type="Label3D" parent="tavle"]
+transform = Transform3D(-4.10087e-08, -2.15697e-08, 1, -0.246728, 0.969085, 1.07849e-08, -0.969085, -0.246728, -4.50628e-08, 0.0579643, 0.931416, 1.15546)
+text = "First mix Oceamid and that red flask"
+font = ExtResource("11_sfaeg")
+font_size = 60
 
 [node name="celling_lamp_orange" parent="." instance=ExtResource("12_t6lu4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.113888, 18.2164, 0.0020895)

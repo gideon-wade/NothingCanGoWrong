@@ -1,11 +1,11 @@
-[gd_scene load_steps=12 format=4 uid="uid://de2j42mcdk7fa"]
+[gd_scene load_steps=17 format=4 uid="uid://de2j42mcdk7fa"]
 
 [ext_resource type="Script" uid="uid://cqwyf2abyq7kk" path="res://src/objects/conical_flask/conical_flask.gd" id="1_4ipm3"]
 [ext_resource type="PackedScene" uid="uid://b6qh41g8ke7ru" path="res://models/beaker/beaker.blend" id="1_xs7aq"]
 [ext_resource type="Material" uid="uid://dhp1f02fg05m3" path="res://models/beaker/Material.001.tres" id="2_4ipm3"]
 [ext_resource type="Material" uid="uid://coe70pmkdfblh" path="res://src/objects/conical_flask/shader_material.tres" id="3_0kuwe"]
 [ext_resource type="Script" uid="uid://cs1ma6qirj4og" path="res://src/objects/conical_flask/glassCol.gd" id="3_lmk5b"]
-[ext_resource type="Shader" uid="uid://d21rvyiidasmm" path="res://models/textures/object_outliner.gdshader" id="7_c85lw"]
+[ext_resource type="Shader" path="res://models/textures/object_outliner.gdshader" id="7_c85lw"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_c85lw"]
 render_priority = 0
@@ -58,6 +58,35 @@ cull_mode = 1
 depth_draw_mode = 2
 albedo_color = Color(0.352895, 0.378303, 0.399784, 0.541176)
 
+[sub_resource type="Curve" id="Curve_alxvb"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.685976, 0.794654), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_kmxf7"]
+curve = SubResource("Curve_alxvb")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_d32bd"]
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector3(0, -1, 0)
+spread = 0.0
+initial_velocity_min = 1.0
+initial_velocity_max = 2.0
+gravity = Vector3(0, -2, 0)
+scale_min = 0.1
+scale_max = 0.5
+color = Color(0.758116, 0.000519235, 0.773825, 1)
+alpha_curve = SubResource("CurveTexture_kmxf7")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_arpke"]
+transparency = 1
+vertex_color_use_as_albedo = true
+
+[sub_resource type="SphereMesh" id="SphereMesh_c85lw"]
+material = SubResource("StandardMaterial3D_arpke")
+radial_segments = 16
+rings = 4
+
 [node name="conical_flask2" type="Node3D"]
 script = ExtResource("1_4ipm3")
 substance_name = "Redamin"
@@ -105,5 +134,16 @@ volume_db = -17.455
 
 [node name="OmniLight3D" type="OmniLight3D" parent="UI"]
 visible = false
+
+[node name="Liquid" type="GPUParticles3D" parent="UI"]
+transform = Transform3D(0.0388095, 0, 0, 0, 0.0136093, 0, 0, 0, 0.0374127, 0, 0.373413, 0)
+amount = 40
+lifetime = 2.0
+speed_scale = 1.65
+fixed_fps = 60
+interpolate = false
+fract_delta = false
+process_material = SubResource("ParticleProcessMaterial_d32bd")
+draw_pass_1 = SubResource("SphereMesh_c85lw")
 
 [editable path="beaker"]
