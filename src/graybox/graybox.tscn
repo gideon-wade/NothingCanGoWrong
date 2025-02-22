@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://gglv8w0xmrbi"]
+[gd_scene load_steps=22 format=3 uid="uid://gglv8w0xmrbi"]
 
 [ext_resource type="PackedScene" uid="uid://c7bmc5dgethv6" path="res://src/character/character.tscn" id="1_glioh"]
 [ext_resource type="PackedScene" uid="uid://dvc73tcpw6x46" path="res://models/graybox/gray_box.blend" id="2_e8au3"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://clxxe7rktb52x" path="res://models/celling_lamp/poster.blend" id="15_0bsud"]
 [ext_resource type="PackedScene" uid="uid://dfn1fsf0bhmot" path="res://models/celling_lamp/poster1.blend" id="16_mjutr"]
 [ext_resource type="PackedScene" uid="uid://bopd7itux4bu7" path="res://models/celling_lamp/poster2.blend" id="17_nnq52"]
+[ext_resource type="PackedScene" uid="uid://cgl316hivmgth" path="res://src/objects/psioir/drain.tscn" id="18_ckmhc"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_lxi0y"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -157,5 +158,8 @@ conical_flask_name_dispensed = "Redamin"
 
 [node name="door" parent="." instance=ExtResource("8_aa4bv")]
 transform = Transform3D(-0.68766, 0, 0.347274, 0, 0.695, 0, -0.299374, 0, -0.797685, -6.10419, 0, -1.90016)
+
+[node name="Drain" parent="." instance=ExtResource("18_ckmhc")]
+transform = Transform3D(0.62, 0, 0, 0, 0.62, 0, 0, 0, 0.62, -9.52485, 14.7978, 2.654)
 
 [editable path="door"]

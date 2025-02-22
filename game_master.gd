@@ -1,5 +1,7 @@
 extends Node
 
+signal drain_poured(drain : StaticBody3D)
+
 var explosion_scene := preload("res://explosion.tscn")
 var interactable = [ConicalFlask, ClipBoard]
 
@@ -62,6 +64,9 @@ var main_scene
 signal conical_changed(color_change : String)
 signal fail(fail_position : Vector3)
 
+func _ready():
+	drain_poured.connect(_on_drained_poured)
+
 func new_substance_color(hexcode : String) -> void:
 	conical_changed.emit(hexcode)
 
@@ -82,3 +87,6 @@ func mix(substance1: String, substance2: String, flask: ConicalFlask, position :
 		var explosion = explosion_scene.instantiate()
 		explosion.position = position
 		self.add_child(explosion)
+		
+func _on_drained_poured(drain : StaticBody3D):
+	print("pouring in drain : ", drain)

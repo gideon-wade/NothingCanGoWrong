@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://cgl316hivmgth"]
+
+[ext_resource type="Script" uid="uid://rvcmtspkgrs4" path="res://src/objects/psioir/drain.gd" id="1_r85wn"]
+[ext_resource type="PackedScene" uid="uid://decxpyb3lx2ff" path="res://models/lab/drain.blend" id="2_r85wn"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_r85wn"]
+size = Vector3(1.50684, 1, 1)
+
+[node name="Drain" type="StaticBody3D"]
+transform = Transform3D(0.62, 0, 0, 0, 0.62, 0, 0, 0, 0.62, 0, 0, 0)
+script = ExtResource("1_r85wn")
+
+[node name="drain" parent="." instance=ExtResource("2_r85wn")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0842541, -0.690494, 0.0548724)
+shape = SubResource("BoxShape3D_r85wn")
