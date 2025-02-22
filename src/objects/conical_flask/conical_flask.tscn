@@ -4,8 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://b6qh41g8ke7ru" path="res://models/beaker/beaker.blend" id="1_xs7aq"]
 [ext_resource type="Material" uid="uid://dhp1f02fg05m3" path="res://models/beaker/Material.001.tres" id="2_4ipm3"]
 [ext_resource type="Material" uid="uid://coe70pmkdfblh" path="res://src/objects/conical_flask/shader_material.tres" id="3_0kuwe"]
-[ext_resource type="Script" uid="uid://cs1ma6qirj4og" path="res://src/objects/conical_flask/glassCol.gd" id="3_lmk5b"]
-[ext_resource type="Shader" path="res://models/textures/object_outliner.gdshader" id="7_c85lw"]
+[ext_resource type="Script" path="res://src/objects/conical_flask/glassCol.gd" id="3_lmk5b"]
+[ext_resource type="Shader" uid="uid://d21rvyiidasmm" path="res://models/textures/object_outliner.gdshader" id="7_c85lw"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_c85lw"]
 render_priority = 0
@@ -137,6 +137,7 @@ visible = false
 
 [node name="Liquid" type="GPUParticles3D" parent="UI"]
 transform = Transform3D(0.0388095, 0, 0, 0, 0.0136093, 0, 0, 0, 0.0374127, 0, 0.373413, 0)
+visible = false
 amount = 40
 lifetime = 2.0
 speed_scale = 1.65

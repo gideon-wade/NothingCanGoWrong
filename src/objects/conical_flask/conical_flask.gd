@@ -72,6 +72,7 @@ func set_color():
 	var liquid_color = Color(color.x, color.y, color.z, 1)
 	material2.set_shader_parameter("liquid_color", liquid_color)
 	material2.set_shader_parameter("foam_color", liquid_color)
+	material2.set_shader_parameter("HasBubbles", GameMaster.substance_bubbles[substance_name])
 	glass_rigid.material_overlay = material2
 	
 func _physics_process(_delta):
