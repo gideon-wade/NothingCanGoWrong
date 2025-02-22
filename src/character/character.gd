@@ -10,6 +10,8 @@ extends CharacterBody3D
 @export var left_hand : Marker3D
 @export var right_hand : Marker3D
 
+var start_pos
+
 var left_hand_object : Node3D
 var right_hand_object : Node3D
 @export var pull_power := 25.0
@@ -33,6 +35,7 @@ var is_alive : bool = true
 var push_decay: float = 5.0
 
 func _ready():
+	start_pos = global_position
 	interation.add_exception(self)
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
@@ -140,7 +143,7 @@ func _physics_process(delta):
 			player_sounds.stop()
 	else:
 		if is_on_floor():
-			if falling:
+			if falling and not rise:
 				velocity = Vector3(0, 0, 0)
 				rotation.z = clamp(rotation.z-0.05, -1.6, 0)
 			elif rise:
@@ -261,4 +264,5 @@ func _on_respawn_timeout() -> void:
 	$Timer.one_shot = true
 	$Timer.start()
 	await $Timer.timeout
-		
+	if rise:
+		global_position = start_pos

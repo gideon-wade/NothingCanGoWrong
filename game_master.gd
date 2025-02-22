@@ -95,6 +95,7 @@ var substance_bubbles = {
 
 
 var main_scene
+var can_explode := true
 
 func _ready():
 	drain_poured.connect(_on_drained_poured)
@@ -108,11 +109,17 @@ func mix(substance1: String, substance2: String, flask: ConicalFlask, position :
 		flask.color = colors[out]
 		flask.set_color()
 	else:
-		flask.queue_free()
 		#fail.emit(position)
-		var explosion = explosion_scene.instantiate()
-		explosion.position = position
-		self.add_child(explosion)
+		if can_explode:
+			flask.queue_free()
+			var explosion = explosion_scene.instantiate()
+			explosion.position = position
+			self.add_child(explosion)
+			can_explode = false
+			$Cooldown.start()
 		
 func _on_drained_poured(activate_chemical : String):
 	print("pouring activate chemical : ", activate_chemical)
+
+func _on_cooldown_timeout() -> void:
+	can_explode = true
