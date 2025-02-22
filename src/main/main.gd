@@ -1,5 +1,4 @@
 extends Node3D
-@onready var task_giver: TaskGiver = $TaskGiver
 @onready var character: CharacterBody3D = $Character
 var clip_board_scene := preload("res://src/objects/clip_board/clip_board.tscn")
 var explosion_scene := preload("res://explosion.tscn")
@@ -25,6 +24,4 @@ func experiment_failed(position : Vector3) -> void:
 	explosion.position = position
 	self.add_child(explosion)
 	character.camera.camera_shake()
-	#print("exploding ", position)
-	#explosion.instantiate()
 	

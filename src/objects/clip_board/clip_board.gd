@@ -1,18 +1,17 @@
 class_name ClipBoard extends RigidBody3D
 @onready var label: Label = $SubViewport/Label
-@onready var check_box: CheckBox = $SubViewport/CheckBox
 @onready var board_clip: MeshInstance3D = $clip_board/BoardClip
 const OBJECT_OUTLINER = preload("res://models/textures/object_outliner.tres")
 
 @export var text := "lorem ipsum"
-
-var taskID : int
+@export var clipboard_number : String
+@export var total_clipboard_number : String
 
 func _ready():
-	label.text = text
-
-func complete_task() -> void:
-	check_box.button_pressed = true
+	if text and total_clipboard_number != "":
+		label.text = clipboard_number + "/" + total_clipboard_number + "\n" + text
+	else:
+		label.text = text
 
 func show_outline() -> void:
 	board_clip.material_overlay = OBJECT_OUTLINER

@@ -67,7 +67,6 @@ func set_color():
 	
 	liquid.process_material = liquid.process_material.duplicate()
 	liquid.process_material.color = Color(color.x, color.y, color.z, 1.0)
-	GameMaster.new_substance_color(liquid.process_material.color.to_html(false))
 	var material2 = SHADER_MATERIAL.duplicate()
 	var liquid_color = Color(color.x, color.y, color.z, 1)
 	material2.set_shader_parameter("liquid_color", liquid_color)

@@ -1,10 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://ct5ocfou3w7ff"]
+[gd_scene load_steps=9 format=3 uid="uid://ct5ocfou3w7ff"]
 
 [ext_resource type="PackedScene" uid="uid://dx5cf1tigv1rt" path="res://models/map/map.blend" id="2_djufw"]
 [ext_resource type="PackedScene" uid="uid://c7bmc5dgethv6" path="res://src/character/character.tscn" id="3_jkpqq"]
 [ext_resource type="PackedScene" uid="uid://buim4383m8eae" path="res://src/objects/clip_board/clip_board.tscn" id="5_jqarl"]
 [ext_resource type="PackedScene" uid="uid://de2j42mcdk7fa" path="res://src/objects/conical_flask/conical_flask.tscn" id="6_jqarl"]
-[ext_resource type="Script" uid="uid://dk4php3h0jeoe" path="res://src/main/task_giver.gd" id="7_30cu5"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ab7mr"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -48,9 +47,6 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 shape = SubResource("SphereShape3D_djufw")
-
-[node name="TaskGiver" type="Node" parent="."]
-script = ExtResource("7_30cu5")
 
 [node name="Node3D" parent="." instance=ExtResource("6_jqarl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.00137, -1.54478, 11.6787)

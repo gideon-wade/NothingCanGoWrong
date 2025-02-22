@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://2v2pbidnpbox"
+path="res://.godot/imported/Walk inside.mp3-a3417dff9593a3fa189c8a1aea8fda8d.mp3str"
+
+[deps]
+
+source_file="res://src/audio/Walk inside.mp3"
+dest_files=["res://.godot/imported/Walk inside.mp3-a3417dff9593a3fa189c8a1aea8fda8d.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

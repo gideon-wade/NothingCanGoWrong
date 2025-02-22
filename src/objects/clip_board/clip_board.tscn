@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://buim4383m8eae"]
+[gd_scene load_steps=6 format=3 uid="uid://buim4383m8eae"]
 
 [ext_resource type="PackedScene" uid="uid://cbqrdgw1otdl0" path="res://models/clipboard/clip_board.blend" id="1_3q6od"]
 [ext_resource type="Script" uid="uid://dsfkflxidg0h5" path="res://src/objects/clip_board/clip_board.gd" id="1_kbas2"]
+[ext_resource type="FontFile" uid="uid://bmk70bduw1rl5" path="res://src/font/ReallyFree-ALwl7.ttf" id="3_vot5f"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_kbas2"]
 viewport_path = NodePath("SubViewport")
@@ -38,24 +39,11 @@ offset_bottom = 164.013
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 20
+theme_override_fonts/font = ExtResource("3_vot5f")
+theme_override_font_sizes/font_size = 36
 text = "Dark Dillon is behind you
 Or is he?"
 autowrap_mode = 3
-
-[node name="CheckBox" type="CheckBox" parent="SubViewport"]
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -65.0
-offset_top = -90.0
-offset_right = -25.0
-offset_bottom = -50.0
-grow_horizontal = 0
-grow_vertical = 0
-scale = Vector2(3, 3)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.171301, 0.0114803, -0.00802687)
