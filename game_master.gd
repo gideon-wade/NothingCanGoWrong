@@ -6,6 +6,9 @@ var explosion_scene := preload("res://explosion.tscn")
 var interactable = [ConicalFlask, ClipBoard]
 
 var recipies = {
+	#Tutorail
+	"Lime,Sepirium": "Cactus Water",
+	"Lime,Cactus Water": "Apple Juice",
 	#Lvl 1
 	"Oceamid,Redamin": "Grass Juice",
 	"Grass Juice,Apple Juice": "Cadrulium",
@@ -21,6 +24,10 @@ var recipies = {
 }
 
 var colors = {
+	#Tutorial
+	"Lime": Vector3(0, 200/256, 1),
+	"Sepirium": Vector3(240/256.0, 240/256.0, 240/256.0),
+	"Cactus Water": Vector3(0, 100/256.0, 0),
 	#Lvl 1
 	"Oceamid": Vector3(0, 0, 1),
 	"Redamin": Vector3(1, 0, 0),
@@ -40,6 +47,10 @@ var colors = {
 	"Water": Vector3(80/256.0, 255/256.0, 256/256.0),
 }
 var substance_glow = {
+	#Tutorial
+	"Lime": 0.35,
+	"Sepirium": 0.8,
+	"Cactus Water": 0.1,
 	#Lvl 1
 	"Oceamid": 0.45,
 	"Redamin": 0.3,

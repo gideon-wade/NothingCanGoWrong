@@ -130,6 +130,8 @@ func handle_hand(hand: int):
 	var collider = interation.get_collider()
 	if hand == LEFT:
 		if left_hand_object != null:
+			if Input.get_action_strength("throw"):
+				left_hand_object.body.linear_velocity = camera.get_global_transform().basis.z * -20
 			if left_hand_object is ConicalFlask:
 				left_hand_object.body.linear_velocity *= 0.5
 				left_hand_object.body.get_node("CollisionShape3D").disabled = false
@@ -139,7 +141,6 @@ func handle_hand(hand: int):
 			left_hand_object = null
 		elif collider != null and collider.has_node("ButtonCollisionShape"):
 			collider.get_parent().spawn_conical_flask()
-			print("we got the button")
 		elif collider != null and collider is RigidBody3D:
 			collider.get_node("CollisionShape3D").disabled = true
 			await get_tree().create_timer(0.01).timeout
@@ -149,7 +150,8 @@ func handle_hand(hand: int):
 				left_hand_object = collider
 	elif hand == RIGHT:
 		if right_hand_object != null:
-			#right_hand_object.linear_velocity = camera.get_global_transform().basis.z * -10
+			if Input.get_action_strength("throw"):
+				right_hand_object.body.linear_velocity = camera.get_global_transform().basis.z * -20
 			if right_hand_object is ConicalFlask:
 				right_hand_object.body.linear_velocity *= 0.5
 				right_hand_object.body.get_node("CollisionShape3D").disabled = false

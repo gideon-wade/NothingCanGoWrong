@@ -16,7 +16,7 @@ const MAX_FLASKS := 2
 func spawn_conical_flask() -> void:
 	#door.global_position.y = door.global_position.y +1.0
 	if is_full():
-		print("dispenser is full")
+		#print("dispenser is full")
 		return
 	var number_of_flasks = 0
 	for child in get_parent().get_children():
@@ -42,12 +42,10 @@ func is_full()-> bool:
 		if body is GlassCol:
 			return true
 	return false
-func _on_area_3d_body_entered(body):
-	print("enter", body)
 
 
 func _on_area_3d_body_exited(body):
-	print("exiting : ", body)
+	#print("exiting : ", body)
 	if not body is GlassCol:
 		return
 	var tween = create_tween()
