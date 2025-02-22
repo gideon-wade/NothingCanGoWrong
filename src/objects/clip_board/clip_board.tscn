@@ -7,7 +7,7 @@
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vot5f"]
-size = Vector3(0.162598, 0.203706, 0.484252)
+size = Vector3(0.0680848, 0.865765, 0.643402)
 
 [node name="ClipBoard" type="RigidBody3D"]
 script = ExtResource("1_kbas2")
@@ -38,7 +38,7 @@ offset_bottom = 164.013
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 18
+theme_override_font_sizes/font_size = 20
 text = "Dark Dillon is behind you
 Or is he?"
 autowrap_mode = 3
@@ -58,7 +58,7 @@ grow_vertical = 0
 scale = Vector2(3, 3)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(0.399005, 0, 0, 0, 4.69565, 0, 0, 0, 1.38848, -0.169768, -0.0217628, 0.00230344)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.171301, 0.0114803, -0.00802687)
 shape = SubResource("BoxShape3D_vot5f")
 
 [editable path="clip_board"]

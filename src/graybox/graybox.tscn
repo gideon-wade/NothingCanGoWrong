@@ -229,23 +229,23 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 14.8219, 0)
 
 [node name="ClipBoard3" parent="Node3D2" instance=ExtResource("20_sfaeg")]
 transform = Transform3D(0.0868428, 0, 0.996222, 0.6442, 0.762793, -0.0561563, -0.759911, 0.646643, 0.066243, -3.86984, 0.597001, 8.33595)
-text = "Note #1: Combine Redamin and Oceamid, then combine the product with the 2nd ingredient from the previous"
+text = "Note #1: Combine Oceamid and Redamin. The resulting substance should be Grass Juice.n"
 
 [node name="ClipBoard5" parent="Node3D2" instance=ExtResource("20_sfaeg")]
 transform = Transform3D(-0.262593, -0.034937, -0.964274, 0.324266, 0.938028, -0.122291, 0.908788, -0.344794, -0.234991, -0.352143, 0.682408, -10.5173)
-text = "Note #2:Mix the product combined from the prevoius room together with the product from the previous step"
+text = "Now, mix Grass Juice with Applumid. The final product should be Cadrulium."
 
 [node name="ClipBoard4" parent="Node3D2" instance=ExtResource("20_sfaeg")]
 transform = Transform3D(-0.22575, 0, 0.974185, 0.287831, 0.955356, 0.0666997, -0.930693, 0.295458, -0.215672, 8.71909, -0.894859, -8.71859)
-text = "Note #3:Combine the green juice with the product. The resulting liquid should be pink"
+text = "Note #3:Combine Cadrulium with another portion of Grass Juice. The resulting liquid should be Princiade."
 
 [node name="ClipBoard6" parent="Node3D2" instance=ExtResource("20_sfaeg")]
 transform = Transform3D(0.207707, 0, 0.978191, 0.6161, 0.776728, -0.130821, -0.759789, 0.629836, 0.161332, -1.1527, -0.750339, 6.47312)
-text = "Note #4:Mix the second ingrendt from the first step with the product of the prevoius step"
+text = "Note #4:Now, take Princiade and mix it with Oceamid. This should create Dracula’s Blood."
 
 [node name="ClipBoard7" parent="Node3D2" instance=ExtResource("20_sfaeg")]
 transform = Transform3D(0.132447, 0, 0.99119, 0.415553, 0.907873, -0.0555278, -0.899874, 0.419246, 0.120245, -8.98976, -0.894859, -7.10469)
-text = "Note #5:Combine the dark liquid with the yellow, and that should be the way to the next room"
+text = "Note #5:Finally, combine Dracula’s Blood with Applumid. If successful, you will get Laudle. This should open the door to the next room"
 
 [node name="Dispenser6" parent="." instance=ExtResource("7_v7otv")]
 transform = Transform3D(-0.585, 0, -5.11423e-08, 0, 0.585, 0, 5.11423e-08, 0, -0.585, 8.99456, 14.3572, -7.15187)

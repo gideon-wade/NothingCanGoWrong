@@ -13,24 +13,23 @@ mix limly with Cacticum. REMEMBER THE CORRECT ORDER! This will create the compou
 ## Level 2
 #### 1
 Note #1: 
-Combine Redamin and Oceamid, then combine the product with the 2nd ingredient again
+Combine Oceamid and Redamin. The resulting substance should be Grass Juice.n
 
 #### 2
 Note #2:
-Mix the product combined from the prevoius room together with the product from the previous step
+Now, mix Grass Juice with Applumid. The final product should be Cadrulium.
 
 #### 3
 Note #3:
-Combine the green juice with the product. The resulting liquid should be pink
+Combine Cadrulium with another portion of Grass Juice. The resulting liquid should be Princiade.
 
 #### 4
 Note #4:
-Mix the second ingrendt from the first step with the product of the prevoius step
+Now, take Princiade and mix it with Oceamid. This should create Dracula’s Blood.
 
 #### 5
 Note #5:
-Combine the dark liquid with the yellow. This will create Laudle and that should open the door to the next room
-
+Finally, combine Dracula’s Blood with Applumid. If successful, you will get Laudle. This should open the door to the next room
 
 ## Level 2
 
