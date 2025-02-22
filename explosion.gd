@@ -27,7 +27,7 @@ func explode() -> void:
 	query.shape = sphere_shape
 	query.transform = Transform3D(Basis(), global_transform.origin)
 	query.collide_with_bodies = true
-	var results = space_state.intersect_shape(query)
+	var results = space_state.intersect_shape(query, 2000)#Tak Viktor
 	for result in results:
 		var body = result.collider
 		if body is StaticBody3D:

@@ -99,7 +99,7 @@ func _physics_process(delta):
 			audio.set_pitch_scale(rng.randf_range(0.9, 1.1))
 			audio.play()
 			was_colliding = true
-			if body.linear_velocity.length() > 4:
+			if body.linear_velocity.length() > 5:
 				GameMaster.mix("FAST", "FAST", self, body.global_position)
 	else:
 		was_colliding = false
@@ -143,7 +143,7 @@ func _physics_process(delta):
 				if not other_flask:
 					return
 				if is_below(other_flask) and other_flask.is_facing_up():
-					GameMaster.mix(substance_name, other_flask.substance_name, other_flask, other_flask.position)
+					GameMaster.mix(substance_name, other_flask.substance_name, other_flask, other_flask.body.global_position)
 					other_flask.show_name()
 			
 func show_name():
@@ -158,7 +158,7 @@ func is_below(other_object: Node3D) -> bool:
 	return my_position.y > other_position.y
 
 func is_facing_up() -> bool:
-	var object_up = global_transform.basis.y
+	var object_up = body.global_transform.basis.y
 	var angle = object_up.angle_to(Vector3.UP)
 	#var angel = Vector3.UP.angle_to(global_position)
 	return angle < PI/2.0
