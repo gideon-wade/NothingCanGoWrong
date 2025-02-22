@@ -10,10 +10,10 @@ const OBJECT_OUTLINER = preload("res://models/textures/object_outliner.tres")
 var safe_pos
 
 func _ready():
-	if text and total_clipboard_number != "":
-		label.text = clipboard_number + "/" + total_clipboard_number + "\n" + text
-	else:
-		label.text = text
+	#if text and total_clipboard_number != "":
+		#label.text = clipboard_number + "/" + total_clipboard_number + "\n" + text
+	#else:
+	label.text = text
 	safe_pos = global_position
 
 func _process(_delta: float) -> void:

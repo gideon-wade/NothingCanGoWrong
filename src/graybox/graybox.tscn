@@ -168,7 +168,9 @@ text = "Controls:
  ∘ALT to capture mouse
  ∘left click to hold item in left hand and 
 vise versa for other hand
- ∘press 'F' to pour 
+ ∘press 'F' to pour and zoom in
+∘Hold shift to throw things
+
 
 "
 font = ExtResource("20_ww25s")
@@ -178,14 +180,14 @@ vertical_alignment = 0
 
 [node name="ClipBoard3" parent="." instance=ExtResource("20_sfaeg")]
 transform = Transform3D(-0.0442069, 0.991167, -0.125038, 0.489501, 0.130596, 0.862168, 0.870881, -0.0230924, -0.49095, -9.71195, 13.8891, 15.6973)
-text = "Note #2:Now, mix Limyl with Cacticum-4. If done correctly, you should obtain Applumid. Move to the next section."
+text = "Step #2:Now, mix Limyl with Cacticum-4. If done correctly, you should obtain Applumid. Move to the next section."
 
 [node name="ClipBoard" parent="." instance=ExtResource("20_sfaeg")]
 transform = Transform3D(-0.0166791, 0.107827, 0.99403, 0.988247, 0.152865, 0, -0.151952, 0.982347, -0.10911, -1.36306, 15.3676, 27.2238)
 text = "Greetings, Test Subject #10E10. If you are reading this, it means your brain must be in working order again. I have locked you in this facility."
 
 [node name="ClipBoard4" parent="." instance=ExtResource("20_sfaeg")]
-transform = Transform3D(-0.0166791, 0.107827, 0.99403, 0.988247, 0.152865, 0, -0.151952, 0.982347, -0.10911, -1.36306, 15.3676, 27.2238)
+transform = Transform3D(0.00809349, -0.0523241, 0.998598, 0.988247, 0.152865, 1.85153e-09, -0.15265, 0.986861, 0.0529458, -2.48948, 15.3676, 27.2238)
 text = "To get out, you have to synthesize the final ingredient for my plans. However, be careful—all the chemical compounds are highly reactive. I have scattered my notes around; use them to figure out the recipes."
 
 [node name="table4" parent="." instance=ExtResource("9_3ilhv")]
@@ -225,7 +227,7 @@ transform = Transform3D(-5.85748e-09, -0.641, 1.71444e-08, -0.506997, -5.85747e-
 
 [node name="ClipBoard2" parent="." instance=ExtResource("20_sfaeg")]
 transform = Transform3D(-0.0224779, 0, 0.999747, 0.36821, 0.929706, 0.00827869, -0.929471, 0.368303, -0.0208979, -9.79152, 15.2967, 16.8941)
-text = "Note #1:In this room, there are dispensers for two chemicals, Limyl and Sepirium. To proceed to the next room, combine them in a 2:1 ratio. REMEMBER THE CORRECT ORDER! This will create the compound Cacticum-4."
+text = "Step #1:In this room, there are dispensers for two chemicals, Limyl and Sepirium. To proceed to the next room, combine them. REMEMBER THE CORRECT ORDER! This will create the compound Cacticum-4."
 clipboard_number = "3"
 total_clipboard_number = "3"
 
@@ -335,7 +337,7 @@ total_clipboard_number = "10"
 
 [node name="ClipBoard6" parent="Node3D3" instance=ExtResource("20_sfaeg")]
 transform = Transform3D(0.0484837, -0.998824, 0, 0.998824, 0.0484837, 0, 0, 0, 1, -13.1284, 1.83847, -6.98574)
-text = "Note #8:Take the two yellow liquids and combine them. This should result in Tonicum. "
+text = "Mix Cider and Applumid. This should result in Tonicum"
 clipboard_number = "8"
 total_clipboard_number = "10"
 

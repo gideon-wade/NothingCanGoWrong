@@ -4,11 +4,11 @@
 #### 0
 Greetings, Test Subject #10E10. If you are reading this, it means your brain must be in working order again. I have locked you in this facility. To get out, you have to synthesize the final ingredient for my plans. However, be careful—all the chemical compounds are highly reactive. I have scattered my notes around; use them to figure out the recipes.
 #### 1
-Note #1:
-In this room, there are dispensers for two chemicals, Limyl and Sepirium. To proceed to the next room, combine them in a 2:1 ratio. REMEMBER THE CORRECT ORDER! This will create the compound Cacticum-4.
+Step #1:
+In this room, there are dispensers for two chemicals, Limyl and Sepirium. To proceed to the next room, combine them. REMEMBER THE CORRECT ORDER! This will create the compound Cacticum-4.
 
 #### 2
-Note #2:
+Step #2:
 Now, mix Limyl with Cacticum-4. If done correctly, you should obtain Applumid. Move to the next section.
 
 ## Level 2
@@ -42,12 +42,12 @@ Mix Laudle with the pink liquid. This will create a gray substance.
 #### 2
 
 Note #7:
-Now, mix Laudle with Oxofizz. The final product will be a yellow fizzy liquid.
+Now, mix Laudle with Oxofizz. The final product will be Cider.
 
 #### 3
 
 Note #8:
-Take the two yellow liquids and combine them. This should result in Tonicum. 
+Mix Cider and Applumid. This should result in Tonicum. 
 
 #### 4
 
