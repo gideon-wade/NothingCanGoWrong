@@ -166,10 +166,9 @@ transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -0.05360
 text = "Controls:
  ∘WASD to move
  ∘ALT to capture mouse
- ∘left click to hold item in left hand and 
-vise versa for other hand
- ∘press 'F' to pour and zoom in
-∘Hold shift to throw things
+ ∘left/right click to pick up items or release
+held item, hold shift to throw
+ ∘press 'F' to pour or inspect
 
 
 "
