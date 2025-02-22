@@ -75,6 +75,8 @@ func set_color():
 	glass_rigid.material_overlay = material2
 	
 func _physics_process(_delta):
+	if position.y < 10:
+		should_explode = true
 	$UI.global_position = body.global_position
 	$UI.global_rotation = body.global_rotation
 	# Checks collision of other Rigidbody3D
