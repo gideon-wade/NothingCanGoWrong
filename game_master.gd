@@ -69,6 +69,30 @@ var substance_glow = {
 	"Jam": 0.2,
 	"Water": 0.6,
 }
+var substance_bubbles = {
+	#Tutorial
+	"Lime": false,
+	"Sepirium": false,
+	"Cactus Water": false,
+	#Lvl 1
+	"Oceamid": true,
+	"Redamin": false,
+	"Apple Juice": false,
+	"Grass Juice": false,
+	"Cadrulium": true,
+	"Princiade": true,
+	"Dracula's Blood": false,
+	"Laudle": true,
+	#Lvl 2
+	"Liquid Stone": false,
+	"Orange Juice": false,
+	"Washing Powder": false,
+	"Cider": true,
+	"Tonic": true,
+	"Jam": false,
+	"Water": false,
+}
+
 
 var main_scene
 
