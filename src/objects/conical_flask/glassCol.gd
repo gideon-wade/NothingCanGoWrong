@@ -1,0 +1,1 @@
+class_name GlassCol extends RigidBody3D
