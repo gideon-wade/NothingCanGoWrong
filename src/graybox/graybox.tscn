@@ -238,6 +238,26 @@ conical_flask_name_dispensed = "Oceamid"
 [node name="Node3D2" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 14.8219, 0)
 
+[node name="ClipBoard3" parent="Node3D2" instance=ExtResource("20_sfaeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1527, -0.894858, 4.94634)
+text = "Note #1: Combine Redamin and Oceamid, then combine the product with the 2nd ingredient from the previous"
+
+[node name="ClipBoard5" parent="Node3D2" instance=ExtResource("20_sfaeg")]
+transform = Transform3D(1, 0, 0, 0, 0.999344, -0.0362077, 0, 0.0362077, 0.999344, -2.60995, 0.682408, 4.94634)
+text = "Note #2:Mix the product combined from the prevoius room together with the product from the previous step"
+
+[node name="ClipBoard4" parent="Node3D2" instance=ExtResource("20_sfaeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.61538, -0.894859, 2.8282)
+text = "Note #3:Combine the green juice with the product. The resulting liquid should be pink"
+
+[node name="ClipBoard6" parent="Node3D2" instance=ExtResource("20_sfaeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1527, -0.894858, 2.50664)
+text = "Note #4:Mix the second ingrendt from the first step with the product of the prevoius step"
+
+[node name="ClipBoard7" parent="Node3D2" instance=ExtResource("20_sfaeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.311987, -0.894858, 4.68271)
+text = "Note #5:Combine the dark liquid with the yellow, and that should be the way to the next room"
+
 [node name="Dispenser6" parent="." instance=ExtResource("7_v7otv")]
 transform = Transform3D(-0.585, 0, -5.11423e-08, 0, 0.585, 0, 5.11423e-08, 0, -0.585, 8.99456, 14.3572, 9.07346)
 conical_flask_name_dispensed = "Redamin"
