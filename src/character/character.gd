@@ -21,6 +21,7 @@ var falling := false
 var mouse_captured := true
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
+const THROW_SPEED = 15
 var current_collider
 
 
@@ -31,7 +32,7 @@ var is_alive : bool = true
 var push_decay: float = 5.0
 
 func _ready():
-	print_orphan_nodes()
+	interation.add_exception(self)
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
 func _input(event: InputEvent):
@@ -140,12 +141,14 @@ func handle_hand(hand: int):
 	var collider = interation.get_collider()
 	if hand == LEFT:
 		if left_hand_object != null:
-			if Input.get_action_strength("throw"):
-				left_hand_object.body.linear_velocity = camera.get_global_transform().basis.z * -50
 			if left_hand_object is ConicalFlask:
+				if Input.get_action_strength("throw"):
+					left_hand_object.body.linear_velocity = camera.get_global_transform().basis.z * -THROW_SPEED
 				left_hand_object.body.linear_velocity *= 0.5
 				left_hand_object.body.get_node("CollisionShape3D").disabled = false
 			else:
+				if Input.get_action_strength("throw"):
+					left_hand_object.linear_velocity = camera.get_global_transform().basis.z * -THROW_SPEED
 				left_hand_object.linear_velocity *= 0.5
 				left_hand_object.get_node("CollisionShape3D").disabled = false
 			left_hand_object = null
@@ -160,12 +163,14 @@ func handle_hand(hand: int):
 				left_hand_object = collider
 	elif hand == RIGHT:
 		if right_hand_object != null:
-			if Input.get_action_strength("throw"):
-				right_hand_object.body.linear_velocity = camera.get_global_transform().basis.z * -50
 			if right_hand_object is ConicalFlask:
+				if Input.get_action_strength("throw"):
+					right_hand_object.body.linear_velocity = camera.get_global_transform().basis.z * -THROW_SPEED
 				right_hand_object.body.linear_velocity *= 0.5
 				right_hand_object.body.get_node("CollisionShape3D").disabled = false
 			else:
+				if Input.get_action_strength("throw"):
+					right_hand_object.linear_velocity = camera.get_global_transform().basis.z * -THROW_SPEED
 				right_hand_object.linear_velocity *= 0.5
 				right_hand_object.get_node("CollisionShape3D").disabled = false
 			right_hand_object = null

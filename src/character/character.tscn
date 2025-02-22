@@ -40,6 +40,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.737, 0, -1.2)
 
 [node name="Interaction" type="RayCast3D" parent="Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.317371)
+exclude_parent = false
 target_position = Vector3(0, 0, -4)
 collide_with_areas = true
 
