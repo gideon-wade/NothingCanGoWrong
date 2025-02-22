@@ -1,0 +1,26 @@
+[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://coe70pmkdfblh"]
+
+[ext_resource type="Shader" uid="uid://pm3i15cpbd3j" path="res://models/beaker/beaker.gdshader" id="1_ttfpq"]
+[ext_resource type="Texture2D" uid="uid://73sj07s36wj3" path="res://models/textures/worley.png" id="2_4p5wk"]
+[ext_resource type="Texture2D" uid="uid://c0dhwv63i4t0h" path="res://models/textures/noise.png" id="3_0i5q0"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_ttfpq")
+shader_parameter/coeff = Vector2(0, 0)
+shader_parameter/vel = 1.965
+shader_parameter/liquid_color = Color(0.702477, 0.101088, 0.602166, 1)
+shader_parameter/foam_color = Color(0.9, 0.3, 0.8, 1)
+shader_parameter/foam_line = 0.071
+shader_parameter/fill_amount = 0.5
+shader_parameter/size = Vector2(1, 1)
+shader_parameter/glass_thickness = 0.165
+shader_parameter/scale = 1.0
+shader_parameter/wave_intensity = 0.05
+shader_parameter/waves_noise = ExtResource("3_0i5q0")
+shader_parameter/HasBubbles = true
+shader_parameter/AlwaysBubbles = false
+shader_parameter/BubbleStrength = 0.5
+shader_parameter/BubbleMask = 0.5
+shader_parameter/BubbleSpeed = Vector2(3, 3)
+shader_parameter/bubbles_tex = ExtResource("2_4p5wk")

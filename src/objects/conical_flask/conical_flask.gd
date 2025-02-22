@@ -4,10 +4,12 @@ class_name ConicalFlask extends Node3D
 @export var debug_show_id := false
 
 @onready var body = $"beaker/glass-rigid"
+@onready var glass_rigid: MeshInstance3D = $"beaker/glass-rigid/glass-rigid"
 @onready var raycast : RayCast3D = $UI/RayCast3D
 @onready var label : Label3D = $UI/Label3D
 @onready var audio: AudioStreamPlayer3D = $UI/AudioStreamPlayer3D
 @onready var substance_glow: OmniLight3D = $UI/OmniLight3D
+const SHADER_MATERIAL = preload("res://src/objects/conical_flask/shader_material.tres")
 const POURING_INTO_LIQUID_1 = preload("res://src/audio/conical_flask/pouring_into_liquid_1.mp3")
 const POURING_INTO_LIQUID_2 = preload("res://src/audio/conical_flask/pouring_into_liquid_2.mp3")
 const OBJECT_OUTLINER = preload("res://models/textures/object_outliner.tres")
@@ -46,6 +48,7 @@ func _ready():
 	id = randi()
 	show_name()
 	set_color()
+	body.get_node("glass-rigid-outline").material_overlay = OBJECT_OUTLINER
 
 func set_color():
 	if not is_node_ready():
@@ -79,6 +82,11 @@ func set_color():
 	liquid_glow.shadow_enabled = false
 	liquid_glow.visible = true
 	GameMaster.new_substance_color(liquid.process_material.color.to_html(false))
+	var material2 = SHADER_MATERIAL.duplicate(true)
+	var liquid_color = Color(color.x, color.y, color.z, 255)
+	material2.set_shader_parameter("liquid_color", liquid_color)
+	material2.set_shader_parameter("foam_color", liquid_color)
+	glass_rigid.material_overlay = material2
 	
 func _physics_process(delta):
 	$UI.global_position = body.global_position
@@ -130,6 +138,8 @@ func _physics_process(delta):
 			if new_collider != null and new_collider.get_name() == "glass-rigid":
 				new_collider = new_collider.get_parent().get_parent()
 			if new_collider == colider and is_facing_down():
+				if not other_flask:
+					return
 				if is_below(other_flask) and other_flask.is_facing_up():
 					GameMaster.mix(substance_name, other_flask.substance_name, other_flask, other_flask.position)
 					other_flask.show_name()
@@ -162,7 +172,7 @@ func set_linear_velocity(vel: Vector3) -> void:
 	body.set_linear_velocity(vel)
 
 func show_outline() -> void:
-	body.get_node("glass-rigid").material_overlay = OBJECT_OUTLINER
+	body.get_node("glass-rigid-outline").visible = true
 
 func remove_outline() -> void:
-	body.get_node("glass-rigid").material_overlay = null
+	body.get_node("glass-rigid-outline").visible = false

@@ -50,7 +50,5 @@ func _on_area_3d_body_exited(body):
 	print("exiting : ", body)
 	if not body is GlassCol:
 		return
-	
-	
 	var tween = create_tween()
 	tween.tween_property(door, "global_position",Vector3(original_value.x,original_value.y, original_value.z) ,0.3)
