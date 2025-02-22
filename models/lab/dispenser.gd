@@ -3,7 +3,7 @@ class_name Dispenser extends Node3D
 signal opening
 
 @export var conical_flask_name_dispensed : String
-@onready var button: Node3D = $DispenserButton/CollisionShape3D/button
+#@onready var button: Node3D = $DispenserButton/ButtonCollisionShape
 @onready var closet: Node3D = $closet
 @onready var door : Node3D = $closet/Plane
 var is_open := false
