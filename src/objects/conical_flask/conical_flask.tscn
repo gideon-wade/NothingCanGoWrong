@@ -77,6 +77,7 @@ surface_material_override/0 = ExtResource("2_4ipm3")
 
 [node name="glass-rigid-outline" type="MeshInstance3D" parent="beaker/glass-rigid" index="3"]
 transform = Transform3D(0.515, 0, 0, 0, 0.515, 0, 0, 0, 0.515, 0, 0, 0)
+visible = false
 material_overlay = SubResource("ShaderMaterial_c85lw")
 mesh = SubResource("ArrayMesh_c85lw")
 skeleton = NodePath("../glass-rigid")
