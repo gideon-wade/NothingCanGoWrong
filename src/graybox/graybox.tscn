@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://gglv8w0xmrbi"]
+[gd_scene load_steps=25 format=3 uid="uid://gglv8w0xmrbi"]
 
 [ext_resource type="PackedScene" uid="uid://c7bmc5dgethv6" path="res://src/character/character.tscn" id="1_glioh"]
 [ext_resource type="PackedScene" uid="uid://dvc73tcpw6x46" path="res://models/graybox/gray_box.blend" id="2_e8au3"]
