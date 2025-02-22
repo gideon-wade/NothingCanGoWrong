@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://gglv8w0xmrbi"]
+[gd_scene load_steps=26 format=3 uid="uid://gglv8w0xmrbi"]
 
 [ext_resource type="PackedScene" uid="uid://c7bmc5dgethv6" path="res://src/character/character.tscn" id="1_glioh"]
 [ext_resource type="PackedScene" uid="uid://dvc73tcpw6x46" path="res://models/graybox/gray_box.blend" id="2_e8au3"]
@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://b8jomllk651t7" path="res://src/objects/door/door.tscn" id="19_qmtx8"]
 [ext_resource type="PackedScene" uid="uid://buim4383m8eae" path="res://src/objects/clip_board/clip_board.tscn" id="20_sfaeg"]
 [ext_resource type="PackedScene" uid="uid://cq5x0decftyh1" path="res://models/props/skralde_spand.blend" id="21_vswbq"]
+[ext_resource type="PackedScene" uid="uid://kosbphkxs86a" path="res://models/celling_lamp/lab_closet.blend" id="22_ww25s"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_lxi0y"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -239,25 +240,70 @@ conical_flask_name_dispensed = "Oceamid"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 14.8219, 0)
 
 [node name="ClipBoard3" parent="Node3D2" instance=ExtResource("20_sfaeg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1527, -0.894858, 4.94634)
+transform = Transform3D(0.0868428, 0, 0.996222, 0.6442, 0.762793, -0.0561563, -0.759911, 0.646643, 0.066243, -3.86984, 0.597001, 8.33595)
 text = "Note #1: Combine Redamin and Oceamid, then combine the product with the 2nd ingredient from the previous"
 
 [node name="ClipBoard5" parent="Node3D2" instance=ExtResource("20_sfaeg")]
-transform = Transform3D(1, 0, 0, 0, 0.999344, -0.0362077, 0, 0.0362077, 0.999344, -2.60995, 0.682408, 4.94634)
+transform = Transform3D(-0.262593, -0.034937, -0.964274, 0.324266, 0.938028, -0.122291, 0.908788, -0.344794, -0.234991, -0.352143, 0.682408, -10.5173)
 text = "Note #2:Mix the product combined from the prevoius room together with the product from the previous step"
 
 [node name="ClipBoard4" parent="Node3D2" instance=ExtResource("20_sfaeg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.61538, -0.894859, 2.8282)
+transform = Transform3D(-0.22575, 0, 0.974185, 0.287831, 0.955356, 0.0666997, -0.930693, 0.295458, -0.215672, 8.71909, -0.894859, -8.71859)
 text = "Note #3:Combine the green juice with the product. The resulting liquid should be pink"
 
 [node name="ClipBoard6" parent="Node3D2" instance=ExtResource("20_sfaeg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1527, -0.894858, 2.50664)
+transform = Transform3D(0.207707, 0, 0.978191, 0.6161, 0.776728, -0.130821, -0.759789, 0.629836, 0.161332, -1.1527, -0.750339, 6.47312)
 text = "Note #4:Mix the second ingrendt from the first step with the product of the prevoius step"
 
 [node name="ClipBoard7" parent="Node3D2" instance=ExtResource("20_sfaeg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.311987, -0.894858, 4.68271)
+transform = Transform3D(0.132447, 0, 0.99119, 0.415553, 0.907873, -0.0555278, -0.899874, 0.419246, 0.120245, -8.98976, -0.894859, -7.10469)
 text = "Note #5:Combine the dark liquid with the yellow, and that should be the way to the next room"
 
 [node name="Dispenser6" parent="." instance=ExtResource("7_v7otv")]
-transform = Transform3D(-0.585, 0, -5.11423e-08, 0, 0.585, 0, 5.11423e-08, 0, -0.585, 8.99456, 14.3572, 9.07346)
+transform = Transform3D(-0.585, 0, -5.11423e-08, 0, 0.585, 0, 5.11423e-08, 0, -0.585, 8.99456, 14.3572, -7.15187)
 conical_flask_name_dispensed = "Redamin"
+
+[node name="lab_closet" parent="." instance=ExtResource("22_ww25s")]
+transform = Transform3D(0.305396, 0, -0.952225, 0, 1, 0, 0.952225, 0, 0.305396, -7.53703, 15.8158, -9.46688)
+
+[node name="lab_closet2" parent="." instance=ExtResource("22_ww25s")]
+transform = Transform3D(0.305396, 0, -0.952225, 0, 1, 0, 0.952225, 0, 0.305396, -4.23544, 15.8158, -10.4669)
+
+[node name="not_ikea4" parent="." instance=ExtResource("10_3ilhv")]
+transform = Transform3D(0.695, 0, 0, 0, 0.695, 0, 0, 0, 0.695, -9.31015, 14.1056, -4.54616)
+
+[node name="table7" parent="." instance=ExtResource("9_3ilhv")]
+transform = Transform3D(0.84, 0, 0, 0, 0.84, 0, 0, 0, 0.84, -3.32432, 13.6645, 8.25404)
+
+[node name="table8" parent="." instance=ExtResource("9_3ilhv")]
+transform = Transform3D(0.84, 0, 0, 0, 0.84, 0, 0, 0, 0.84, 1.41566, 13.6645, 8.25404)
+
+[node name="table9" parent="." instance=ExtResource("9_3ilhv")]
+transform = Transform3D(0.84, 0, 0, 0, 0.84, 0, 0, 0, 0.84, -1.41712, 13.6645, 1.26465)
+
+[node name="table10" parent="." instance=ExtResource("9_3ilhv")]
+transform = Transform3D(0.84, 0, 0, 0, 0.84, 0, 0, 0, 0.84, 3.32287, 13.6645, 1.26465)
+
+[node name="table11" parent="." instance=ExtResource("9_3ilhv")]
+transform = Transform3D(0.799519, 0, 0.257621, 0, 0.84, 0, -0.257621, 0, 0.799519, 1.40571, 13.6645, -12.1589)
+
+[node name="table12" parent="." instance=ExtResource("9_3ilhv")]
+transform = Transform3D(0.799519, 0, 0.257621, 0, 0.84, 0, -0.257621, 0, 0.799519, 5.91727, 13.6645, -13.6126)
+
+[node name="table13" parent="." instance=ExtResource("9_3ilhv")]
+transform = Transform3D(0.799519, 0, 0.257621, 0, 0.84, 0, -0.257621, 0, 0.799519, 7.67096, 13.6645, -14.234)
+
+[node name="poster6" parent="." instance=ExtResource("15_0bsud")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.97604, 15.8368, -0.211014)
+
+[node name="poster7" parent="." instance=ExtResource("17_nnq52")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 4.66074, 15.9629, 13.8332)
+
+[node name="poster8" parent="." instance=ExtResource("16_mjutr")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 10.0139, 16.0116, 7.16387)
+
+[node name="poster9" parent="." instance=ExtResource("15_0bsud")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -10.0614, 15.5861, 6.80315)
+
+[node name="poster10" parent="." instance=ExtResource("15_0bsud")]
+transform = Transform3D(-0.314838, 0, 0.949146, 0, 1, 0, -0.949146, 0, -0.314838, 4.74521, 16.4771, -14.2378)
