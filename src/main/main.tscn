@@ -66,5 +66,21 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.94777, -1.54478, 13.4866)
 substance_name = "Apple Juice"
 
 [node name="Node3D4" parent="." instance=ExtResource("6_jqarl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.94777, -1.54478, 11.7207)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.94777, -1.54478, 11.7946)
 substance_name = "Apple Juice"
+
+[node name="Node3D5" parent="." instance=ExtResource("6_jqarl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.56794, -1.54478, 11.6787)
+substance_name = "Laudle"
+
+[node name="Node3D6" parent="." instance=ExtResource("6_jqarl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.3629, -1.54478, 11.6787)
+substance_name = "Orange Juice"
+
+[node name="Node3D7" parent="." instance=ExtResource("6_jqarl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5143, -1.54478, 13.4866)
+substance_name = "Liquid Stone"
+
+[node name="Node3D8" parent="." instance=ExtResource("6_jqarl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5143, -1.54478, 11.7946)
+substance_name = "Liquid Stone"

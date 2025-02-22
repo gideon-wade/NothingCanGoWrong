@@ -4,14 +4,22 @@ var explosion_scene := preload("res://explosion.tscn")
 var interactable = [ConicalFlask, ClipBoard]
 
 var recipies = {
+	#Lvl 1
 	"Oceamid,Redamin": "Grass Juice",
 	"Grass Juice,Apple Juice": "Cadrulium",
 	"Cadrulium,Grass Juice": "Princiade",
 	"Princiade,Oceamid": "Dracula's Blood",
 	"Dracula's Blood,Apple Juice": "Laudle",
+	#Lvl 2
+	"Laudle,Liquid Stone": "Washing Powder",
+	"Laudle,Orange Juice": "Cider",
+	"Washing Powder,Cider": "Tonic",
+	"Liquid Stone,Orange Juice": "Jam",
+	"Tonic,Jam": "Water",
 }
 
 var colors = {
+	#Lvl 1
 	"Oceamid": Vector3(0, 0, 1),
 	"Redamin": Vector3(1, 0, 0),
 	"Apple Juice": Vector3(1, 1, 0),
@@ -20,8 +28,17 @@ var colors = {
 	"Princiade": Vector3(1, 100/256.0, 150/256.0),
 	"Dracula's Blood": Vector3(150/256.0, 0, 0),
 	"Laudle": Vector3(150/256.0, 1, 150/256.0),
+	#Lvl 2
+	"Liquid Stone": Vector3(0, 0, 0),
+	"Orange Juice": Vector3(232/256.0, 100/256.0, 0),
+	"Washing Powder": Vector3(140/256.0, 140/256.0, 140/256.0),
+	"Cider": Vector3(75/256.0, 200/256.0, 0),
+	"Tonic": Vector3(244/256.0, 252/256.0, 136/256.0),
+	"Jam": Vector3(256/256.0, 80/256.0, 80/256.0),
+	"Water": Vector3(80/256.0, 255/256.0, 256/256.0),
 }
 var substance_glow = {
+	#Lvl 1
 	"Oceamid": 0.45,
 	"Redamin": 0.3,
 	"Apple Juice": 0.1,
@@ -30,6 +47,14 @@ var substance_glow = {
 	"Princiade": 0.9,
 	"Dracula's Blood": 0.2,
 	"Laudle": 0.6,
+	#Lvl 2
+	"Liquid Stone": 0.1,
+	"Orange Juice": 0.1,
+	"Washing Powder": 0.4,
+	"Cider": 0.5,
+	"Tonic": 0.3,
+	"Jam": 0.2,
+	"Water": 0.6,
 }
 
 var main_scene

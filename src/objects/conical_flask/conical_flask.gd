@@ -130,6 +130,8 @@ func _physics_process(delta):
 			if new_collider != null and new_collider.get_name() == "glass-rigid":
 				new_collider = new_collider.get_parent().get_parent()
 			if new_collider == colider and is_facing_down():
+				if not other_flask:
+					return
 				if is_below(other_flask) and other_flask.is_facing_up():
 					GameMaster.mix(substance_name, other_flask.substance_name, other_flask, other_flask.position)
 					other_flask.show_name()
