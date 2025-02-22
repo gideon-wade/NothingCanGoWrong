@@ -69,7 +69,11 @@ func _physics_process(delta):
 		var b = left_hand.global_transform.origin
 		object.set_linear_velocity((b-a)*pull_power)
 		object.look_at(camera.global_transform.origin, Vector3(0,1,0), true)
-		object.rotate_y(-PI/4)
+		
+		if object is ClipBoard:
+			object.rotate_y(-PI/2)
+		else:
+			object.rotate_y(-PI/4)
 		
 		if is_pouring and left_hand_object is ConicalFlask:
 			object.rotation = Vector3(0,self.rotation.y,-2.1)
@@ -86,8 +90,11 @@ func _physics_process(delta):
 		var b = right_hand.global_transform.origin
 		object.set_linear_velocity((b-a)*pull_power)
 		object.look_at(camera.global_transform.origin, Vector3(0,1,0))
-		object.rotate_y(PI/4)
 		
+		if object is ClipBoard:
+			object.rotate_y(PI/2)
+		else:
+			object.rotate_y(PI/4)
 		if is_pouring and right_hand_object is ConicalFlask:
 			object.rotation = Vector3(0,self.rotation.y,2.1)
 			right_hand_object.glass_rigid.material_overlay.set_shader_parameter("fill_amount", 0.65)

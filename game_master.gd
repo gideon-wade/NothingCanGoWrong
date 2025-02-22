@@ -7,14 +7,14 @@ var interactable = [ConicalFlask, ClipBoard]
 
 var recipies = {
 	#Tutorail
-	"Lime,Sepirium": "Cactus Water",
-	"Lime,Cactus Water": "Apple Juice",
+	"Limyl,Sepirium": "Cacticum-4",
+	"Limyl,Cacticum-4": "Applumid",
 	#Lvl 1
 	"Oceamid,Redamin": "Grass Juice",
-	"Grass Juice,Apple Juice": "Cadrulium",
+	"Grass Juice,Applumid": "Cadrulium",
 	"Cadrulium,Grass Juice": "Princiade",
 	"Princiade,Oceamid": "Dracula's Blood",
-	"Dracula's Blood,Apple Juice": "Laudle",
+	"Dracula's Blood,Applumid": "Laudle",
 	#Lvl 2
 	"Laudle,Liquid Stone": "Washing Powder",
 	"Laudle,Orange Juice": "Cider",
@@ -25,13 +25,13 @@ var recipies = {
 
 var colors = {
 	#Tutorial
-	"Lime": Vector3(0, 200/256.0, 0),
+	"Limyl": Vector3(0, 200/256.0, 0),
 	"Sepirium": Vector3(240/256.0, 240/256.0, 240/256.0),
-	"Cactus Water": Vector3(0, 100/256.0, 0),
+	"Cacticum-4": Vector3(0, 100/256.0, 0),
 	#Lvl 1
 	"Oceamid": Vector3(0, 0, 1),
 	"Redamin": Vector3(1, 0, 0),
-	"Apple Juice": Vector3(1, 1, 0),
+	"Applumid": Vector3(1, 1, 0),
 	"Grass Juice": Vector3(0, 1, 0),
 	"Cadrulium": Vector3(128/256.0, 0, 128/256.0),
 	"Princiade": Vector3(1, 100/256.0, 150/256.0),
@@ -48,13 +48,13 @@ var colors = {
 }
 var substance_glow = {
 	#Tutorial
-	"Lime": 0.35,
+	"Limyl": 0.35,
 	"Sepirium": 0.8,
-	"Cactus Water": 0.1,
+	"Cacticum-4": 0.1,
 	#Lvl 1
 	"Oceamid": 0.45,
 	"Redamin": 0.3,
-	"Apple Juice": 0.1,
+	"Applumid": 0.1,
 	"Grass Juice": 0.1,
 	"Cadrulium": 0.6,
 	"Princiade": 0.9,

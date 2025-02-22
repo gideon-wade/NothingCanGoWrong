@@ -4,7 +4,12 @@ class_name ClipBoard extends RigidBody3D
 @onready var board_clip: MeshInstance3D = $clip_board/BoardClip
 const OBJECT_OUTLINER = preload("res://models/textures/object_outliner.tres")
 
+@export var text := "lorem ipsum"
+
 var taskID : int
+
+func _ready():
+	label.text = text
 
 func complete_task() -> void:
 	check_box.button_pressed = true

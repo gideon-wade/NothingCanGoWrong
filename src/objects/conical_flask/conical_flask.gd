@@ -152,8 +152,8 @@ func _physics_process(delta):
 					other_flask.show_name()
 			
 func show_name():
-	#if debug_show_id:
-	label.text = substance_name
+	if debug_show_id:
+		label.text = substance_name
 
 func is_below(other_object: Node3D) -> bool:
 	# Get the global positions of both objects

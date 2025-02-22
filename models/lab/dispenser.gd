@@ -13,10 +13,14 @@ const CONICAL_FLASK = preload("res://src/objects/conical_flask/conical_flask.tsc
 
 const MAX_FLASKS := 2
 
+
+func _ready():
+	$Label3D.text = conical_flask_name_dispensed
+
 func spawn_conical_flask() -> void:
 	#door.global_position.y = door.global_position.y +1.0
 	if is_full():
-		#print("dispenser is full")
+		print("dispenser is full")
 		return
 	var number_of_flasks = 0
 	for child in get_parent().get_children():

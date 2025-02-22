@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="NothingCanGoWrong"
-run/main_scene="uid://ct5ocfou3w7ff"
+run/main_scene="uid://gglv8w0xmrbi"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 

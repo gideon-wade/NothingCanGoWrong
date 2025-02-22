@@ -11,6 +11,7 @@ size = Vector3(0.162598, 0.203706, 0.484252)
 
 [node name="ClipBoard" type="RigidBody3D"]
 script = ExtResource("1_kbas2")
+text = "#So I actually got the whole script pasted in here but even after having #my pc run for hours it didnt save so here´s python code to give you the#script. Have... fun? I dont really know what to call it"
 
 [node name="clip_board" parent="." instance=ExtResource("1_3q6od")]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
@@ -37,10 +38,10 @@ offset_bottom = 164.013
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 41
+theme_override_font_sizes/font_size = 16
 text = "Dark Dillon is behind you
 Or is he?"
-autowrap_mode = 1
+autowrap_mode = 3
 
 [node name="CheckBox" type="CheckBox" parent="SubViewport"]
 anchors_preset = 3

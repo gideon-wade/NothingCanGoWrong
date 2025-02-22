@@ -28,7 +28,7 @@ material = SubResource("StandardMaterial3D_2p3op")
 shape = SubResource("CapsuleShape3D_yny20")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.02242, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 near = 0.001
 script = ExtResource("2_k8eue")
 
@@ -40,7 +40,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.737, 0, -1.2)
 
 [node name="Interaction" type="RayCast3D" parent="Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.317371)
-target_position = Vector3(0, 0, -2)
+target_position = Vector3(0, 0, -4)
 collide_with_areas = true
 
 [node name="TextureRect" type="TextureRect" parent="Camera3D"]
