@@ -22,7 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://cq5x0decftyh1" path="res://models/props/skralde_spand.blend" id="21_vswbq"]
 [ext_resource type="PackedScene" uid="uid://de2j42mcdk7fa" path="res://src/objects/conical_flask/conical_flask.tscn" id="22_5v4vx"]
 [ext_resource type="PackedScene" uid="uid://kosbphkxs86a" path="res://models/celling_lamp/lab_closet.blend" id="22_ww25s"]
-[ext_resource type="Script" path="res://src/objects/conical_flask/loading_flask.gd" id="23_5v4vx"]
+[ext_resource type="PackedScene" uid="uid://bewavndhx2ggs" path="res://src/victory/victory.tscn" id="23_5v4vx"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_lxi0y"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -362,7 +362,13 @@ transform = Transform3D(0.0320253, 0, 0.804363, 0, 0.805, 0, -0.804363, 0, 0.032
 transform = Transform3D(0.585, 0, 0, 0, 0.585, 0, 0, 0, 0.585, -9.3456, 14.3572, 13.1289)
 conical_flask_name_dispensed = "Oceamid"
 
-[node name="conical_flask2" parent="." instance=ExtResource("22_5v4vx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.71509, 14.1324, 6.698)
-script = ExtResource("23_5v4vx")
-substance_name = "Limyl"
+[node name="conical_flask3" parent="." instance=ExtResource("22_5v4vx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.61427, 14.409, 37.4388)
+substance_name = "Jam"
+
+[node name="conical_flask4" parent="." instance=ExtResource("22_5v4vx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.72012, 14.409, 37.4388)
+substance_name = "Tonic"
+
+[node name="Node3D4" parent="." instance=ExtResource("23_5v4vx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 23.1879, 77.2211)
