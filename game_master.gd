@@ -113,6 +113,7 @@ func mix(substance1: String, substance2: String, flask: ConicalFlask, position :
 		flask.substance_name = out
 		flask.color = colors[out]
 		flask.set_color()
+
 	else:
 		#fail.emit(position)
 		if can_explode:
@@ -122,7 +123,7 @@ func mix(substance1: String, substance2: String, flask: ConicalFlask, position :
 			self.add_child(explosion)
 			can_explode = false
 			$Cooldown.start()
-	
+
 	if out == "Water":
 		print("you won")
 		
