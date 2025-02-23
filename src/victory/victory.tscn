@@ -41,9 +41,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.19507, 12.3485, 0.508852)
 transform = Transform3D(1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, 9.97556, 10.961, 1.5071)
 text = "Congratulations for winning and thank you for playing our game!
 Game made by : 
-	Maximilian Maria Olden-Jørgensen (Programming)
-	Punyplucked (Sound, Programming)
-	Viktor Johan Kolind, Narta (Art, Programming)"
+	Maximilian, Maxlaxs (Programming)
+	Gideon, punyplucked (Sound, Programming)
+	Viktor, narta (Art, Programming)"
 
 [node name="table" parent="." instance=ExtResource("3_wbyrb")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 9.85624, 7.72907, 1.64925)

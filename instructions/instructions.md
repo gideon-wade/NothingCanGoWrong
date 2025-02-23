@@ -64,8 +64,9 @@ Finally, mix Tonicum with Jamol. If done correctly, you will obtain Water—the 
 
 Congratulations for winning and thank you for playing our game!
 Game made by : 
-	Maximilian Maria Olden-Jørgensen (Programming)
-	Punyplucked (Sound, Programming)
-	Viktor Johan Kolind, Narta (Art, Programming)
+	Maximilian, Maxlaxs (Programming)
+	Gideon, punyplucked (Sound, Programming)
+	Viktor, narta (Art, Programming)
+	
 	
 	

@@ -91,7 +91,7 @@ text = "Play"
 
 [node name="Music" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("2_2p3op")
-volume_db = -30.0
+volume_db = -35.0
 autoplay = true
 
 [node name="PlayerSounds" type="AudioStreamPlayer3D" parent="."]
