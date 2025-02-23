@@ -26,11 +26,11 @@ Combine Cadrulium with another portion of Grass Juice. The resulting liquid shou
 
 #### 4
 Note #4:
-Now, take Princiade and mix it with Oceamid. This should create Dracula’s Blood.
+Now, take Princiade and mix it with Oceamid. This should create Dracula's Blood.
 
 #### 5
 Note #5:
-Finally, combine Draculas Blood with Applumid. If successful, you will get Laudle. This should open the door to the next room
+Finally, combine Dracula's Blood with Applumid. If successful, you will get Laudle. This should open the door to the next room
 
 ## Level 2
 
