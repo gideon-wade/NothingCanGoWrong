@@ -52,7 +52,7 @@ light_energy = 0.1
 shadow_enabled = true
 
 [node name="Character" parent="." instance=ExtResource("1_glioh")]
-transform = Transform3D(0.71934, 0, 0.694658, 0, 1, 0, -0.694658, 0, 0.71934, -0.48346, 14.0282, 22.185)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.48346, 14.0282, 22.185)
 
 [node name="gray_box" parent="." instance=ExtResource("2_e8au3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.09895, 0)
@@ -167,10 +167,11 @@ transform = Transform3D(-2.12e-08, 0, 0.485, 0, 0.485, 0, -0.485, 0, -2.12e-08, 
 transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -0.0536041, 2.10793, 5.1467)
 text = "Controls:
  ∘WASD to move
- ∘ALT to capture mouse
+ ∘ALT to capture/release mouse
  ∘left/right click to pick up items or release
-held item, hold shift to throw
- ∘press 'F' to pour or inspect
+held item, hold shift while releasing to throw
+ ∘press 'F' to pour flasks or inspect
+clipboards
 
 
 "
