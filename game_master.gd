@@ -19,7 +19,7 @@ var recipies = {
 	"Laudle,Princiade": "Washing Liquid",
 	"Laudle,Oxofizz": "Cider",
 	"Applumid,Cider": "Tonic",
-	"Caticum-4,Washing Liquid": "Jam",
+	"Cacticum-4,Washing Liquid": "Jam",
 	"Tonic,Jam": "Water",
 }
 
@@ -126,12 +126,10 @@ func mix(substance1: String, substance2: String, flask: ConicalFlask, position :
 		
 		await get_tree().create_timer(2.).timeout
 		var player = get_tree().get_nodes_in_group("Player")[0]
-		var player_camera = player.get_node("Camera3D")
-		player_camera.current = false
-		
+	
 		var victory = get_tree().get_nodes_in_group("Victory")[0]
-		var camera = victory.get_node("Camera3D")
-		camera.current = true
+		var marker = victory.get_node("Marker3D")
+		player.global_position = marker.global_position
 	
 func _on_drained_poured(activate_chemical : String):
 	print("pouring activate chemical : ", activate_chemical)
