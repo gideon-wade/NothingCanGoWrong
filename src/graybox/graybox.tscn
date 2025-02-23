@@ -52,7 +52,7 @@ light_energy = 0.1
 shadow_enabled = true
 
 [node name="Character" parent="." instance=ExtResource("1_glioh")]
-transform = Transform3D(0.71934, 0, 0.694658, 0, 1, 0, -0.694658, 0, 0.71934, -0.48346, 14.0282, 22.185)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.48346, 14.0282, 22.185)
 
 [node name="gray_box" parent="." instance=ExtResource("2_e8au3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.09895, 0)
