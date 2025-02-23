@@ -78,6 +78,8 @@ func _input(event: InputEvent):
 		camera.rotation_degrees.x = x_rotation
 
 func _physics_process(delta):
+	if is_loading or not is_alive:
+		return
 	if left_hand_object != null:
 		# put the object at the hand node's position
 		var object = left_hand_object
@@ -287,6 +289,7 @@ func _on_play_button_pressed() -> void:
 func done_loading() -> void:
 	loading_label.visible = false
 	play_button.visible = true
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 func _restart_song() -> void:
 	$SongTimer.wait_time = 150

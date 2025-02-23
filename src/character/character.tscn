@@ -104,4 +104,5 @@ one_shot = true
 
 [node name="SongTimer" type="Timer" parent="."]
 
+[connection signal="pressed" from="Camera3D/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="timeout" from="Respawn" to="." method="_on_respawn_timeout"]
