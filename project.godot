@@ -23,6 +23,11 @@ GameMaster="*res://game_master.tscn"
 
 project/assembly_name="NothingCanGoWrong"
 
+[global_group]
+
+Victory=""
+Player=""
+
 [input]
 
 left={

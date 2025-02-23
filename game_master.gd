@@ -104,6 +104,9 @@ func mix(substance1: String, substance2: String, flask: ConicalFlask, position :
 	var comb1 = recipies.get(substance1+","+substance2, "fail")
 	var comb2 = recipies.get(substance2+","+substance1, "fail")
 	var out = comb1 if comb1 != "fail" else comb2
+	
+	
+		
 	if out != "fail":
 		flask.substance_name = out
 		flask.color = colors[out]
@@ -117,7 +120,19 @@ func mix(substance1: String, substance2: String, flask: ConicalFlask, position :
 			self.add_child(explosion)
 			can_explode = false
 			$Cooldown.start()
+	
+	if out == "Water":
+		print("you won")
 		
+		await get_tree().create_timer(2.).timeout
+		var player = get_tree().get_nodes_in_group("Player")[0]
+		var player_camera = player.get_node("Camera3D")
+		player_camera.current = false
+		
+		var victory = get_tree().get_nodes_in_group("Victory")[0]
+		var camera = victory.get_node("Camera3D")
+		camera.current = true
+	
 func _on_drained_poured(activate_chemical : String):
 	print("pouring activate chemical : ", activate_chemical)
 

@@ -11,7 +11,7 @@ albedo_color = Color(0.389714, 0.458777, 0.598699, 1)
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_yny20"]
 height = 2.5761
 
-[node name="Character" type="CharacterBody3D" node_paths=PackedStringArray("visuals", "camera", "interation", "left_hand", "right_hand")]
+[node name="Character" type="CharacterBody3D" node_paths=PackedStringArray("visuals", "camera", "interation", "left_hand", "right_hand") groups=["Player"]]
 transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, 0, 0, 0)
 script = ExtResource("1_yny20")
 visuals = NodePath("CSGSphere3D")
@@ -30,6 +30,7 @@ shape = SubResource("CapsuleShape3D_yny20")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(0.714286, 0, 0, 0, 0.714286, 0, 0, 0, 0.714286, 0, 1.19718, 0)
+current = true
 near = 0.001
 script = ExtResource("2_k8eue")
 
