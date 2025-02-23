@@ -78,7 +78,7 @@ func _input(event: InputEvent):
 		camera.rotation_degrees.x = x_rotation
 
 func _physics_process(delta):
-	if is_loading or not is_alive:
+	if is_loading:
 		return
 	if left_hand_object != null:
 		# put the object at the hand node's position
