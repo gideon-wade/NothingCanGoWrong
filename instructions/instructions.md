@@ -2,14 +2,14 @@
 ## Tutorial:
 
 #### 0
-Greetings, Test Subject #10E10. If you are reading this, it means your brain must be in working order again. I have locked you in this facility. To get out, you have to synthesize the final ingredient for my plans. However, be careful—all the chemical compounds are highly reactive. I have scattered my notes around; use them to figure out the recipes.
+Greetings, Test Subject #10E10. If you are reading this, it means your brain must be in working order again. I have locked you in this facility. To get out, you have to synthesize the final ingredient for my plans. However, be careful-all the chemical compounds are highly reactive. I have scattered my notes around; use them to figure out the recipes.
 #### 1
 Step #1:
 In this room, there are dispensers for two chemicals, Limyl and Sepirium. To proceed to the next room, combine them. REMEMBER THE CORRECT ORDER! This will create the compound Cacticum-4.
 
 #### 2
 Step #2:
-Now, mix Limyl with Cacticum-4. If done correctly, you should obtain Applumid. Move to the next section.
+Now, mix Limyl with Cacticum-4. If done correctly, you should obtain Applumid. Move to the next section by pouring the product into the drain by the door.
 
 ## Level 2
 #### 1
@@ -30,7 +30,7 @@ Now, take Princiade and mix it with Oceamid. This should create Dracula’s Bloo
 
 #### 5
 Note #5:
-Finally, combine Dracula’s Blood with Applumid. If successful, you will get Laudle. This should open the door to the next room
+Finally, combine Draculas Blood with Applumid. If successful, you will get Laudle. This should open the door to the next room
 
 ## Level 2
 

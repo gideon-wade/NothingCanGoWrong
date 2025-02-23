@@ -183,11 +183,11 @@ vertical_alignment = 0
 
 [node name="ClipBoard3" parent="." instance=ExtResource("20_sfaeg")]
 transform = Transform3D(-0.0442069, 0.991167, -0.125038, 0.489501, 0.130596, 0.862168, 0.870881, -0.0230924, -0.49095, -9.71195, 13.8891, 15.6973)
-text = "Step #2:Now, mix Limyl with Cacticum-4. If done correctly, you should obtain Applumid. Move to the next section."
+text = "Step #2:Now, mix Limyl with Cacticum-4. If done correctly, you should obtain Applumid. Move to the next section by pouring the product into the drain by the door."
 
 [node name="ClipBoard" parent="." instance=ExtResource("20_sfaeg")]
 transform = Transform3D(-0.0166791, 0.107827, 0.99403, 0.988247, 0.152865, 0, -0.151952, 0.982347, -0.10911, -1.36306, 15.3676, 27.2238)
-text = "Greetings, Test Subject #10E10. If you are reading this, it means your brain must be in working order again. I have locked you in this facility."
+text = "Greetings, Test Subject #10E10. If you are reading this, it means your brain must be in working order again. I have locked you in this facility. To get out, you have to synthesize the final ingredient for my plans. However, be careful-all the chemical compounds are highly reactive. I have scattered my notes around; use them to figure out the recipes."
 
 [node name="ClipBoard4" parent="." instance=ExtResource("20_sfaeg")]
 transform = Transform3D(0.00809349, -0.0523241, 0.998598, 0.988247, 0.152865, 1.85153e-09, -0.15265, 0.986861, 0.0529458, -2.48948, 15.3676, 27.2238)
@@ -260,7 +260,7 @@ total_clipboard_number = "10"
 
 [node name="ClipBoard6" parent="Node3D2" instance=ExtResource("20_sfaeg")]
 transform = Transform3D(0.207707, 0, 0.978191, 0.6161, 0.776728, -0.130821, -0.759789, 0.629836, 0.161332, -1.1527, -0.750339, 6.47312)
-text = "Note #4:Now, take Princiade and mix it with Oceamid. This should create Dracula’s Blood."
+text = "Note #4:Now, take Princiade and mix it with Oceamid. This should create Draculas Blood."
 clipboard_number = "4"
 total_clipboard_number = "10"
 
