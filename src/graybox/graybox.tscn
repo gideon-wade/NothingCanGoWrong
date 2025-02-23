@@ -167,10 +167,11 @@ transform = Transform3D(-2.12e-08, 0, 0.485, 0, 0.485, 0, -0.485, 0, -2.12e-08, 
 transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -0.0536041, 2.10793, 5.1467)
 text = "Controls:
  ∘WASD to move
- ∘ALT to capture mouse
+ ∘ALT to capture/release mouse
  ∘left/right click to pick up items or release
-held item, hold shift to throw
- ∘press 'F' to pour or inspect
+held item, hold shift while releasing to throw
+ ∘press 'F' to pour flasks or inspect
+clipboards
 
 
 "
