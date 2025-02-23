@@ -60,7 +60,7 @@ Note #10:
 Finally, mix Tonicum with Jamol. If done correctly, you will obtain Water—the key to your escape!
 
 
-## Victory !
+## Victory !    
 
 Congratulations for winning and thank you for playing our game!
 Game made by : 

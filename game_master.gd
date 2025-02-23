@@ -19,7 +19,7 @@ var recipies = {
 	"Laudle,Princiade": "Washing Liquid",
 	"Laudle,Oxofizz": "Cider",
 	"Applumid,Cider": "Tonic",
-	"Caticum-4,Washing Liquid": "Jam",
+	"Cacticum-4,Washing Liquid": "Jam",
 	"Tonic,Jam": "Water",
 }
 

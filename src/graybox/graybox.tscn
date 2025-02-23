@@ -22,7 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://cq5x0decftyh1" path="res://models/props/skralde_spand.blend" id="21_vswbq"]
 [ext_resource type="PackedScene" uid="uid://de2j42mcdk7fa" path="res://src/objects/conical_flask/conical_flask.tscn" id="22_5v4vx"]
 [ext_resource type="PackedScene" uid="uid://kosbphkxs86a" path="res://models/celling_lamp/lab_closet.blend" id="22_ww25s"]
-[ext_resource type="Script" uid="uid://d174irttxwkgf" path="res://src/objects/conical_flask/loading_flask.gd" id="23_5v4vx"]
+[ext_resource type="Script" path="res://src/objects/conical_flask/loading_flask.gd" id="23_5v4vx"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_lxi0y"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -332,13 +332,13 @@ total_clipboard_number = "10"
 
 [node name="ClipBoard5" parent="Node3D3" instance=ExtResource("20_sfaeg")]
 transform = Transform3D(-0.161587, 0.986859, 0, -0.986859, -0.161587, 0, 0, 0, 1, -6.5307, 1.03241, -4.3245)
-text = "Note #7:Now, mix Laudle with Oxofizz. The final product will be a yellow fizzy liquid."
+text = "Note #7:Now, mix Laudle with Oxofizz. The final product will be Cider."
 clipboard_number = "7"
 total_clipboard_number = "10"
 
 [node name="ClipBoard6" parent="Node3D3" instance=ExtResource("20_sfaeg")]
 transform = Transform3D(0.0484837, -0.998824, 0, 0.998824, 0.0484837, 0, 0, 0, 1, -13.1284, 1.83847, -6.98574)
-text = "Mix Cider and Applumid. This should result in Tonicum"
+text = "Note #8:Mix Cider and Applumid. This should result in Tonicum. "
 clipboard_number = "8"
 total_clipboard_number = "10"
 
