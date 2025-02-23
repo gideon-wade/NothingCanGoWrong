@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://gglv8w0xmrbi"]
+[gd_scene load_steps=27 format=3 uid="uid://gglv8w0xmrbi"]
 
 [ext_resource type="PackedScene" uid="uid://c7bmc5dgethv6" path="res://src/character/character.tscn" id="1_glioh"]
 [ext_resource type="PackedScene" uid="uid://dvc73tcpw6x46" path="res://models/graybox/gray_box.blend" id="2_e8au3"]
@@ -20,7 +20,9 @@
 [ext_resource type="PackedScene" uid="uid://buim4383m8eae" path="res://src/objects/clip_board/clip_board.tscn" id="20_sfaeg"]
 [ext_resource type="FontFile" uid="uid://cs2hiw5q50siq" path="res://src/font/TeenSpirit-yY33.ttf" id="20_ww25s"]
 [ext_resource type="PackedScene" uid="uid://cq5x0decftyh1" path="res://models/props/skralde_spand.blend" id="21_vswbq"]
+[ext_resource type="PackedScene" uid="uid://de2j42mcdk7fa" path="res://src/objects/conical_flask/conical_flask.tscn" id="22_5v4vx"]
 [ext_resource type="PackedScene" uid="uid://kosbphkxs86a" path="res://models/celling_lamp/lab_closet.blend" id="22_ww25s"]
+[ext_resource type="PackedScene" uid="uid://bewavndhx2ggs" path="res://src/victory/victory.tscn" id="23_5v4vx"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_lxi0y"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -359,3 +361,14 @@ transform = Transform3D(0.0320253, 0, 0.804363, 0, 0.805, 0, -0.804363, 0, 0.032
 [node name="Dispenser2" parent="." instance=ExtResource("7_v7otv")]
 transform = Transform3D(0.585, 0, 0, 0, 0.585, 0, 0, 0, 0.585, -9.3456, 14.3572, 13.1289)
 conical_flask_name_dispensed = "Oceamid"
+
+[node name="conical_flask2" parent="." instance=ExtResource("22_5v4vx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.391664, 14.7321, 23.4125)
+substance_name = "Jam"
+
+[node name="conical_flask3" parent="." instance=ExtResource("22_5v4vx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.12293, 14.7321, 23.4125)
+substance_name = "Tonic"
+
+[node name="Victory" parent="." groups=["Victory"] instance=ExtResource("23_5v4vx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.6834, 23.394, 70.0973)
