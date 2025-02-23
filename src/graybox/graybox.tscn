@@ -373,6 +373,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 23.1879, 77.2211)
 [node name="Label3D" type="Label3D" parent="."]
 
 [node name="Label3D2" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.94577, 15.6273, 14.3884)
-text = "Pour Here"
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.94543, 15.7654, 14.3778)
+text = "Pour Result
+Here"
 font_size = 62
