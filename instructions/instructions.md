@@ -58,3 +58,13 @@ Mix Cacticum-4 with the gray. This will produce Jamol.
 
 Note #10:
 Finally, mix Tonicum with Jamol. If done correctly, you will obtain Water—the key to your escape!
+
+
+## Victory !
+
+Congratulations for winning and thank you for playing our game!
+Game made by : 
+	Maximilian Maria Olden-Jørgensen (Programming)
+	Punyplucked (Sound, Programming)
+	Viktor Johan Kolind, Narta (Art, Programming)
+	

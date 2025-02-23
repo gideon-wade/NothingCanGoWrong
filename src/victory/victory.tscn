@@ -1,0 +1,67 @@
+[gd_scene load_steps=8 format=3 uid="uid://bewavndhx2ggs"]
+
+[ext_resource type="PackedScene" uid="uid://dvc73tcpw6x46" path="res://models/graybox/gray_box.blend" id="1_je3o8"]
+[ext_resource type="PackedScene" uid="uid://c6ufe26dfcnkd" path="res://models/celling_lamp/celling_lamp_orange.blend" id="2_wmbd0"]
+[ext_resource type="PackedScene" uid="uid://b5f8ci487dhee" path="res://models/table/table.blend" id="3_wbyrb"]
+[ext_resource type="PackedScene" uid="uid://de2j42mcdk7fa" path="res://src/objects/conical_flask/conical_flask.tscn" id="4_bhuwl"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_wbyrb"]
+sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+
+[sub_resource type="Sky" id="Sky_djufw"]
+sky_material = SubResource("ProceduralSkyMaterial_wbyrb")
+
+[sub_resource type="Environment" id="Environment_bhuwl"]
+background_mode = 2
+sky = SubResource("Sky_djufw")
+ambient_light_color = Color(0.129412, 0.129412, 0.301961, 1)
+tonemap_mode = 2
+fog_enabled = true
+fog_light_color = Color(0.129412, 0.129412, 0.301961, 1)
+fog_density = 0.1153
+fog_height_density = 0.6737
+
+[node name="Node3D" type="Node3D"]
+
+[node name="gray_box" parent="." instance=ExtResource("1_je3o8")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_bhuwl")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+light_energy = 0.1
+shadow_enabled = true
+
+[node name="celling_lamp_orange" parent="." instance=ExtResource("2_wmbd0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.19507, 12.3485, 0.508852)
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, 9.97556, 10.961, 1.5071)
+text = "Congratulations for winning and thank you for playing our game!
+Game made by : 
+	Maximilian Maria Olden-Jørgensen (Programming)
+	Punyplucked (Sound, Programming)
+	Viktor Johan Kolind, Narta (Art, Programming)"
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, 5.3936, 10.2391, 1.55843)
+
+[node name="table" parent="." instance=ExtResource("3_wbyrb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 9.85624, 7.72907, 1.64925)
+
+[node name="conical_flask2" parent="." instance=ExtResource("4_bhuwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.19396, 9.62995, -1.57931)
+
+[node name="conical_flask3" parent="." instance=ExtResource("4_bhuwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.71415, 9.62995, -0.480265)
+substance_name = "Oceamid"
+
+[node name="conical_flask4" parent="." instance=ExtResource("4_bhuwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.84148, 9.62995, -0.83516)
+substance_name = "Laudle"
+
+[node name="conical_flask5" parent="." instance=ExtResource("4_bhuwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.41621, 9.62995, 4.39453)
+substance_name = "Water"
