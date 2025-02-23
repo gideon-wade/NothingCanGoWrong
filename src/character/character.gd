@@ -24,7 +24,7 @@ var rise := false
 var mouse_captured := true
 const SPEED = 5.0
 const JUMP_VELOCITY = 5
-const THROW_SPEED = 15
+const THROW_SPEED = 20
 var current_collider
 
 
@@ -136,7 +136,7 @@ func _physics_process(delta):
 			base_velocity.z = move_toward(velocity.z, 0, SPEED)
 		velocity.x = base_velocity.x
 		velocity.z = base_velocity.z
-		if !player_sounds.is_playing() and (velocity.x > 0.0 or velocity.z > 0.0):
+		if !player_sounds.is_playing() and (velocity.x > 0.0 or velocity.z > 0.0) and is_on_floor():
 			player_sounds.stream = preload("res://src/audio/Walk_inside_2.mp3")
 			player_sounds.play()
 		if (velocity.x == 0.0 and velocity.z == 0.0):
