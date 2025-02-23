@@ -10,10 +10,10 @@ config_version=5
 
 [application]
 
-config/name="NothingCanGoWrong"
+config/name="The Final Formula"
 run/main_scene="uid://gglv8w0xmrbi"
 config/features=PackedStringArray("4.4", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="uid://dc6r5vc6qg8lj"
 
 [autoload]
 
