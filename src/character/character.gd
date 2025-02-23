@@ -38,6 +38,7 @@ var is_alive : bool = true
 var push_decay: float = 5.0
 
 func _ready():
+	GameMaster.char = self
 	# Loading settings
 	loading_label.visible = true
 	play_button.visible = false

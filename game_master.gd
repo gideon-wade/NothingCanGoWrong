@@ -5,6 +5,8 @@ signal drain_poured(activate_chemical : String)
 var explosion_scene := preload("res://explosion.tscn")
 var interactable = [ConicalFlask, ClipBoard]
 
+var char
+
 var recipies = {
 	#Tutorail
 	"Limyl,Sepirium": "Cacticum-4",

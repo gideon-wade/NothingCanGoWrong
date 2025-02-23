@@ -7,6 +7,7 @@ func _ready():
 	draw_particles = true
 	raycast.enabled = true
 		
+	GameMaster.char.done_loading()
 	GameMaster.mix("FAST", "FAST", self, body.global_position)
 
 func set_color():
