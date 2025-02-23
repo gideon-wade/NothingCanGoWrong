@@ -1,8 +1,7 @@
-[gd_scene load_steps=28 format=3 uid="uid://gglv8w0xmrbi"]
+[gd_scene load_steps=27 format=3 uid="uid://gglv8w0xmrbi"]
 
 [ext_resource type="PackedScene" uid="uid://c7bmc5dgethv6" path="res://src/character/character.tscn" id="1_glioh"]
 [ext_resource type="PackedScene" uid="uid://dvc73tcpw6x46" path="res://models/graybox/gray_box.blend" id="2_e8au3"]
-[ext_resource type="PackedScene" uid="uid://dlufy3467u62w" path="res://models/lab/lab.blend" id="3_e8au3"]
 [ext_resource type="PackedScene" uid="uid://dxma1i67q3ydl" path="res://models/celling_lamp/celling_lamp.blend" id="4_lxi0y"]
 [ext_resource type="PackedScene" uid="uid://ktk3iurioob7" path="res://models/lab/dispenser.tscn" id="7_v7otv"]
 [ext_resource type="PackedScene" uid="uid://b5f8ci487dhee" path="res://models/table/table.blend" id="9_3ilhv"]
@@ -57,10 +56,6 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.483
 
 [node name="gray_box" parent="." instance=ExtResource("2_e8au3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.09895, 0)
-
-[node name="lab" parent="." instance=ExtResource("3_e8au3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0861596, -0.0389827, 0.0108844)
-visible = false
 
 [node name="celling_lamp" parent="." instance=ExtResource("4_lxi0y")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.996905, 4094.09, -1.0762)
@@ -374,3 +369,10 @@ substance_name = "Tonic"
 
 [node name="Node3D4" parent="." instance=ExtResource("24_davqm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 23.1879, 77.2211)
+
+[node name="Label3D" type="Label3D" parent="."]
+
+[node name="Label3D2" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.94577, 15.6273, 14.3884)
+text = "Pour Here"
+font_size = 62
