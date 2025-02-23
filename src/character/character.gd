@@ -1,5 +1,8 @@
 extends CharacterBody3D
 
+var is_loading : bool = true
+@onready var loading_label: Label = $Camera3D/LoadingLabel
+@onready var play_button: Button = $Camera3D/PlayButton
 
 @export var vertical_sensitivity := 0.2
 @export var horizontal_sensitivity := 0.2
@@ -35,12 +38,19 @@ var is_alive : bool = true
 var push_decay: float = 5.0
 
 func _ready():
+	# Loading settings
+	loading_label.visible = true
+	play_button.visible = false
+	mouse_captured = false
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	
 	start_pos = global_position
 	interation.add_exception(self)
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	_restart_song()
 	
 func _input(event: InputEvent):
-	if not is_alive:
+	if is_loading or not is_alive:
 		return
 	if event.is_action_pressed("showMouse"):
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
@@ -266,3 +276,17 @@ func _on_respawn_timeout() -> void:
 	await $Timer.timeout
 	if rise:
 		global_position = start_pos
+
+func _on_play_button_pressed() -> void:
+	play_button.visible = false
+	is_loading = false
+	mouse_captured = true
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	
+func done_loading() -> void:
+	loading_label.visible = false
+	play_button.visible = true
+
+func _restart_song() -> void:
+	$SongTimer.wait_time = 150
+	$SongTimer.start()

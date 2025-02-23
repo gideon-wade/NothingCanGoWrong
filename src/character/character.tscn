@@ -60,6 +60,35 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_8mo58")
 
+[node name="LoadingLabel" type="Label" parent="Camera3D"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -31.0
+offset_top = -48.5
+offset_right = 31.0
+offset_bottom = -25.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 36
+text = "Loading"
+
+[node name="PlayButton" type="Button" parent="Camera3D"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.5
+offset_top = -1.5
+offset_right = 20.5
+offset_bottom = 29.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Play"
+
 [node name="Music" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("2_2p3op")
 volume_db = -30.0
@@ -72,5 +101,7 @@ wait_time = 2.8
 one_shot = true
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="SongTimer" type="Timer" parent="."]
 
 [connection signal="timeout" from="Respawn" to="." method="_on_respawn_timeout"]
